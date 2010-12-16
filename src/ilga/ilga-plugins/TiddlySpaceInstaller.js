@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceInstaller|
-|''Version''|0.3.6|
+|''Version''|0.3.7|
 !Usage
 {{{<<showInstall bar Foo>>}}}
 Opens the tiddler Foo to visitors of the bar space. 
@@ -90,23 +90,26 @@ var macro = config.macros.install = {
 	},
 	setup: function(spacename, includes) {
 		var space = new tiddlyweb.Space(spacename, tweb.host);
-		space.create(function() {
-			jQuery.ajax({
-				url: tweb.host + "/spaces/"+ spacename,
-				type: "POST",
-				contentType: "application/json",
-				data: jQuery.toJSON({
-					"subscriptions": includes
-				}),
-				success: function() {
-					window.location = "http://%0.tiddlyspace.com".format(spacename);
-				},
-				error: function() {
-					window.location = "http://%0.tiddlyspace.com".format(spacename);
-				}
+		tweb.getStatus(function(status) {
+			var url = tspace.getHost(status.server_host, spacename);
+			space.create(function() {
+				jQuery.ajax({
+					url: tweb.host + "/spaces/"+ spacename,
+					type: "POST",
+					contentType: "application/json",
+					data: jQuery.toJSON({
+						"subscriptions": includes
+					}),
+					success: function() {
+						window.location = url;
+					},
+					error: function() {
+						window.location = url;
+					}
+				});
+			}, function() {
+				alert("Failed to create space %0".format(spacename));
 			});
-		}, function() {
-			alert("Failed to create space %0".format(spacename));
 		});
 	}
 };
