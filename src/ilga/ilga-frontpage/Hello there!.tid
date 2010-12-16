@@ -1,0 +1,15 @@
+type: None
+tags: excludeLists
+
+Welcome to your activism.
+
+ILGA activism provides you a space for you to ''carry out activism'' whatever your mission. 
+
+In your space you will be able to publish ''articles'' and share ''photos'' and ''videos'' you have on websites such as [[vimeo|http://vimeo.com]], [[youtube|http://youtube.com]] and [[flickr|http://flickr.com]]
+
+To begin please choose a website address.
+<<install system-plugins system-theme system-images>>
+
+Your existing spaces are listed below:
+<<TiddlySpaceSpaces list>>
+
