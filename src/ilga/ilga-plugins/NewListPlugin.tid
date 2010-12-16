@@ -1,0 +1,54 @@
+tags: systemConfig excludeLists
+
+/***
+|''Name''|ListMacro2|
+|''Version''|0.4.0|
+|''Description''|Adds a template parameter to the list macro|
+***/
+//{{{
+(function($) {
+config.macros.list.template = "<<view title link>>";
+config.macros.list.handler = function(place,macroName,params,wikifier,paramString)
+{
+	var args = paramString.parseParams("anon", null, null)[0];
+	var type = args.anon ? args.anon[0] : "all";
+	var template = args.template ? store.getTiddlerText(args.template[0]) : false;
+	if(!template) {
+		template = config.macros.list.template;
+	}
+	var list = document.createElement("ul");
+	place.appendChild(list);
+	if(this[type].prompt)
+		createTiddlyElement(list,"li",null,"listTitle",this[type].prompt);
+	var results;
+	if(this[type].handler)
+		results = this[type].handler(params);
+	for(var t = 0; t < results.length; t++) {
+		var li = document.createElement("li");
+		list.appendChild(li);
+		var tiddler = results[t];
+		if(typeof(tiddler) == 'string') { // deal with missing etc..
+				tiddler = store.getTiddler(tiddler) || new Tiddler(tiddler);
+		}
+		wikify(template, li, null, tiddler);
+	}
+	if(results.length === 0 && args.emptyMessage) {
+		$(list).addClass("emptyList");
+		$("<li />").text(args.emptyMessage[0]).appendTo(list);
+	}
+};
+
+config.macros.list.filter.handler = function(params)
+{
+	var filter = params[1];
+	var results = [];
+	if(filter) {
+		var tiddlers = store.filterTiddlers(filter);
+		for(var t=0; t<tiddlers.length; t++)
+			results.push(tiddlers[t]);
+	}
+	return results;
+};
+
+})(jQuery);
+//}}}
