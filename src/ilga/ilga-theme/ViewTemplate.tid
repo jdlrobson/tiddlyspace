@@ -1,0 +1,47 @@
+type: None
+tags: excludeLists package##article
+
+<!--{{{-->
+<div class='article article_editor text_gray'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] more:popup icons:yes'></div> 
+	<div class='privacyStamp' macro="tiddlerOrigin label:yes"></div>
+	<div class='tags'>
+		tagged with:
+			<span macro='articletags'></span>
+	</div>
+	<div class='clear_both'></div>
+	<div class='article_image'>
+		<div class='imageholder'>
+			<table class='centerie'>
+				<tr>
+					<td>
+						<div macro='aet if:image&!video'>
+							<div macro='view image image height:170 width:240 preserveAspectRatio:yes class:articleimage'></div>
+						</div>
+						<div macro='aet if:video'>
+							<div macro='view video video'></div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class='title theme_color' macro='view server.title permalink no heading'></div>
+	<div class='subtitle'>
+		[[AdminSubtitle]]
+		<span class='author'>by: <span macro='view creator spaceLink'></span>
+		</span>
+		<span class='location' macro="aet if:region|country">
+			in <span macro='view region ilgaRegion'></span> / <span macro='view country ilgaCountry'></span>
+		</span>
+		<span class='publishdate'>, 
+			<span macro='view created date'></span>
+		</span>
+	</div>
+	<p></p>
+	<div class='textsummary' macro='view summary'></div>
+	<div class='text' macro='view text wikified'></div>
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->
+

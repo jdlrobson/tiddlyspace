@@ -1,0 +1,26 @@
+type: None
+tags: excludeLists package##admin
+
+<!--{{{-->
+<div class='article article_editor'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div> 
+	<div class='left'>
+		<div class='language' macro='view language hiddeninput'></div>
+		<input type='hidden' edit='publishlevel' value='move'/>
+		<input type='hidden' edit='ctype' value='articledraft'/>
+		edit title:
+		<div macro="edit title"></div>
+	</div>
+	<div class='clearboth'></div>
+	<div>
+		<span class='prompt' macro="translate_ilga Text"></span>:
+	</div>
+	<div class='editor_text' macro='edit text 320'></div>
+	<div class='clearboth'></div>
+	<span class='prompt' macro="translate_ilga Tags"></span>:
+	<div class='' macro='translate_ilga taghowto'></div>
+	<div class='editor editortags' macro='niceTagger tags valuesSource:SuggestedTags case:lower'></div>
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->
+

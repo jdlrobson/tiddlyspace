@@ -1,0 +1,7 @@
+type: None
+tags: excludeSearch excludeLists
+
+|~ViewToolbar|+editTiddler  +cloneTiddler closeTiddler|
+|~EditToolbar|+saveTiddler -cancelTiddler deleteTiddler|
+|~EditToolbarProfile|+saveTiddler -cancelTiddler|
+|~RevisionToolbar|> fields revert|

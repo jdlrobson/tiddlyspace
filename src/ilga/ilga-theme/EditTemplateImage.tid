@@ -1,0 +1,14 @@
+type: None
+tags: excludeLists package##article
+
+<!--{{{-->
+		<div>
+			<span class='prompt'	macro="translate_ilga Image"></span>:
+		</div>
+		<span class='prompt' macro="binaryEdit image width:200 height:200 preserveAspectRatio:yes"></span>
+		<div>
+			<span class='prompt' macro="translate_ilga image_caption"></span>:
+		</div>
+		<div class='editor right_input' macro='aet type:text metaDataName:image_caption maxlength:250'></div>
+<!--}}}-->
+

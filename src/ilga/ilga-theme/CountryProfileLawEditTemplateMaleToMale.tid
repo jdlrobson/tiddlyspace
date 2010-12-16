@@ -1,0 +1,171 @@
+type: None
+tags: excludeLists package##profiles package##law
+
+<!--{{{-->
+<div section='$2' group="law">
+	<h1 class='clearboth' macro='translate_ilga "[Category]Male To Male Relationships"'></h1>
+	<div class="question">
+	<span macro="translate_ilga 'male_to_male_relationships' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:male_to_male_relationships values:'Male to Male relationships'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'male_to_male_relationships_unclear' $2"></span>
+	</div>
+	<div macro="edit male_to_male_relationships_unclear$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'male_to_male_any_given_time' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:male_to_male_any_given_time values:'Male to Male any given time'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_law_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:m2m_law_introduced values:'M2M Law Introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_law_removed' $2"></span>
+	</div>
+	<div macro="aet type:date field:m2m_law_removed values:'M2M Law Removed'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_law_name' $2"></span>
+	</div>
+	<div macro="edit m2m_law_name$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_law_full_text' $2"></span>
+	</div>
+	<div macro="edit m2m_law_full_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_prohibited' $2"></span>
+	</div>
+	<div macro="edit m2m_prohibited$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'punishments_for_male_to_male_relationships' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:punishments_for_male_to_male_relationships values:'Punishments for male to male relationships'"></div>
+	<h2 class='clearboth' macro='translate_ilga "[Category][M2M]Fines or restrictions"'></h2>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_are_they_often_applied' $2 $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:m2m_are_they_often_applied values:'M2M Are they often applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_how_regularly' $2"></span>
+	</div>
+	<div macro="edit m2m_how_regularly$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_when_was_the_last_time_it_was_applied' $2"></span>
+	</div>
+	<div macro="aet type:date field:m2m_when_was_the_last_time_it_was_applied values:'M2M When was the last time it was applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_what_happened_then' $2"></span>
+	</div>
+	<div macro="edit m2m_what_happened_then$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2m_list_what_occurred' $2"></span>
+	</div>
+	<div macro="edit m2m_list_what_occurred$1 3"></div>
+	<h2 class='clearboth' macro='translate_ilga "[Category]Imprisonment of less than ten years"'></h2>
+	<div class="question">
+	<span macro="translate_ilga 'm2mless10_often_applied' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:m2mless10_often_applied values:'M2MLess10 Often Applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mless10_how_regularly' $2"></span>
+	</div>
+	<div macro="edit m2mless10_how_regularly$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mless10_last_time' $2"></span>
+	</div>
+	<div macro="aet type:date field:m2mless10_last_time values:'M2MLess10 Last Time'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mless10_how_many_years' $2"></span>
+	</div>
+	<div macro="aet type:number field:m2mless10_how_many_years values:'M2MLess10 How Many Years'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mless10_what_happened_then' $2"></span>
+	</div>
+	<div macro="edit m2mless10_what_happened_then$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mless10_list' $2"></span>
+	</div>
+	<div macro="edit m2mless10_list$1 3"></div>
+	<h2 class='clearboth' macro='translate_ilga "[Category]Imprisonment of more than ten years"'></h2>
+	<div class="question">
+	<span macro="translate_ilga 'm2mmore10_often_applied' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:m2mmore10_often_applied values:'M2MMore10 Often Applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mmore10_how_regularly' $2"></span>
+	</div>
+	<div macro="edit m2mmore10_how_regularly$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mmore10_last_time' $2"></span>
+	</div>
+	<div macro="aet type:date field:m2mmore10_last_time values:'M2MMore10 Last Time'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mmore10_how_many_years' $2"></span>
+	</div>
+	<div macro="aet type:number field:m2mmore10_how_many_years values:'M2MMore10 How Many Years'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mmore10_what_happened_then' $2"></span>
+	</div>
+	<div macro="edit m2mmore10_what_happened_then$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'm2mmore10_list' $2"></span>
+	</div>
+	<div macro="edit m2mmore10_list$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'men_in_jail_or_punished_for_same_sex_activity_last_year' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:men_in_jail_or_punished_for_same_sex_activity_last_year values:'Men in jail or punished for same sex activity last year'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'hate_crimes_based_on_sexual_orientation_considered_an_aggravating_circumstance' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:hate_crimes_based_on_sexual_orientation_considered_an_aggravating_circumstance values:'Hate crimes based on sexual orientation considered an aggravating circumstance'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'incitement_to_hatred_based_on_sexual_orientation_prohibited' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:incitement_to_hatred_based_on_sexual_orientation_prohibited values:'Incitement to hatred based on sexual orientation prohibited'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'male_to_male_relationship_uploads' $2"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label'></span><span macro='edit male_to_male_relationship_uploads_0_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit male_to_male_relationship_uploads$1 mode:file hide:tags hide:value"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label'></span><span macro='edit male_to_male_relationship_uploads_1_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit male_to_male_relationship_uploads$1 mode:file hide:tags hide:value"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label'></span><span macro='edit male_to_male_relationship_uploads_2_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit male_to_male_relationship_uploads$1 mode:file hide:tags hide:value"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label'></span><span macro='edit male_to_male_relationship_uploads_3_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit male_to_male_relationship_uploads$1 mode:file hide:tags hide:value"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label'></span><span macro='edit male_to_male_relationship_uploads_4_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit male_to_male_relationship_uploads$1 mode:file hide:tags hide:value"></span>
+	</div>
+	<div class="question">
+	<span macro="translate_ilga 'male_to_male_relationship_links' $2"></span>
+	</div>
+	<ol>
+	<li>Name: <span macro='edit male_to_male_relationship_links_0_name$1'></span> URL: <span macro='edit male_to_male_relationship_links_0_name$1'></span></li>
+	<li>Name: <span macro='edit male_to_male_relationship_links_1_name$1'></span> URL: <span macro='edit male_to_male_relationship_links_1_name$1'></span></li>
+	<li>Name: <span macro='edit male_to_male_relationship_links_2_name$1'></span> URL: <span macro='edit male_to_male_relationship_links_2_name$1'></span></li>
+	<li>Name: <span macro='edit male_to_male_relationship_links_3_name$1'></span> URL: <span macro='edit male_to_male_relationship_links_3_name$1'></span></li>
+	<li>Name: <span macro='edit male_to_male_relationship_links_4_name$1'></span> URL: <span macro='edit male_to_male_relationship_links_4_name$1'></span></li>
+	</ol>
+</div>
+<!--}}}-->
+

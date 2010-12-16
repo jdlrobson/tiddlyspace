@@ -1,0 +1,20 @@
+type: None
+tags: excludeLists package##profiles package##mood
+
+<!--{{{-->
+<div class='editor_top'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbarProfile]] icons:yes'></div> 
+        <div class='ilgastamp'><img src='small_ilga_logo.png'/></div>
+	<div class='country' macro='ProfileNameFromTitle'></div>
+	<div class='country'><span macro='ProfileNameFromTitle'></span> (Mood)</div>
+</div>
+<div class='article article_editor profile_editor'>
+	[[title:EditTemplateToggleLanguage with:mood]]
+	[[title:CountryProfileMoodEditTemplateBody with:"" with:"en"]]
+	[[title:CountryProfileMoodEditTemplateBody with:"_fr" with:"fr"]]
+	[[title:CountryProfileMoodEditTemplateBody with:"_es" with:"es"]]
+	[[title:CountryProfileMoodEditTemplateBody with:"_pt" with:"pt"]]
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->
+

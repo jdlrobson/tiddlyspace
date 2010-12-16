@@ -1,0 +1,38 @@
+type: None
+tags: excludeLists package##theme
+
+<!--{{{-->
+<META http-equiv="Pragma" content="no-cache"/>
+<script type='text/javascript' src= "http://ilga.org/ilga/data/languages.js"></script>
+<script type='text/javascript' src='http://ilga.org/ilga/static/javascript/fckeditor/fckeditor.js'></script>
+<link rel="stylesheet" href="http://ilga.org/ilga/static/css/main_stylesheet.css" type="text/css"/>
+
+<script type='text/javascript'>
+var DEFAULT_LANGUAGE = "en";
+var qs = window.location.search.substr(1);
+var args = qs.split("&");
+var qs_args = {};
+for(var i=0; i < args.length; i++){
+    var id_val = args[i].split("=");
+    qs_args[id_val[0]] = id_val[1];
+}
+console.log(qs_args);
+if(qs_args.language) {
+  DEFAULT_LANGUAGE = qs_args.language;
+}
+</script>
+
+<!--[if IE]>
+<link rel="stylesheet" href="http://ilga.org/ilga/static/css/ie.css" type="text/css"></link>
+<![endif]-->
+
+<!--[if IE 6]>
+<link rel="stylesheet" href="http://ilga.org/ilga/static/css/ie6.css" type="text/css"></link>
+<![endif]-->
+
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="http://ilga.org/ilga/static/css/ltie8.css" type="text/css"></link>
+<![endif]-->
+
+<!--}}}-->
+

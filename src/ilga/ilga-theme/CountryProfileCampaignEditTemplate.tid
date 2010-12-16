@@ -1,0 +1,20 @@
+tags: excludeLists package##profiles package##campaign
+
+<!--{{{-->
+<div class='editor_top'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbarProfile]]  icons:yes'></div> 
+	<div class='ilgastamp'>
+		<img src='small_ilga_logo.png'/>
+	</div>
+	<div class='country'><span macro='ProfileNameFromTitle'></span> (Campaign)</div>
+</div>
+<div class='article article_editor profile_editor'>
+	[[title:EditTemplateToggleLanguage with:campaign]]
+	[[title:CountryProfileCampaignEditTemplateBody with:"" with:"en"]]
+	[[title:CountryProfileCampaignEditTemplateBody with:"_fr" with:"fr"]]
+	[[title:CountryProfileCampaignEditTemplateBody with:"_es" with:"es"]]
+	[[title:CountryProfileCampaignEditTemplateBody with:"_pt" with:"pt"]]
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->
+

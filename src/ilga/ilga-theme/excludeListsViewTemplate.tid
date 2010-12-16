@@ -1,0 +1,13 @@
+type: None
+tags: excludeLists package##admin
+
+<!--{{{-->
+<div class='article article_editor text_gray'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] more:popup icons:yes'></div> 
+	<div class='clear_both'></div>
+	<div class='text_gray profile_subheading paddingbottom' macro='view title'></div>
+	<div class='text' macro='view text wikified'></div>
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->
+

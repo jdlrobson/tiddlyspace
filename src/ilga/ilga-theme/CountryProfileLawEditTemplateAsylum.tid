@@ -1,0 +1,67 @@
+type: None
+tags: excludeLists package##profiles
+
+<!--{{{-->
+<h1 class='clearboth' macro='translate_ilga "[Category]Asylum"'></h1>
+<div class="question">
+<span macro="translate_ilga 'prohibition_on_entry_into_the_country_by_lgb_people'"></span>
+(<span>map</span>)
+</div>
+<div macro="aet type:dropdown field:prohibition_on_entry_into_the_country_by_lgb_people values:'Prohibition on entry into the country by LGB people'"></div>
+<div class="question">
+<span macro="translate_ilga 'countries_granting_asylum_on_the_basis_of_sexual_orientation'"></span>
+(<span>map</span>)
+</div>
+<div macro="aet type:dropdown field:countries_granting_asylum_on_the_basis_of_sexual_orientation values:'Countries granting asylum on the basis of sexual orientation'"></div>
+<div class="question">
+<span macro="translate_ilga '_asylum_law_name'"></span>
+</div>
+<div macro="edit _asylum_law_name 3"></div>
+<div class="question">
+<span macro="translate_ilga '_asylum_law_text'"></span>
+</div>
+<div macro="edit _asylum_law_text 3"></div>
+<div class="question">
+<span macro="translate_ilga '_asylum_law_introduced'"></span>
+</div>
+<div macro="aet type:date field:_asylum_law_introduced values:'[Asylum]law introduced'"></div>
+<div class="question">
+<span macro="translate_ilga '_asylum_upload_documents'"></span>
+</div>
+<div>
+<span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_0_name'></span>
+<span class='fileLabel'>file</span>
+<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+</div>
+<div>
+<span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_1_name'></span>
+<span class='fileLabel'>file</span>
+<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+</div>
+<div>
+<span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_2_name'></span>
+<span class='fileLabel'>file</span>
+<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+</div>
+<div>
+<span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_3_name'></span>
+<span class='fileLabel'>file</span>
+<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+</div>
+<div>
+<span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_4_name'></span>
+<span class='fileLabel'>file</span>
+<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+</div>
+<div class="question">
+<span macro="translate_ilga '_asylum_links_to_groups'"></span>
+</div>
+<ol>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_0_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_0_name'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_1_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_1_name'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_2_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_2_name'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_3_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_3_name'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_4_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_4_name'></span></li>
+</ol>
+<!--}}}-->
+

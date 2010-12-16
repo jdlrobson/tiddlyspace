@@ -1,0 +1,93 @@
+type: None
+tags: excludeLists package##profiles package##law
+
+<!--{{{-->
+<div section='$2' group="law">
+	<h1 class='clearboth' macro="translate_ilga '[Category]Anti-discrimination laws' $2"></h1>
+	<div class="question">
+	<span macro="translate_ilga 'laws_prohibiting_discrimination_on_the_ground_of_sexual_orientation' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:laws_prohibiting_discrimination_on_the_ground_of_sexual_orientation values:'Laws prohibiting discrimination on the ground of sexual orientation'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_antidiscrimination_clarify' $2"></span>
+	</div>
+	<div macro="edit _antidiscrimination_clarify$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_antidiscrimination_orientation_name_of_law' $2"></span>
+	</div>
+	<div macro="edit _antidiscrimination_orientation_name_of_law$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_antidiscrimination_orientation_text_of_law' $2"></span>
+	</div>
+	<div macro="edit _antidiscrimination_orientation_text_of_law$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_antidiscrimination_orientation_when_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_antidiscrimination_orientation_when_introduced values:'[AntiDiscrimination]orientation when introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'laws_prohibiting_discrimination_on_the_ground_of_sexual_orientation_in_employment' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:laws_prohibiting_discrimination_on_the_ground_of_sexual_orientation_in_employment values:'Laws prohibiting discrimination on the ground of sexual orientation in employment'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_antidiscrimination_employment_name' $2"></span>
+	</div>
+	<div macro="edit _antidiscrimination_employment_name$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_antidiscrimination_employment_text' $2"></span>
+	</div>
+	<div macro="edit _antidiscrimination_employment_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_antidiscrimination_employment_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_antidiscrimination_employment_introduced values:'[AntiDiscrimination]employment introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_antidiscrimination_trade_unions' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_antidiscrimination_trade_unions values:'[AntiDiscrimination]trade unions'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'laws_banning_discrimination_on_the_basis_of_sexual_orientation_in_social_services' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:laws_banning_discrimination_on_the_basis_of_sexual_orientation_in_social_services values:'Laws banning discrimination on the basis of sexual orientation in social services'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ad_links' $2"></span>
+	</div>
+	<ol>
+	<li>Name: <span macro='edit field:_ad_links_0_name$1'></span> URL: <span macro='edit field:_ad_links_0_name$1'></span></li>
+	<li>Name: <span macro='edit field:_ad_links_1_name$1'></span> URL: <span macro='edit field:_ad_links_1_name$1'></span></li>
+	<li>Name: <span macro='edit field:_ad_links_2_name$1'></span> URL: <span macro='edit field:_ad_links_2_name$1'></span></li>
+	<li>Name: <span macro='edit field:_ad_links_3_name$1'></span> URL: <span macro='edit field:_ad_links_3_name$1'></span></li>
+	<li>Name: <span macro='edit field:_ad_links_4_name$1'></span> URL: <span macro='edit field:_ad_links_4_name$1'></span></li>
+	</ol>
+	<div class="question">
+	<span macro="translate_ilga '_ad_uploads' $2"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ad_uploads_0_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ad_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ad_uploads_1_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ad_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ad_uploads_2_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ad_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ad_uploads_3_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ad_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ad_uploads_4_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ad_uploads mode:file"></span>
+	</div>
+</div>
+<!--}}}-->

@@ -1,0 +1,86 @@
+type: None
+tags: excludeLists package##theme package##law
+
+<!--{{{-->
+<div section='$2' group="law">
+	<h1 class='clearboth' macro="translate_ilga '[Category]Blood donation' $2"></h1>
+	<div class="question">
+	<span macro="translate_ilga '_blood_donation_by_men_who_have_sex_with_men_permitted' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_blood_donation_by_men_who_have_sex_with_men_permitted values:'[blood]donation by men who have sex with men permitted'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_donation_by_women_who_have_sex_with_women_permitted' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_blood_donation_by_women_who_have_sex_with_women_permitted values:'[blood]donation by women who have sex with women permitted'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_men_who_have_had_sex_with_another_men_banned_permanently' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_blood_men_who_have_had_sex_with_another_men_banned_permanently values:'[blood]Men who have had sex with another men banned permanently'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_women_who_have_had_sex_with_another_women_banned_permanently' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_blood_women_who_have_had_sex_with_another_women_banned_permanently values:'[blood]Women who have had sex with another women banned permanently'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_men_who_have_had_sex_with_another_men_banned_for_certain_time' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_blood_men_who_have_had_sex_with_another_men_banned_for_certain_time values:'[blood]Men who have had sex with another men banned for certain time'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_how_long_are_men_banned' $2"></span>
+	</div>
+	<div macro="edit _blood_how_long_are_men_banned$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_women_who_have_had_sex_with_another_woman_banned_for_certain_time' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_blood_women_who_have_had_sex_with_another_woman_banned_for_certain_time values:'[blood]Women who have had sex with another woman banned for certain time'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_law_mentions' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_blood_law_mentions values:'[blood]law mentions'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_law_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_blood_law_introduced values:'[blood]law introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_law_text' $2"></span>
+	</div>
+	<div macro="edit _blood_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_blood_links' $2"></span>
+	</div>
+	<ol>
+	<li>Name: <span macro='edit field:_blood_links_0_name$1'></span> URL: <span macro='edit field:_blood_links_0_name$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_1_name$1'></span> URL: <span macro='edit field:_blood_links_1_name$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_2_name$1'></span> URL: <span macro='edit field:_blood_links_2_name$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_3_name$1'></span> URL: <span macro='edit field:_blood_links_3_name$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_4_name$1'></span> URL: <span macro='edit field:_blood_links_4_name$1'></span></li>
+	</ol>
+	<div class="question">
+	<span macro="translate_ilga '_blood_uploads' $2"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_0_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_1_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_2_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_3_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_4_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	</div>
+</div>
+<!--}}}-->

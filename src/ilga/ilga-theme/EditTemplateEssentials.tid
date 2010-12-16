@@ -1,0 +1,21 @@
+type: None
+tags: excludeLists package##article
+
+<!--{{{-->
+		<div>
+			<span class='prompt' macro="translate_ilga 'Article Title'"></span>:
+		</div>
+		<div class='title left_input' macro='edit heading'></div>
+		<div>
+			<span class='prompt' macro="translate_ilga Summary"></span>:
+		</div>
+		<div class='editor editsummary' macro='aet type:text metaDataName:summary maxlength:560 rows:4'></div>
+		<div>
+			<span class='prompt' macro="translate_ilga 'Language'"></span>:
+			<span macro='language_from_article'></span>
+		</div>
+		<div>
+			<span class='prompt' macro="translate_ilga Location"></span>:
+		</div>
+		<div macro='aet type:dropdown valuesSource:LocationDefinitions metaDataName:region,country'></div>
+<!--}}}-->

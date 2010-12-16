@@ -1,0 +1,13 @@
+type: None
+tags: excludeLists package##article
+
+<!--{{{-->
+		<div class='prompt'>
+			<span macro='translate_ilga video'></span>:
+			<div macro='translate_ilga video_hint'></div>
+		</div>
+		<div>
+			<span macro='aet type:video field:video'></span>
+		</div>
+<!--}}}-->
+

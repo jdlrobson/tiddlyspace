@@ -1,0 +1,18 @@
+type: None
+tags: excludeLists package##article
+
+<!--{{{-->
+<div class='article article_editor'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div> 
+<!--}}}-->
+		[[EditTemplateVideoTop]]
+<!--{{{-->
+	<div class='clearboth'></div>
+<!--}}}-->
+	[[EditTemplateTags]]
+<!--{{{-->
+<div class='clearboth'></div>
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->
+

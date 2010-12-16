@@ -1,0 +1,20 @@
+type: None
+tags: excludeLists package##profiles package##law
+
+<!--{{{-->
+<div class='editor_top'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbarProfile]] icons:yes'></div>
+	<div class='ilgastamp'><img src='small_ilga_logo.png'/></div>
+	<div class='country'><span macro='ProfileNameFromTitle'></span> (Law)</div>
+</div>
+<div class='article article_editor profile_editor'>
+	<div class="tabbed">
+<!--}}}-->
+[[CountryProfileLawEditTemplateQuestionnaire]]
+<!--{{{-->
+	</div>
+</div>
+<div class='editor_bottom'></div>
+<div class='clearboth'></div>
+<!--}}}-->
+

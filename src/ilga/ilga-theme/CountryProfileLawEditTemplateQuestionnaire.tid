@@ -1,0 +1,164 @@
+type: None
+tags: excludeLists package##profiles package##law
+
+<!--{{{-->
+<div class="header">
+	<div class="law_button_small button button__category_male_to_male_relationships "
+		 macro="templateSection m2m lawSection open">
+		<div class="icon icon_m2m"></div>
+	</div>
+	<div class="law_button_small button button__category_female_to_female_relationships " 	
+		macro="templateSection f2f lawSection ">
+		<div class="icon icon_f2f"></div>
+	</div>
+	<div class="law_button_small button button__category_age_of_consent" 
+		macro="templateSection aoc lawSection ">
+		<div class="icon icon_aoc"></div>
+	</div>
+	<div class="law_button_small button button__category_freedom_of_association__of_expression " 
+		macro="templateSection freedom lawSection ">
+		<div class="icon icon_foae"></div>
+	</div>
+	<div class="law_button_small button button__category_marriage_and_substitutes_for_marriage " 	
+		macro="templateSection marriage lawSection ">
+		<div class="icon icon_marriage"></div>
+	</div>
+	<div class="law_button_small button button__category_adoption_and_parenthood "
+		macro="templateSection adoption lawSection ">
+		<div class="icon icon_adoption"></div>
+	</div>
+	<div class="law_button_small button button__category_anti-discrimination_laws "
+		macro="templateSection anti lawSection ">
+		<div class="icon icon_antid"></div>
+	</div>
+	<div class="law_button_small button button__category_armed_forces "
+		macro="templateSection army lawSection ">
+		<div class="icon icon_army"></div>
+	</div>
+	<div class="law_button_small button button__category_asylum "
+		macro="templateSection asylum lawSection ">
+		<div class="icon icon_asylum"></div>
+	</div>
+	<div class="law_button_small button button__category_blood_donation "
+		macro="templateSection blood lawSection ">
+		<div class="icon icon_blood"></div>
+	</div>
+	<div class="law_button_small button button__category_gender_identity "
+		macro="templateSection gender lawSection ">
+		<div class="icon icon_gender"></div>
+	</div>
+	<div class="law_button_small button button__category_hiv_aids "
+		macro="templateSection hiv lawSection ">
+		<div class="icon icon_hiv"></div>
+	</div>
+</div>
+<div class="clearboth"></div>
+[[title:EditTemplateToggleLanguage with:law]]
+<div group="lawSection" section="m2m">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateMaleToMale with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateMaleToMale with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateMaleToMale with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateMaleToMale with:"_pt" with:"pt"]]
+<!--{{{-->
+</div>
+<div group="lawSection" section="f2f">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateFemaleToFemale with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateFemaleToFemale with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateFemaleToFemale with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateFemaleToFemale with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="aoc">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateAgeConsent with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateAgeConsent with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateAgeConsent with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateAgeConsent with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="freedom">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateFreedom with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateFreedom with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateFreedom with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateFreedom with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="marriage">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateMarriage with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateMarriage with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateMarriage with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateMarriage with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="adoption">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateAdoption with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateAdoption with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateAdoption with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateAdoption with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="anti">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateAntiDiscrimination with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateAntiDiscrimination with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateAntiDiscrimination with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateAntiDiscrimination with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="army">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateArmy with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateArmy with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateArmy with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateArmy with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="asylum">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateAsylum with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateAsylum with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateAsylum with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateAsylum with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="blood">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateBlood with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateBlood with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateBlood with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateBlood with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="gender">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateGender with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateGender with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateGender with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateGender with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<div group="lawSection" section="hiv">
+<!--}}}-->
+[[title:CountryProfileLawEditTemplateHIV with:"" with:"en"]]
+[[title:CountryProfileLawEditTemplateHIV with:"_fr" with:"fr"]]
+[[title:CountryProfileLawEditTemplateHIV with:"_es" with:"es"]]
+[[title:CountryProfileLawEditTemplateHIV with:"_pt" with:"pt"]]
+
+<!--{{{-->
+</div>
+<!--}}}-->

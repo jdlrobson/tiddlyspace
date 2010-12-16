@@ -1,3 +1,4 @@
 recipe: ../shadows/index.recipe
 recipe: ../styles/index.recipe
 tiddler: SiteIcon.tid
+recipe: ../ilga/ilga-theme/index.recipe

@@ -1,0 +1,143 @@
+type: None
+tags: excludeLists package##profiles package##law
+
+<!--{{{-->
+<div section='$2' group="law">
+	<h1 class='clearboth' macro="translate_ilga '[Category]HIV/AIDS' $2"></h1>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_estimated_percentage_positive' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_hivaids_estimated_percentage_positive values:'[HIVAIDS]estimated percentage positive'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'compulsory_testing_for_hiv' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:compulsory_testing_for_hiv values:'Compulsory testing for HIV'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hiv_compulsory_testing_law_text' $2"></span>
+	</div>
+	<div macro="edit _hiv_compulsory_testing_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_compulsory_law_mentioning_often_applied' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_hivaids_compulsory_law_mentioning_often_applied values:'[HIVAIDS]compulsory law mentioning often applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_compulsory_law_mentioning_how_regularly' $2"></span>
+	</div>
+	<div macro="edit _hivaids_compulsory_law_mentioning_how_regularly$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_compulsory_law_mentioning_last_applied' $2"></span>
+	</div>
+	<div macro="aet type:date field:_hivaids_compulsory_law_mentioning_last_applied values:'[HIVAIDS]compulsory law mentioning last applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'country_can_place_people_with_hiv_in_quarantine' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:country_can_place_people_with_hiv_in_quarantine values:'Country can place people with HIV in quarantine'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hiv_quarantine_law_text' $2"></span>
+	</div>
+	<div macro="edit _hiv_quarantine_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_quarantine_law_mentioning_often_applied' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_hivaids_quarantine_law_mentioning_often_applied values:'[HIVAIDS]quarantine law mentioning often applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_quarantine_law_mentioning_how_regularly' $2"></span>
+	</div>
+	<div macro="edit _hivaids_quarantine_law_mentioning_how_regularly$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_quarantine_law_mentioning_last_applied' $2"></span>
+	</div>
+	<div macro="aet type:date field:_hivaids_quarantine_law_mentioning_last_applied values:'[HIVAIDS]quarantine law mentioning last applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'countries_banning_foreigners_with_hiv_from_entry' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:countries_banning_foreigners_with_hiv_from_entry values:'Countries banning foreigners with HIV from entry'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_ban_from_entry_law_text' $2"></span>
+	</div>
+	<div macro="edit _hivaids_ban_from_entry_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_ban_from_entry_law_mentioning_often_applied' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_hivaids_ban_from_entry_law_mentioning_often_applied values:'[HIVAIDS]ban from entry law mentioning often applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_ban_from_entry_law_mentioning_how_regularly' $2"></span>
+	</div>
+	<div macro="edit _hivaids_ban_from_entry_law_mentioning_how_regularly$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_ban_from_entry_law_mentioning_last_applied' $2"></span>
+	</div>
+	<div macro="aet type:date field:_hivaids_ban_from_entry_law_mentioning_last_applied values:'[HIVAIDS]ban from entry law mentioning last applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'countries_can_expel_foreigners_with_hiv' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:countries_can_expel_foreigners_with_hiv values:'Countries can expel foreigners with HIV'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_expel_foreigners_law_text' $2"></span>
+	</div>
+	<div macro="edit _hivaids_expel_foreigners_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_expel_foreigners_law_mentioning_often_applied' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_hivaids_expel_foreigners_law_mentioning_often_applied values:'[HIVAIDS]expel foreigners law mentioning often applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_expel_foreigners_law_mentioning_how_regularly' $2"></span>
+	</div>
+	<div macro="edit _hivaids_expel_foreigners_law_mentioning_how_regularly$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_expel_foreigners_law_mentioning_last_applied' $2"></span>
+	</div>
+	<div macro="aet type:date field:_hivaids_expel_foreigners_law_mentioning_last_applied values:'[HIVAIDS]expel foreigners law mentioning last applied'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'antiretroviral_drugs_provided_by_the_government' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:antiretroviral_drugs_provided_by_the_government values:'Antiretroviral drugs provided by the government'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_antiretroviral_drugs_provided_specify' $2"></span>
+	</div>
+	<div macro="edit _hivaids_antiretroviral_drugs_provided_specify$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_links' $2"></span>
+	</div>
+	<ol>
+	<li>Name: <span macro='edit field:_hivaids_links_0_name$1'></span> URL: <span macro='edit field:_hivaids_links_0_name$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_1_name$1'></span> URL: <span macro='edit field:_hivaids_links_1_name$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_2_name$1'></span> URL: <span macro='edit field:_hivaids_links_2_name$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_3_name$1'></span> URL: <span macro='edit field:_hivaids_links_3_name$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_4_name$1'></span> URL: <span macro='edit field:_hivaids_links_4_name$1'></span></li>
+	</ol>
+	<div class="question">
+	<span macro="translate_ilga '_hivaids_uploads' $2"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_0_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_1_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_2_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_3_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_4_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	</div>
+</div>
+<!--}}}-->

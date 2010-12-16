@@ -1,0 +1,100 @@
+type: None
+tags: excludeLists package##profiles package##law
+
+<!--{{{-->
+<div section='$2' group="law">
+	<h1 class='clearboth' macro="translate_ilga '[Category]Age of Consent' $2"></h1>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_are_there_age_of_consent_laws' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_ageofconsent_are_there_age_of_consent_laws values:'[AgeOfConsent]Are there age of consent laws'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_differentforwomenandmen' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_ageofconsent_differentforwomenandmen values:'[AgeOfConsent]DifferentForWomenAndMen'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_ageofconsentformen' $2"></span>
+	</div>
+	<div macro="edit _ageofconsent_ageofconsentformen$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_ageofconsentforwomen' $2"></span>
+	</div>
+	<div macro="edit _ageofconsent_ageofconsentforwomen$1"></div>
+	<div class="question">
+	<span macro="translate_ilga 'age_of_consent' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:age_of_consent values:'Age of consent'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_differentageforgaywomenandmen' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_ageofconsent_differentageforgaywomenandmen values:'[AgeOfConsent]DifferentAgeForGayWomenAndMen'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_ageforgaymen' $2"></span>
+	</div>
+	<div macro="edit _ageofconsent_ageforgaymen$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_ageforgaywomen' $2"></span>
+	</div>
+	<div macro="edit _ageofconsent_ageforgaywomen$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_name_of_law' $2"></span>
+	</div>
+	<div macro="edit _ageofconsent_name_of_law$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_text_of_law' $2"></span>
+	</div>
+	<div macro="edit _ageofconsent_text_of_law$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_was_the_age_of_consent_different' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_ageofconsent_was_the_age_of_consent_different values:'[AgeOfConsent]Was the age of consent different'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_when_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_ageofconsent_when_introduced values:'[AgeOfConsent]When introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_when_removed' $2"></span>
+	</div>
+	<div macro="aet type:date field:_ageofconsent_when_removed values:'[AgeOfConsent]When removed'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_links' $2"></span>
+	</div>
+	<ol>
+	<li>Name: <span macro='edit field:_ageofconsent_links_0_name$1'></span> URL: <span macro='edit field:_ageofconsent_links_0_name$1'></span></li>
+	<li>Name: <span macro='edit field:_ageofconsent_links_1_name$1'></span> URL: <span macro='edit field:_ageofconsent_links_1_name$1'></span></li>
+	<li>Name: <span macro='edit field:_ageofconsent_links_2_name$1'></span> URL: <span macro='edit field:_ageofconsent_links_2_name$1'></span></li>
+	<li>Name: <span macro='edit field:_ageofconsent_links_3_name$1'></span> URL: <span macro='edit field:_ageofconsent_links_3_name$1'></span></li>
+	<li>Name: <span macro='edit field:_ageofconsent_links_4_name$1'></span> URL: <span macro='edit field:_ageofconsent_links_4_name$1'></span></li>
+	</ol>
+	<div class="question">
+	<span macro="translate_ilga '_ageofconsent_uploads' $2"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ageofconsent_uploads_0_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ageofconsent_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ageofconsent_uploads_1_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ageofconsent_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ageofconsent_uploads_2_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ageofconsent_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ageofconsent_uploads_3_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ageofconsent_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _ageofconsent_uploads_4_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _ageofconsent_uploads mode:file"></span>
+	</div>
+</div>
+<!--}}}-->
+

@@ -1,0 +1,111 @@
+type: None
+tags: excludeLists excludeSearch package##article
+
+<<view _suggestions wikified>>
+<<translate_ilga "tag_Arts, culture, history and pride">>
+<<translate_ilga "tag_Performing arts">>
+<<translate_ilga "tag_Use of media and the internet">>
+<<translate_ilga "tag_Visual arts">>
+<<translate_ilga "tag_Ethnic / racial identity & affiliation">>
+<<translate_ilga "tag_Holocaust">>
+<<translate_ilga "tag_Indigenous peoples">>
+<<translate_ilga "tag_Pride/Action events">>
+<<translate_ilga "tag_International Day Against Homophobia">>
+<<translate_ilga "tag_Trans day">>
+<<translate_ilga "tag_Women's day">>
+<<translate_ilga "tag_Workers' day">>
+<<translate_ilga "tag_Asylum and immigration">>
+<<translate_ilga "tag_Binational couples">>
+<<translate_ilga "tag_LGBTI migrants">>
+<<translate_ilga "tag_Migrating as a married or partnered couple">>
+<<translate_ilga "tag_Seeking asylum on grounds of sexual orientation or gender identity">>
+<<translate_ilga "tag_Education/Awareness raising">>
+<<translate_ilga "tag_At the work place">>
+<<translate_ilga "tag_Promoting LGBTI rights as Human rights">>
+<<translate_ilga "tag_Raising awareness through mass media">>
+<<translate_ilga "tag_Teaching LGBT rights in schools">>
+<<translate_ilga "tag_Working against transphobia">>
+<<translate_ilga "tag_LGBTI Families /Parenting">>
+<<translate_ilga "tag_Adoption">>
+<<translate_ilga "tag_Donor insemination services and fertility treatments">>
+<<translate_ilga "tag_Legal recognition of parental role of a non biological parent">>
+<<translate_ilga "tag_LGBT families">>
+<<translate_ilga "tag_Hate crime and violence prevention">>
+<<translate_ilga "tag_Monitoring Hate crime">>
+<<translate_ilga "tag_Monitoring violence at Pride events">>
+<<translate_ilga "tag_Health">>
+<<translate_ilga "tag_Alcohol, tobacco, and other drug use">>
+<<translate_ilga "tag_Breast and uterus cancer">>
+<<translate_ilga "tag_Breast and Uterus Cancer Day">>
+<<translate_ilga "tag_Prevention for women having sex with women">>
+<<translate_ilga "tag_Counseling">>
+<<translate_ilga "tag_Peer to peer support">>
+<<translate_ilga "tag_Phone counseling">>
+<<translate_ilga "tag_Web-counseling">>
+<<translate_ilga "tag_HIV/AIDS &STDs">>
+<<translate_ilga "tag_Anti retroviral drugs">>
+<<translate_ilga "tag_Compulsory testing">>
+<<translate_ilga "tag_Entry ban">>
+<<translate_ilga "tag_Expelling foreigners">>
+<<translate_ilga "tag_On site HIV/AIDS testing">>
+<<translate_ilga "tag_Prevention for men having sex with men">>
+<<translate_ilga "tag_Prevention for women having sex with women">>
+<<translate_ilga "tag_Quarantine of Individuals">>
+<<translate_ilga "tag_World AIDS Day">>
+<<translate_ilga "tag_Sexual and reproductive health">>
+<<translate_ilga "tag_Mental health">>
+<<translate_ilga "tag_Public health">>
+<<translate_ilga "tag_Blood donation">>
+<<translate_ilga "tag_Laws and leadership">>
+<<translate_ilga "tag_Gender identity">>
+<<translate_ilga "tag_Changing gender on official documents">>
+<<translate_ilga "tag_Changing name on official documents">>
+<<translate_ilga "tag_Individuals in jail or punished for being transgender">>
+<<translate_ilga "tag_Institutional spaces for alternate sexualities and gender identities">>
+<<translate_ilga "tag_Anti discrimination law (gender identity) in employment">>
+<<translate_ilga "tag_Anti discrimination law (gender identity) in social services">>
+<<translate_ilga "tag_Sex re-assignment treatment and/or surgery">>
+<<translate_ilga "tag_Transgenderism classified as an illness">>
+<<translate_ilga "tag_Human rights">>
+<<translate_ilga "tag_Foreign office">>
+<<translate_ilga "tag_Freedom of expression">>
+<<translate_ilga "tag_Freedom of association">>
+<<translate_ilga "tag_Global human rights agreements">>
+<<translate_ilga "tag_Governmental leadership">>
+<<translate_ilga "tag_International work through development aid">>
+<<translate_ilga "tag_LGBTI movement (community organizing & leadership)">>
+<<translate_ilga "tag_Regional human rights agreements">>
+<<translate_ilga "tag_The United Nations">>
+<<translate_ilga "tag_Legal Advocacy">>
+<<translate_ilga "tag_Age of consent">>
+<<translate_ilga "tag_Global reviews">>
+<<translate_ilga "tag_Laws and human rights">>
+<<translate_ilga "tag_Regional reviews">>
+<<translate_ilga "tag_Situation assessments">>
+<<translate_ilga "tag_Universal Periodic Review - UPR">>
+<<translate_ilga "tag_Yogyarkarta Principles">>
+<<translate_ilga "tag_Sexual orientation">>
+<<translate_ilga "tag_Illegality of female to female relationships">>
+<<translate_ilga "tag_Illegality of male to male relationships">>
+<<translate_ilga "tag_Men in jail or punished for same sex activity">>
+<<translate_ilga "tag_Anti discrimination law (sexual orientation) in employment">>
+<<translate_ilga "tag_Anti discrimination law (sexual orientation) in social services">>
+<<translate_ilga "tag_Punishment for female to female relationships">>
+<<translate_ilga "tag_Punishment for male to male relationships">>
+<<translate_ilga "tag_Women in jail or punished for same sex activity">>
+<<translate_ilga "tag_Religion & social institutions">>
+<<translate_ilga "tag_Gender identity">>
+<<translate_ilga "tag_Armed forces">>
+<<translate_ilga "tag_Gay or lesbian (ability to serve)">>
+<<translate_ilga "tag_Trans individuals (ability to serve)">>
+<<translate_ilga "tag_Marriage / civil unions">>
+<<translate_ilga "tag_Marriage/Substitutes for marriage">>
+<<translate_ilga "tag_Marriage/Substitutes for marriage & immigration">>
+<<translate_ilga "tag_Partnership (recognition)">>
+<<translate_ilga "tag_Religion">>
+<<translate_ilga "tag_Homosexuality and Buddhism">>
+<<translate_ilga "tag_Homosexuality and Christianity">>
+<<translate_ilga "tag_Homosexuality and Islam">>
+<<translate_ilga "tag_Homosexuality and Judaism">>
+<<translate_ilga "tag_feminism">>
+<<translate_ilga "tag_Homosexuality within a religious/ ethical framework">>

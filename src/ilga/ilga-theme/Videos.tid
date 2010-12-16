@@ -1,0 +1,6 @@
+type: None
+tags: excludeLists package##group
+
+Our latest videos...
+<<list filter [has[video]] template:ArticleTemplate emptyMessage:"No videos">>
+

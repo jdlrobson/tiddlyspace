@@ -1,0 +1,91 @@
+modifier: jon
+created: 20101124160432
+modified: 20101208154538
+type: None
+tags: excludeLists package##profiles package##law
+article_source_name: 
+image: 
+article_file: 
+ctype: articledraft
+summary: 
+publishlevel: move
+_hash: 22faed8210f9220857b8340e1967f049e3fe0729
+image_caption: 
+article_file_name: 
+heading: 
+article_source_url: 
+
+<!--{{{-->
+<div section='$2' group="law">
+	<h1 class='clearboth' macro="translate_ilga '[Category]Marriage and Substitutes for marriage' $2"></h1>
+	<div class="question">
+	<span macro="translate_ilga '_marriage_legal_recognition' $2"></span>
+	</div>
+	<div macro="aet type:dropdown field:_marriage_legal_recognition values:'[Marriage]Legal Recognition'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'marriage_and_substitutes_for_marriage' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:marriage_and_substitutes_for_marriage values:'Marriage and Substitutes for marriage'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_marriage_where_marriage' $2"></span>
+	</div>
+	<div macro="edit _marriage_where_marriage$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_marriage_name_of_law' $2"></span>
+	</div>
+	<div macro="edit _marriage_name_of_law$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_marriage_text_of_law' $2"></span>
+	</div>
+	<div macro="edit _marriage_text_of_law$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_marriage_when_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_marriage_when_introduced values:'[Marriage]When introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'same_sex_partners_allowed_to_immigrate' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:same_sex_partners_allowed_to_immigrate values:'Same sex partners allowed to immigrate'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_marriage_links' $2"></span>
+	</div>
+	<ol>
+	<li>Name: <span macro='edit field:_marriage_links_0_name$1'></span> URL: <span macro='edit field:_marriage_links_0_name$1'></span></li>
+	<li>Name: <span macro='edit field:_marriage_links_1_name$1'></span> URL: <span macro='edit field:_marriage_links_1_name$1'></span></li>
+	<li>Name: <span macro='edit field:_marriage_links_2_name$1'></span> URL: <span macro='edit field:_marriage_links_2_name$1'></span></li>
+	<li>Name: <span macro='edit field:_marriage_links_3_name$1'></span> URL: <span macro='edit field:_marriage_links_3_name$1'></span></li>
+	<li>Name: <span macro='edit field:_marriage_links_4_name$1'></span> URL: <span macro='edit field:_marriage_links_4_name$1'></span></li>
+	</ol>
+	<div class="question">
+	<span macro="translate_ilga '_marriage_uploads' $2"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _marriage_uploads_0_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _marriage_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _marriage_uploads_1_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _marriage_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _marriage_uploads_2_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _marriage_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _marriage_uploads_3_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _marriage_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _marriage_uploads_4_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _marriage_uploads mode:file"></span>
+	</div>
+</div>
+<!--}}}-->
+

@@ -1,0 +1,140 @@
+type: None
+tags: excludeLists package##profiles package##law
+
+<!--{{{-->
+<div section='$2' group="law">
+	<h1 class='clearboth' macro="translate_ilga '[Category]Adoption and Parenthood' $2"></h1>
+	<div class="question">
+	<span macro="translate_ilga 'adoption_by_individuals' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:adoption_by_individuals values:'Adoption by individuals'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_individuals_which_areas' $2"></span>
+	</div>
+	<div macro="edit _adoption_individuals_which_areas$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_individuals_law_name' $2"></span>
+	</div>
+	<div macro="edit _adoption_individuals_law_name$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_individuals_law_text' $2"></span>
+	</div>
+	<div macro="edit _adoption_individuals_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_individuals_law_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_adoption_individuals_law_introduced values:'[Adoption Individuals]Law Introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'adoption_by_couples' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:adoption_by_couples values:'Adoption by couples'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_couples_which_areas' $2"></span>
+	</div>
+	<div macro="edit _adoption_couples_which_areas$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_couples_law_name' $2"></span>
+	</div>
+	<div macro="edit _adoption_couples_law_name$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_couples_law_text' $2"></span>
+	</div>
+	<div macro="edit _adoption_couples_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_couples_law_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_adoption_couples_law_introduced values:'[Adoption Couples]Law Introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'second_parent_adoption' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:second_parent_adoption values:'Second Parent Adoption'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_second_parent_areas' $2"></span>
+	</div>
+	<div macro="edit _adoption_second_parent_areas$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga 'legal_recognition_of_parental_role_of_a_non_biological_parent' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:legal_recognition_of_parental_role_of_a_non_biological_parent values:'Legal recognition of parental role of a non biological parent'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_parental_which_areas' $2"></span>
+	</div>
+	<div macro="edit _adoption_parental_which_areas$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_parental_law_name' $2"></span>
+	</div>
+	<div macro="edit _adoption_parental_law_name$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_parental_law_text' $2"></span>
+	</div>
+	<div macro="edit _adoption_parental_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_parental_law_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_adoption_parental_law_introduced values:'[Adoption Parental]Law Introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga 'lesbians_can_receive_donor_insemination_services_and_fertility_treatments' $2"></span>
+	(<span>map</span>)
+	</div>
+	<div macro="aet type:dropdown field:lesbians_can_receive_donor_insemination_services_and_fertility_treatments values:'Lesbians can receive donor insemination services and fertility treatments'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_donor_which_areas' $2"></span>
+	</div>
+	<div macro="edit _adoption_donor_which_areas$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_donor_law_name' $2"></span>
+	</div>
+	<div macro="edit _adoption_donor_law_name$1"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_donor_law_text' $2"></span>
+	</div>
+	<div macro="edit _adoption_donor_law_text$1 3"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_donor_law_introduced' $2"></span>
+	</div>
+	<div macro="aet type:date field:_adoption_donor_law_introduced values:'[Adoption Donor]Law Introduced'"></div>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_links' $2"></span>
+	</div>
+	<ol>
+	<li>Name: <span macro='edit field:_adoption_links_0_name$1'></span> URL: <span macro='edit field:_adoption_links_0_name$1'></span></li>
+	<li>Name: <span macro='edit field:_adoption_links_1_name$1'></span> URL: <span macro='edit field:_adoption_links_1_name$1'></span></li>
+	<li>Name: <span macro='edit field:_adoption_links_2_name$1'></span> URL: <span macro='edit field:_adoption_links_2_name$1'></span></li>
+	<li>Name: <span macro='edit field:_adoption_links_3_name$1'></span> URL: <span macro='edit field:_adoption_links_3_name$1'></span></li>
+	<li>Name: <span macro='edit field:_adoption_links_4_name$1'></span> URL: <span macro='edit field:_adoption_links_4_name$1'></span></li>
+	</ol>
+	<div class="question">
+	<span macro="translate_ilga '_adoption_uploads' $2"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _adoption_uploads_0_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _adoption_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _adoption_uploads_1_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _adoption_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _adoption_uploads_2_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _adoption_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _adoption_uploads_3_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _adoption_uploads mode:file"></span>
+	</div>
+	<div>
+	<span macro='translate_ilga Label $2'></span><span macro='edit _adoption_uploads_4_name$1'></span>
+	<span class='fileLabel'>file</span>
+	<span macro="binaryEdit _adoption_uploads mode:file"></span>
+	</div>
+</div>
+<!--}}}-->
+

@@ -1,0 +1,6 @@
+type: None
+tags: excludeLists package##group
+
+The articles created by our group..
+<<list filter "[is[local]][nofield[video]][notag[excludeLists]]" template:ArticleTemplate emptyMessage:"No articles">>
+

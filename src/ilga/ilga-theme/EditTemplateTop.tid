@@ -1,0 +1,18 @@
+type: None
+tags: excludeLists package##article
+
+<!--{{{-->
+	<div class='left'>
+<!--}}}-->
+[[EditTemplateEssentials]]
+<!--{{{-->
+	</div>
+	<div class='editorRight'>
+<!--}}}-->
+[[EditTemplateImage]]
+[[EditTemplateVideo]]
+<!--{{{-->
+	</div>
+<!--}}}-->
+
+

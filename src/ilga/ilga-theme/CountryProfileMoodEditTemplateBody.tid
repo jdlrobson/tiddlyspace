@@ -1,0 +1,38 @@
+type: None
+tags: excludeLists package##mood package##profiles
+
+<!--{{{-->
+<div group="mood" section="$2">
+	<div class='question_profile' macro='translate_ilga mood_inschool $2'></div>
+	<div class='editor' section="m1en" macro='edit inschool$1 3'></div>
+	<input type='hidden' edit='ctype' value='countryprofiledraft'/>
+	<div  class='question_profile' macro='translate_ilga mood_againsthomophobia $2'></div>  
+	<div class='editor' macro='edit againsthomophobia$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_religiouscampaigning $2'></div>  
+	<div class='editor' macro='edit religiouscampaigning$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_religiouswelcome $2'></div>
+	<div class='editor' macro='edit religiouswelcome$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_comingouttodoctorgay $2'></div>
+	<div class='editor' macro='edit comingouttodoctorgay$1 3'></div>     
+	<div class='question_profile' macro='translate_ilga mood_comingouttodoctorlesbian $2'></div>
+	<div class='editor' macro='edit comingouttodoctorlesbian$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_comingouttodoctortrans $2'></div>
+	<div class='editor' macro='edit comingouttodoctortrans$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_discriminationdaytoday $2'></div>  
+	<div class='editor' macro='edit discriminationdaytoday$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_discriminationatwork $2'></div>  
+	<div class='editor' macro='edit discriminationatwork$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_hatespeech $2'></div>    
+	<div class='editor' macro='edit hatespeech$1 3'></div>  
+	<div class='question_profile' macro='translate_ilga mood_hatespeechdifferences $2'></div>    
+	<div class='editor' macro='edit hatespeechdifferences$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_violenceagainstgay $2'></div>    
+	<div class='editor' macro='edit violenceagainstgay$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_violenceagainstlesbian $2'></div>
+	<div class='editor' macro='edit violenceagainstlesbian$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_violenceagainsttrans $2'></div>
+	<div class='editor' macro='edit violenceagainsttrans$1 3'></div> 
+	<div class='question_profile' macro='translate_ilga mood_mediaportrayal $2'></div>
+	<div class='editor' macro='edit mediaportrayal$1 3'></div>
+</div>
+<!--}}}-->

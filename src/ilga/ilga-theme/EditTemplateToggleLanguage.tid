@@ -1,0 +1,11 @@
+type: None
+tags: excludeLists package##common
+
+<!--{{{-->
+<div class='languagetoolbar'>
+<a href='javascript:;' macro="templateSection en $1 open">en</a>
+<a href='javascript:;' macro="templateSection fr $1">fr</a>
+<a href='javascript:;' macro="templateSection es $1">es</a>
+<a href='javascript:;' macro="templateSection pt $1">pt</a>
+</div>
+<!--}}}-->

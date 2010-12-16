@@ -1,0 +1,16 @@
+type: None
+tags: excludeLists package##profiles
+
+<!--{{{-->
+<div class='editor_top'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] icons:yes'></div> 
+        <div class='ilgastamp'><img src='small_ilga_logo.png'/></div>
+	<div class='country' macro='ProfileNameFromTitle'></div>
+	<div class='country'><span macro='ProfileNameFromTitle'></span> (Campaign)</div>
+</div>
+<div class='article article_editor profile_editor'>
+<hr />
+</div>
+<div class="editor_bottom"></div>
+<!--}}}-->
+

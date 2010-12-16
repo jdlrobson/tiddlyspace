@@ -1,0 +1,22 @@
+type: None
+tags: excludeLists package##profiles package##movement
+
+<!--{{{-->
+<div section="$2" group="movement">
+	<div macro="translate_ilga movement_preamble $2"></div>
+	<div class='editor' macro='edit lgbtimovement$1 3'></div> 
+	<div macro='translate_ilga movement_howmanygroups $2'></div>
+	<div class='editor' macro='edit howmanygroups$1 3'></div> 
+	<div macro='translate_ilga movement_howlongexisted $2'></div>
+	<div class='editor' macro='edit howlongexisted$1 3'></div>     
+	<div macro='translate_ilga movement_howinteractwithlgbti$2 $2'></div>
+	<div class='editor' macro='edit howinteractwithlgbti$1 3'></div> 
+	<div macro='translate_ilga movement_howinteractwithcivil $2'></div>
+	<div class='editor' macro='edit howinteractwithcivil$1 3'></div> 
+	<div macro='translate_ilga movement_interactwithmedia $2'></div>
+	<div class='editor' macro='edit interactwithmedia$1 3'></div> 
+	<div macro='translate_ilga movement_interactwithgovernment $2'></div>
+	<div class='editor' macro='edit interactwithgovernment$1 3'></div>
+</div>
+<!--}}}-->
+

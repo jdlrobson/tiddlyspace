@@ -1,0 +1,57 @@
+type: None
+tags: excludeLists package##theme
+
+<!--{{{-->
+<div id='adminToolbar' refresh='macro' macro='slider chkAdmin AdminTool "show/hide tools" "show/hide tools to manage your space"' force='true'></div>
+<div id='page' class='theme_default'>
+	<div class='rainbow_splash_left'></div>
+	<div class='rainbow_splash_right'></div>
+	<div id='topPage'>
+		<div id="header">
+			<div id='topBanner'>
+				<span macro="image SiteIcon width:150 height:90 preserveAspectRatio:yes"></span>
+			</div>
+			<div id='pageTitle'>
+				<h1 class='foreground' tiddler="SiteTitle"></h1>
+				<h1 class='shadow' tiddler="SiteTitle"></h1>
+			</div>
+			<div id="topBannerLinks">
+				<div class='topButtonTab'>
+					<div class='toppadding5 leftpadding20'>
+						<span class='fontsize16 theme_color' macro='ilga_link myactivismtab'></span>
+					</div>
+				</div>
+			</div>
+			<h2 id='currentLocation' style="display:none"></h2>		
+		</div>
+	</div>
+	<div class='relative'>
+		<div class='middlePageHeader'></div>
+	</div>  
+	<div id='middlepage'>
+		<a href="/ilga/logout">
+			<div class='logoutbutton'></div>
+		</a>
+		<div class='leftborder'></div>
+		<div class='languageTab'></div>
+		<div class='somepadding'>
+			<div class='whereamitctl' tiddler='LocationBar' refresh='content'></div>
+		</div>
+		<div class='somepadding'>
+			<div class='fullPage'>
+				<div class='fullPage'>
+					<div refresh='content' class="mainMenuTiddler" tiddler='MainMenu'></div>
+					<div id='displayArea'>        
+						<div id='messageArea'></div>
+						<div id='tiddlerDisplay'></div>
+					</div>
+				</div>
+			</div>
+			<div class='rightborder'></div>
+		</div>
+		<div class='middlePageFooter'></div>
+	</div>
+	<div id="bottomPage"></div>
+	<div class='rainbow_splash_footer'></div>
+</div>
+<!--}}}-->
