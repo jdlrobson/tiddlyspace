@@ -15,6 +15,8 @@ article_file_name:
 heading: 
 article_source_url: 
 
+!Help
+Help [[GettingStarted]].
 !Create
 {{authoringToolsButtons{
 |<<newTiddler label:"new article" guid:yes guid_suffix:"_en">>|<<newTiddler label:"new video" guid:yes guid_suffix:"_en" tag:video template:videoEditTemplate>>|
