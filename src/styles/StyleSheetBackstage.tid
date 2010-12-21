@@ -404,4 +404,12 @@ a.baskstageTask.task_user {
 .unsyncedList {
 	display: none;
 }
+
+/* TODO: This is a presentational fix for a data problem that
+   ought to go away with sync refactorings.  See:
+   https://github.com/TiddlySpace/tiddlyspace/pull/536#commitcomment-216317
+*/
+.notFound td .externalLink {
+	display: none;
+}
 /*}}}*/
