@@ -1,0 +1,17 @@
+modifier: None
+created: 20070116000000
+modified: 20070116000000
+type: None
+ctype: article
+tags: dummy foo
+heading: This article is related to another by tag
+group_id: -1
+group_name: Osmosoft
+country: CANADA
+region: NORTH AMERICA
+organisation: ILGA NORTH AMERICA
+language: en
+image: /ilga/static/images/regional/logo.namerica.png
+summary: This is another summary of an article.
+
+This happened in Canada

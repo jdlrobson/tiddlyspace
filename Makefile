@@ -57,6 +57,23 @@ dev_local:
 		ln -s ../tiddlywebplugins )
 	@echo "from devconfig import update_config; update_config(config)" \
 		>> dev_instance/tiddlywebconfig.py
+	@cd dev_instance && twanager bag published_articles_en < /dev/null && \
+		twanager bag published_articles_es < /dev/null && \
+		twanager bag comments_en < /dev/null && \
+		twanager bag comments_fr < /dev/null && \
+		twanager bag comments_es < /dev/null && \
+		twanager bag comments_pt < /dev/null && \
+		twanager bag published_profiles < /dev/null && \
+		twanager bag published_profiles_fr < /dev/null && \
+		twanager bag published_profiles_es < /dev/null && \
+		twanager bag published_profiles_pt < /dev/null && \
+		twanager bag published_profiles_en < /dev/null && \
+		twanager bag questions < /dev/null && \
+		twanager bag ILGA < /dev/null && \
+		twanager twimport published_articles_en ../src/ilga/dummydata/published_articles_en.recipe && \
+		twanager twimport published_profiles ../src/ilga/dummydata/published_profiles.recipe && \
+		twanager twimport published_articles_es ../src/ilga/dummydata/published_articles_es.recipe && \
+		twanager twimport published_profiles_fr ../src/ilga/dummydata/published_profiles_fr.recipe
 	@echo "INFO development instance created in dev_instance"
 
 clean:
@@ -68,3 +85,4 @@ clean:
 
 purge: clean
 	cat .gitignore | while read -r entry; do rm -r $$entry; done || true
+

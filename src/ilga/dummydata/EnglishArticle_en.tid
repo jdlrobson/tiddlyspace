@@ -1,0 +1,17 @@
+modifier: None
+created: 20070116000000
+modified: 20070116000000
+type: None
+ctype: article
+tags: dummy test
+heading: This is the heading of the article
+group_id: -1
+group_name: The dummy group
+country: UNITED STATES
+region: NORTH AMERICA
+organisation: ILGA NORTH AMERICA
+language: en
+image: http://ilga.org/ilga/static/images/regional/logo.namerica.png
+summary: This is the summary of the article.
+
+This is a dummy article
