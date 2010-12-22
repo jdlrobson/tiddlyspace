@@ -59,6 +59,8 @@ dev_local:
 		>> dev_instance/tiddlywebconfig.py
 	@cd dev_instance && twanager bag published_articles_en < /dev/null && \
 		twanager bag published_articles_es < /dev/null && \
+		twanager bag published_articles_fr < /dev/null && \
+		twanager bag published_articles_pt < /dev/null && \
 		twanager bag comments_en < /dev/null && \
 		twanager bag comments_fr < /dev/null && \
 		twanager bag comments_es < /dev/null && \
@@ -70,6 +72,8 @@ dev_local:
 		twanager bag published_profiles_en < /dev/null && \
 		twanager bag questions < /dev/null && \
 		twanager bag ILGA < /dev/null && \
+		twanager twimport comments_en ../src/ilga/dummydata/comments_en.recipe && \
+		twanager twimport questions ../src/ilga/dummydata/questions.recipe && \
 		twanager twimport published_articles_en ../src/ilga/dummydata/published_articles_en.recipe && \
 		twanager twimport published_profiles ../src/ilga/dummydata/published_profiles.recipe && \
 		twanager twimport published_articles_es ../src/ilga/dummydata/published_articles_es.recipe && \
