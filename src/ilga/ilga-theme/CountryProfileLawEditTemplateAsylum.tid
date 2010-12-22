@@ -31,37 +31,37 @@ tags: excludeLists package##profiles
 <div>
 <span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_0_name'></span>
 <span class='fileLabel'>file</span>
-<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+<span macro="binaryEdit _asylum_upload_documents_0$1 mode:file"></span>
 </div>
 <div>
 <span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_1_name'></span>
 <span class='fileLabel'>file</span>
-<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+<span macro="binaryEdit _asylum_upload_documents_1$1 mode:file"></span>
 </div>
 <div>
 <span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_2_name'></span>
 <span class='fileLabel'>file</span>
-<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+<span macro="binaryEdit _asylum_upload_documents_2$1 mode:file"></span>
 </div>
 <div>
 <span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_3_name'></span>
 <span class='fileLabel'>file</span>
-<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+<span macro="binaryEdit _asylum_upload_documents_3$1 mode:file"></span>
 </div>
 <div>
 <span macro='translate_ilga Label'></span><span macro='edit _asylum_upload_documents_4_name'></span>
 <span class='fileLabel'>file</span>
-<span macro="binaryEdit _asylum_upload_documents mode:file"></span>
+<span macro="binaryEdit _asylum_upload_documents_4$1 mode:file"></span>
 </div>
 <div class="question">
 <span macro="translate_ilga '_asylum_links_to_groups'"></span>
 </div>
 <ol>
-<li>Name: <span macro='edit field:_asylum_links_to_groups_0_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_0_name'></span></li>
-<li>Name: <span macro='edit field:_asylum_links_to_groups_1_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_1_name'></span></li>
-<li>Name: <span macro='edit field:_asylum_links_to_groups_2_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_2_name'></span></li>
-<li>Name: <span macro='edit field:_asylum_links_to_groups_3_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_3_name'></span></li>
-<li>Name: <span macro='edit field:_asylum_links_to_groups_4_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_4_name'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_0_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_0$1'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_1_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_1$1'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_2_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_2$1'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_3_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_3$1'></span></li>
+<li>Name: <span macro='edit field:_asylum_links_to_groups_4_name'></span> URL: <span macro='edit field:_asylum_links_to_groups_4$1'></span></li>
 </ol>
 <!--}}}-->
 

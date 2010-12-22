@@ -105,11 +105,11 @@ tags: excludeLists package##profiles package##law
 	<span macro="translate_ilga '_hivaids_links' $2"></span>
 	</div>
 	<ol>
-	<li>Name: <span macro='edit field:_hivaids_links_0_name$1'></span> URL: <span macro='edit field:_hivaids_links_0_name$1'></span></li>
-	<li>Name: <span macro='edit field:_hivaids_links_1_name$1'></span> URL: <span macro='edit field:_hivaids_links_1_name$1'></span></li>
-	<li>Name: <span macro='edit field:_hivaids_links_2_name$1'></span> URL: <span macro='edit field:_hivaids_links_2_name$1'></span></li>
-	<li>Name: <span macro='edit field:_hivaids_links_3_name$1'></span> URL: <span macro='edit field:_hivaids_links_3_name$1'></span></li>
-	<li>Name: <span macro='edit field:_hivaids_links_4_name$1'></span> URL: <span macro='edit field:_hivaids_links_4_name$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_0_name$1'></span> URL: <span macro='edit field:_hivaids_links_0$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_1_name$1'></span> URL: <span macro='edit field:_hivaids_links_1$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_2_name$1'></span> URL: <span macro='edit field:_hivaids_links_2$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_3_name$1'></span> URL: <span macro='edit field:_hivaids_links_3$1'></span></li>
+	<li>Name: <span macro='edit field:_hivaids_links_4_name$1'></span> URL: <span macro='edit field:_hivaids_links_4$1'></span></li>
 	</ol>
 	<div class="question">
 	<span macro="translate_ilga '_hivaids_uploads' $2"></span>
@@ -117,27 +117,27 @@ tags: excludeLists package##profiles package##law
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_0_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	<span macro="binaryEdit _hivaids_uploads_0$1 mode:file"></span>
 	</div>
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_1_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	<span macro="binaryEdit _hivaids_uploads_1$1 mode:file"></span>
 	</div>
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_2_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	<span macro="binaryEdit _hivaids_uploads_2$1 mode:file"></span>
 	</div>
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_3_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	<span macro="binaryEdit _hivaids_uploads_3$1 mode:file"></span>
 	</div>
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _hivaids_uploads_4_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _hivaids_uploads mode:file"></span>
+	<span macro="binaryEdit _hivaids_uploads_4$1 mode:file"></span>
 	</div>
 </div>
 <!--}}}-->

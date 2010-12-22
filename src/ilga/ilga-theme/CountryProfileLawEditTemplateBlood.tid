@@ -48,11 +48,11 @@ tags: excludeLists package##theme package##law
 	<span macro="translate_ilga '_blood_links' $2"></span>
 	</div>
 	<ol>
-	<li>Name: <span macro='edit field:_blood_links_0_name$1'></span> URL: <span macro='edit field:_blood_links_0_name$1'></span></li>
-	<li>Name: <span macro='edit field:_blood_links_1_name$1'></span> URL: <span macro='edit field:_blood_links_1_name$1'></span></li>
-	<li>Name: <span macro='edit field:_blood_links_2_name$1'></span> URL: <span macro='edit field:_blood_links_2_name$1'></span></li>
-	<li>Name: <span macro='edit field:_blood_links_3_name$1'></span> URL: <span macro='edit field:_blood_links_3_name$1'></span></li>
-	<li>Name: <span macro='edit field:_blood_links_4_name$1'></span> URL: <span macro='edit field:_blood_links_4_name$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_0_name$1'></span> URL: <span macro='edit field:_blood_links_0$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_1_name$1'></span> URL: <span macro='edit field:_blood_links_1$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_2_name$1'></span> URL: <span macro='edit field:_blood_links_2$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_3_name$1'></span> URL: <span macro='edit field:_blood_links_3$1'></span></li>
+	<li>Name: <span macro='edit field:_blood_links_4_name$1'></span> URL: <span macro='edit field:_blood_links_4$1'></span></li>
 	</ol>
 	<div class="question">
 	<span macro="translate_ilga '_blood_uploads' $2"></span>
@@ -60,27 +60,27 @@ tags: excludeLists package##theme package##law
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_0_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	<span macro="binaryEdit _blood_uploads_0$1 mode:file"></span>
 	</div>
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_1_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	<span macro="binaryEdit _blood_uploads_1$1 mode:file"></span>
 	</div>
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_2_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	<span macro="binaryEdit _blood_uploads_2$1 mode:file"></span>
 	</div>
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_3_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	<span macro="binaryEdit _blood_uploads_3$1 mode:file"></span>
 	</div>
 	<div>
 	<span macro='translate_ilga Label $2'></span><span macro='edit _blood_uploads_4_name$1'></span>
 	<span class='fileLabel'>file</span>
-	<span macro="binaryEdit _blood_uploads mode:file"></span>
+	<span macro="binaryEdit _blood_uploads_4$1 mode:file"></span>
 	</div>
 </div>
 <!--}}}-->
