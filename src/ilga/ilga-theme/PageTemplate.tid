@@ -29,7 +29,7 @@ tags: excludeLists package##theme
 		<div class='middlePageHeader'></div>
 	</div>  
 	<div id='middlepage'>
-		<a href="/ilga/logout">
+		<a href="/logout">
 			<div class='logoutbutton'></div>
 		</a>
 		<div class='leftborder'></div>
