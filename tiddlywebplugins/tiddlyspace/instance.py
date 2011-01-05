@@ -151,3 +151,13 @@ store_structure['bags']['MAPSPACE'] = {
         'owner': 'administrator',
     },
 }
+
+#setup countries
+from tiddlywebplugins.ilga.globals import COUNTRY_CODES
+for code in COUNTRY_CODES:
+  space = 'country-%s'%code
+  for i in ["public", "private"]:
+    store_structure['bags']['%s_%s'%(space, i)] = {
+      'desc': "country profile space for %s"%code,
+      'policy': store_structure['bags']['frontpage_%s'%i]['policy']
+    }
