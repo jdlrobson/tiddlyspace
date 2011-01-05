@@ -21,7 +21,7 @@ TIDDLYWIKI_BETA = resource_filename(PACKAGE_NAME, 'resources/beta.html')
 config = {
     'instance_tiddlers': get_tiddler_locations(store_contents, PACKAGE_NAME),
     'atom.default_filter': 'select=tag:!excludeLists;sort=-modified;limit=20',
-    'auth_systems': ['cookie_form', 'tiddlywebplugins.tiddlyspace.openid'],
+    'auth_systems': ['cookie_form', 'tiddlywebplugins.tiddlyspace.openid', 'tiddlywebplugins.ilga.tiddlyspacelogin'],
     'bag_create_policy': 'ANY',
     'recipe_create_policy': 'ANY',
     'css_uri': '/bags/common/tiddlers/tiddlyweb.css',
