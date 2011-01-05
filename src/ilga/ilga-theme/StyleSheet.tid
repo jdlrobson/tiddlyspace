@@ -15,6 +15,18 @@ heading:
 image_caption: 
 
 /*{{{*/
+.backstagePanelBody {
+	opacity: 0.92;
+	background-color: white;
+}
+
+body #backstagePanel {
+	background-color: black;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-o-border-radius: 0px 0px 5px 5px;
+}
+
 #displayArea {
 margin: auto;
 }
@@ -186,10 +198,6 @@ z-index: 300;
 .authoringTools td {
   border: none;
   text-align: center;
-}
-
-body #backstage #backstagePanel {
-  background-color: white;
 }
 
 .tiddler pre {
