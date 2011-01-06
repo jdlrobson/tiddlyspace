@@ -1,0 +1,18 @@
+tags: excludeLists package##mod
+
+<!--{{{-->
+			<div class='saveLocation' macro="setPublishBag"></div>
+			<span 
+				macro='aet type:checkbox metaDataName:addtohomepage autosavechanges:true'>
+			</span>
+			<span macro="translate_ilga add_slideshow"></span>?<br/>
+			<span macro='aet type:checkbox metaDataName:addtoorganisationpage autosavechanges:true'>
+			</span>
+			<span macro="translate_ilga add_slideshow_org"></span>?
+			<div>
+				<span macro="translate_ilga add_slideshow_footer"></span> 
+				<span macro='aet type:checkbox metaDataName:flaggedfortranslation autosavechanges:true'>
+				</span>
+				<span macro="translate_ilga flag_for_translation"></span>
+			</div>
+<!--}}}-->

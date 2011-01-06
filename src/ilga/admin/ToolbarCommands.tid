@@ -1,0 +1,21 @@
+modifier: jon
+created: 20101112111149
+modified: 20101112111149
+type: None
+tags: excludeLists
+article_file: 
+image: 
+article_source_name: 
+ctype: articledraft
+summary: 
+publishlevel: move
+_hash: 5b1b2498df5423b501175f8684d2511139f92c83
+article_file_name: 
+article_source_url: 
+heading: 
+image_caption: 
+
+|~ViewToolbar|+editTiddler cloneTiddler closeTiddler|
+|~EditToolbar|+saveTiddler -cancelTiddler deleteTiddler|
+|~RevisionToolbar|> fields revert|
+

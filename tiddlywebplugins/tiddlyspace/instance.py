@@ -34,6 +34,8 @@ store_contents['system-plugins_public'] = ['src/system-plugins/index.recipe']
 store_contents['system-theme_public'] = ['src/system-theme/index.recipe']
 store_contents['system-images_public'] = ['src/system-images/index.recipe']
 store_contents['frontpage_public'] = ['src/frontpage/index.recipe']
+store_contents['profile_public'] = ['src/ilga/profile/index.recipe']
+store_contents['admin_public'] = ['src/ilga/admin/index.recipe']
 
 store_structure['bags']['common']['policy'] = \
     store_structure['bags']['system']['policy']
@@ -85,6 +87,8 @@ spaces = {
     'system-info': 'TiddlySpace default information tiddlers',
     'system-plugins': 'TiddlySpace system plugins',
     'system-images': 'TiddlySpace default images and icons',
+    'profile': 'ILGA Country Profiles for TiddlySpace',
+    'admin': 'Moderate articles for ILGA.org'
 }
 
 #  setup system space public bags and recipes
@@ -155,9 +159,38 @@ store_structure['bags']['MAPSPACE'] = {
 #setup countries
 from tiddlywebplugins.ilga.globals import COUNTRY_CODES
 for code in COUNTRY_CODES:
-  space = 'country-%s'%code
-  for i in ["public", "private"]:
-    store_structure['bags']['%s_%s'%(space, i)] = {
-      'desc': "country profile space for %s"%code,
-      'policy': store_structure['bags']['frontpage_%s'%i]['policy']
+  space = code
+  description = 'country profile space for %s'%(code),
+  for i in ['public', 'private']:
+    name = '%s_%s'%(space, i)
+    frontpagename = 'frontpage_%s'%i
+    store_structure['bags'][name] = {
+      'desc': description,
+      'policy': store_structure['bags'][frontpagename]['policy']
     }
+
+  publicbag = "%s_public"%space
+  privatebag = "%s_private"%space
+  store_structure['recipes'][publicbag] = {
+      'desc': description,
+      'recipe': [
+          ('system', ''),
+          ('tiddlyspace', ''),
+          ('system-theme_public', ''),
+          ('system-plugins_public', ''),
+          ('system-images_public', ''),
+          ('profile_public', ''),
+          (publicbag, ''),
+      ],
+      'policy': {
+          'read': [],
+          'write': ['R:ADMIN'],
+          'manage': ['R:ADMIN'],
+          'delete': ['R:ADMIN'],
+          'owner': 'administrator',
+      },
+  }
+  store_structure['recipes'][privatebag] = deepcopy(
+      store_structure['recipes'][publicbag])
+  store_structure['recipes'][privatebag]['recipe'].append(
+      (privatebag, ''))

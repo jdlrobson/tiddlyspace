@@ -1,0 +1,29 @@
+modifier: jon
+created: 20101124094448
+modified: 20101217144228
+type: None
+tags: excludeLists
+article_file: 
+image: 
+article_source_name: 
+ctype: articledraft
+summary: 
+publishlevel: move
+_hash: c19fbd2ada6d893a9e375ef735c4dfa8fc27daaf
+article_file_name: 
+article_source_url: 
+heading: 
+image_caption: 
+
+{{groupHeading{
+!<<tiddler SiteTitle>>
+{{missionStatement{
+Provide information for this country's profile. If you have an ILGA username and password please contact the ILGA team with the information you hold to be added as a contributor to this page.
+}}}
+}}}
+
+{{authoringTools{
+|<<image lawIcon height:96>>|<<image moodIcon height:96>>|<<image movementIcon height:96>>|<<image campaignIcon height:96>>|
+|[[Law]]|[[Mood]]|[[Movement]]|[[Campaign]]|
+}}}
+

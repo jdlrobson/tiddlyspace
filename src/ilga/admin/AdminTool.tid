@@ -1,0 +1,23 @@
+modifier: jon
+created: 20101112111150
+modified: 20101115122953
+type: None
+tags: excludeLists
+article_source_name: 
+image: 
+ctype: articledraft
+summary: 
+video: 
+publishlevel: move
+_hash: 25548f777d83e43d6aac9224f721ab474afa42cf
+article_file_name: 
+article_source_url: 
+heading: 
+image_caption: 
+
+<<toggleAuthorMode>>
+{{authoringTools{
+|<<image pencil 48 48>>|<<image editTiddlerReadOnly 48 48>>|
+|<<newTiddler label:"new article" guid:yes guid_suffix:"_en">>|[[activity|Activity]]|
+
+}}}
