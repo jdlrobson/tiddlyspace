@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceInstaller|
-|''Version''|0.3.12|
+|''Version''|0.3.13|
 !Usage
 {{{<<showInstall bar Foo>>}}}
 Opens the tiddler Foo to visitors of the bar space. 
@@ -26,7 +26,7 @@ config.macros.showInstall = {
 };
 var macro = config.macros.install = {
 	locale: {
-		spaceName: "Choose a website address:",
+		spaceName: "Choose a website address (note this will also be your tiddlyspace username):",
 		identity: "Logged in as %0.",
 		spaceCreationError: "Failed to create space %0",
 		password: "Enter a password:",
