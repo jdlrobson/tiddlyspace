@@ -1,7 +1,7 @@
 type: None
 tags: excludeSearch excludeLists
 
-|~ViewToolbar|+editTiddler  +cloneTiddler closeTiddler|
+|~ViewToolbar|+editTiddler closeTiddler|
 |~EditToolbar|+saveTiddler -cancelTiddler deleteTiddler|
 |~EditToolbarProfile|+saveTiddler -cancelTiddler|
 |~RevisionToolbar|> fields revert|
