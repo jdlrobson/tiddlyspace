@@ -3,7 +3,7 @@
 |''Version''|0.3.4dev|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
-|''Requires''|TiddlySpaceConfig TiddlySpaceBackstage|
+|''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier|
 !Notes
 !macros
 Provides macros
@@ -24,6 +24,7 @@ backToMyActivism
 ***/
 //{{{
 (function($) {
+var ILGA_HOST = "http://ilga.org";
 config.options.chkBackstage = false;
 var tweb = config.extensions.tiddlyweb;
 var tiddlyspace = config.extensions.tiddlyspace;
@@ -51,7 +52,7 @@ config.macros.templateSection = {
 	handler: function(place, macroName, params, wikifier,
 		paramString, tiddler) {
 		var section = params[0];
-		var group = params[1] || "default-group"
+		var group = params[1] || "default-group";
 		var args = paramString.parseParams("anon")[0];
 		var el = story.findContainingTiddler(place);
 		$("[section][group=%0]".format(group), el).hide();
@@ -60,7 +61,6 @@ config.macros.templateSection = {
 			var s = $(target).data("section");
 			var g = $(target).data("group");
 			var el = story.findContainingTiddler(target);
-			console.log("show section", s,g );
 			$("[section][group=%0]".format(g)).hide();
 			var selector = "[section=%0][group=%1]".format(s, g);
 			$(selector, el).show();
@@ -73,7 +73,7 @@ config.macros.templateSection = {
 		if(params[2]) {
 			window.setTimeout(
 				function() {
-					showSection(place)
+					showSection(place);
 				}, 100); // wait for it to load
 		}
 	}
@@ -93,7 +93,7 @@ config.macros.ilgaPermalink = {
 		var split = title.split("_");
 		var language = split[1];
 		var id = split[0];
-		var url = "http://ilga.org/ilga/%0/article/%1".format(language, id);
+		var url = "%0/ilga/%1/article/%2".format(ILGA_HOST, language, id);
 		var container = $("<a />").attr("href", url).
 			text("on ilga.org").appendTo(place)[0];
 	}
@@ -109,7 +109,7 @@ config.macros.isPublic = {
 			$(place).remove();
 		}
 	}
-}
+};
 /* a macro to print the tags being used in a non-standard way */
 // todo: KILL
 config.macros.articletags = {
@@ -247,7 +247,7 @@ var setPublish = config.macros.setPublishBag = {
 			wsEl = $("<input />").attr("type", "hidden").attr("edit", "server.workspace").appendTo(place)[0];
 		}
 
-		$(bagEl).val(bag)
+		$(bagEl).val(bag);
 		$(wsEl).val(workspace);
 	},
 	handler: function(place,macroName,params,wikifier,paramString,tiddler){
@@ -262,12 +262,11 @@ var setPublish = config.macros.setPublishBag = {
 			}
 		}, 500);
 	}
-}
+};
 /* creates links in the correct language */
 config.macros.ilga_link = {
 	handler:function(place,macroName,params,wikifier,paramString,tiddler){
 		var lang = DEFAULT_LANGUAGE;
-		var url = "";
 		var translate = function(id){
 			var t = config.translator(id);
 			if(!t) {
@@ -277,9 +276,9 @@ config.macros.ilga_link = {
 			}
 		};
 		var container = $("<span />").appendTo(place);
-		tweb.getStatus(function(s) {
+		tweb.getStatus(function(status) {
 			var sh = s.server_host;
-			var url = "%0://%1".format([sh.scheme, sh.host]);
+			var url = ILGA_HOST;
 			var linkName = params[0];
 			if(linkName == "home") {
 				content = translate("Home");
@@ -396,7 +395,7 @@ if(config.macros.niceTagger){
 	config.macros.niceTagger.lingo.add = translate("addtag");
 }
 if(config.macros.editvideo){
-	config.macros.editvideo.enableflash =	translate("cantuploadvideo");
+	config.macros.editvideo.enableflash = translate("cantuploadvideo");
 	config.macros.editvideo.unsupported = translate("addunsupportedvideo");
 }
 if(config.commands.unpublisharticle){
@@ -457,7 +456,9 @@ if(typeof(config.extensions.chkEditorMode) == "undefined") {
 config.macros.toggleAuthorMode = {
 	handler: function(place) {
 		var mode = config.options.chkEditorMode;
-		if(readOnly) mode = false;
+		if(readOnly) {
+			mode = false;
+		}
 		var toggle = function(btn, firstTime) {
 			var newMode;
 			if(!firstTime) {
@@ -481,9 +482,11 @@ config.macros.toggleAuthorMode = {
 			toggle(ev.target);
 		}).appendTo(place);
 		toggle(btn, true);
-		if(readOnly) btn.remove();
+		if(readOnly) {
+			btn.remove();
+		}
 	}
-}
+};
 
 // update link to take a label
 config.macros.view.views.link = function(value,place,params,wikifier,paramString,tiddler) {
@@ -494,11 +497,12 @@ config.macros.view.views.link = function(value,place,params,wikifier,paramString
 	if(params[2]) {
 		$(btn).text(label);
 	}
-}
+};
 
 tiddlyspace.disableTab(["Backstage##Identities", "Backstage##Password", "Backstage##Tiddlers",
 	"Backstage##Options", "Backstage##Export", "AdvancedOptions"]);
 
+$(document.body).addClass("language-" + DEFAULT_LANGUAGE);
 })(jQuery);
 //}}}
 
