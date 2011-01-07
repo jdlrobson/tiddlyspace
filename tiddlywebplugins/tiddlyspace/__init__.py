@@ -31,7 +31,7 @@ from tiddlywebplugins.prettyerror import PrettyHTTPExceptor
 import tiddlywebplugins.status
 
 
-__version__ = '0.9.54'
+__version__ = '0.9.55'
 
 
 def init(config):
@@ -169,6 +169,8 @@ def _status_gather_data(environ):
         store.get(User(usersign))
     except NoUserError:
         data['username'] = 'GUEST'
+        if usersign != 'GUEST':
+          data['identity'] = usersign
     return data
 
 
