@@ -8,4 +8,12 @@ mission: <<tiddler SiteSubtitle>>
 }}}
 }}}
 
-|[[NEWS]]|[[Videos]]|[[Contact]]|
+{{enVersion{
+|[[NEWS|NEWS]]|[[Videos]]|[[Contact]]|
+}}}{{frVersion{
+|[[Nouvelles|NEWS]]|[[Vidéo|Videos]]|[[Contact]]|
+}}}{{esVersion{
+|[[Artículos|NEWS]]|[[Video|Videos]]|[[Contact]]|
+}}}{{ptVersion{
+|[[Notícias|NEWS]]|[[Vidéo|Videos]]|[[Contact]]|
+}}}

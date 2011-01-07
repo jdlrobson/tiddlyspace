@@ -1,13 +1,19 @@
 tags: excludeLists package##common
 
-!Help
-Help [[GettingStarted]].
+<<languageToggler>>
 !Create
-{{authoringToolsButtons{
+{{authoringToolsButtons enVersion{
 |<<newTiddler label:"new article" guid:yes guid_suffix:"_en">>|<<newTiddler label:"new video" guid:yes guid_suffix:"_en" tag:video template:videoEditTemplate>>|
 }}}
-!Collaborate
-<<TiddlySpaceMembers add>>
-!Create new space
-Want to say something that's not relevant here? Feel free to create a new space.
-<<install ilgadev>>
+{{authoringToolsButtons frVersion{
+|<<newTiddler label:"Écrivez un nouvel article" guid:yes guid_suffix:"_fr">>|
+}}}
+{{authoringToolsButtons esVersion{
+|<<newTiddler label:"Escribe un nuevo artículo" guid:yes guid_suffix:"_es">>|
+}}}
+{{authoringToolsButtons ptVersion{
+|<<newTiddler label:"Escreva um artigo" guid:yes guid_suffix:"_fr">>|
+}}}
+
+!Help
+[[GettingStarted]]

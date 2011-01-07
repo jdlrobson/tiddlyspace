@@ -5,6 +5,20 @@ tags: excludeLists excludeSearch
 	opacity: 0.92;
 	background-color: white;
 }
+.enVersion,
+.frVersion,
+.esVersion,
+.ptVersion
+{
+	display: none;
+}
+
+.language-pt .ptVersion,
+.language-es .esVersion,
+.language-fr .frVersion,
+.language-en .enVersion {
+	display: block;
+}
 
 body #backstagePanel {
 	background-color: black;
