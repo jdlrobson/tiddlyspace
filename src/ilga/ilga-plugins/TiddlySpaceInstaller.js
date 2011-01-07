@@ -1,6 +1,7 @@
 /***
 |''Name''|TiddlySpaceInstaller|
-|''Version''|0.3.13|
+|''Version''|0.3.14|
+|''Requires''|GUID|
 !Usage
 {{{<<showInstall bar Foo>>}}}
 Opens the tiddler Foo to visitors of the bar space. 
@@ -113,7 +114,7 @@ var macro = config.macros.install = {
 			var pass2 = $("[name=pass2]", ev.target).val();
 			options.paramifier = paramifier;
 			if(userInfo.anon && identity) {
-				pass = "p" + Math.random();
+				pass = macro.generatePassword();
 				macro.installNewUser(user, pass, options.includeSpaces, options);
 			} else if(userInfo.anon && pass != pass2) {
 				alert(locale.passwordError);
@@ -125,6 +126,11 @@ var macro = config.macros.install = {
 				alert("Please enter a website address");
 			}
 		});
+	},
+	generatePassword: function() {
+		var guid = config.extensions.GuidPlugin;
+		return guid ? guid.guid.generate() + "_" + guid.guid.generate() :
+			"" + Math.random() * 1000;
 	},
 	installNewUser: function(username, password, includes, options) {
 		var user = new tiddlyweb.User(username, password, tweb.host);

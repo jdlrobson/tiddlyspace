@@ -26,7 +26,7 @@ tags: excludeLists package##article
 			</table>
 		</div>
 	</div>
-	<div class='title theme_color' macro='view server.title permalink no heading'></div>
+	<div class='title theme_color' macro='view heading text'></div>
 	<div class='subtitle'>
 		[[AdminSubtitle]]
 		<span class='author'>by: <span macro='view creator spaceLink'></span>
