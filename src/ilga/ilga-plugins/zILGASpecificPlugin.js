@@ -495,6 +495,10 @@ config.macros.view.views.link = function(value,place,params,wikifier,paramString
 		$(btn).text(label);
 	}
 }
+
+tiddlyspace.disableTab(["Backstage##Identities", "Backstage##Password", "Backstage##Tiddlers",
+	"Backstage##Options", "Backstage##Export", "AdvancedOptions"]);
+
 })(jQuery);
 //}}}
 

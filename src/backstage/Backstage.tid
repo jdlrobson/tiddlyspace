@@ -39,9 +39,8 @@ running TiddlySpace@glossary version <<message extensions.tiddlyweb.status.tiddl
 }}}
 
 !Resources
-[[blog|@@blog]]
+[[ilga.org|http://ilga.org]]
 [[documentation|@@docs]]
-[[featured spaces|@@featured]]
 
 !Search
 <<tsSearch>>
@@ -76,8 +75,7 @@ You can associate your account with multiple identities. If you have an open id 
 {{backstageClear{}}}
 
 !Login
-<<TiddlySpaceLogin>>
-<<TiddlySpaceRegister>>
+[[login to use|/challenge/tiddlywebplugins.ilga.tiddlyspacelogin?tiddlyweb_redirect=%2F]]
 
 !Options
 upload a <<message messages.privacySetting>> file:
