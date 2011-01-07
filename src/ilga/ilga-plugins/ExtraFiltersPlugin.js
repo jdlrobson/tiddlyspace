@@ -1,7 +1,7 @@
 /***
 |''Name''|ExtraFilters|
 |''Author''|Jon Robson|
-|''Version''|0.5.8|
+|''Version''|0.5.9|
 |''Status''|@@experimental@@|
 |''Requires''|TiddlySpaceFilters ImageMacroPlugin|
 |''CodeRepository''|<...>|
@@ -10,6 +10,7 @@
 adds the following filters {{{
 [is[image]] - returns only image tiddlers (e.g. png, jpeg, gif etc..)
 [is[svg]] - returns only svg tiddlers
+[isnot[image]] - filters result of previous filters for ones that are not images
 [notag[<tag>]] - filters result of previous filters for ones without a tag
 [nofield[<field>]] - check for absence of field or field value in previous filters
 [has[<field or attribute>]] - match tiddlers which have a field or attribute set.
@@ -19,6 +20,20 @@ adds the following filters {{{
 //{{{
 config.filterHelpers.is.image = config.macros.image.isImageTiddler;
 config.filterHelpers.is.svg = config.macros.image.isSVGTiddler;
+
+config.filters.isnot = function(candidates, match) {
+	var type = match[3];
+	var results = [];
+	for (var i = 0; i < candidates.length; i++) {
+		var tiddler = candidates[i];
+		var helper = config.filterHelpers.is[type];
+		if(helper && !helper(tiddler)) {
+			results.pushUnique(tiddler);
+		}
+	}
+	return results;
+};
+
 config.filters.notag = function(results, match) {
   var tag = match[3];
   var newResults = [];
