@@ -1,18 +1,4 @@
-modifier: jon
-created: 20101111175437
-modified: 20101207131858
-type: None
 tags: excludeLists excludeSearch
-article_source_name: 
-image: 
-ctype: articledraft
-summary: 
-publishlevel: move
-_hash: e10a553edced0e1471868a98a90408c9772d4329
-article_file_name: 
-article_source_url: 
-heading: 
-image_caption: 
 
 /*{{{*/
 .backstagePanelBody {
