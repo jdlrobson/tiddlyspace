@@ -7,7 +7,10 @@
 (function() {
 
 var _close = Story.prototype.closeTiddler;
-config.extensions.history = {};
+config.extensions.history = { ignoreChange: true };
+window.setTimeout(function() {
+	config.extensions.history.ignoreChange = false;
+}, 2000);
 
 Story.prototype.closeTiddler = function(title,animate,unused) {
 	_close.apply(this, arguments);

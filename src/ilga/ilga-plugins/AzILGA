@@ -584,6 +584,19 @@ config.macros.languageToggler = {
 	}
 };
 
+config.paramifiers.translate = {
+	onstart: function(url) {
+		config.paramifiers.clone(url, function(tiddler) {
+			var title = tiddler.title;
+			var parts = title.split("_");
+			if(parts.length == 2) {
+				tiddler.title = parts[0] + "_" + DEFAULT_LANGUAGE;
+			}
+			return tiddler;
+		});
+	}
+};
+
 $(document.body).addClass("language-" + DEFAULT_LANGUAGE);
 })(jQuery);
 //}}}
