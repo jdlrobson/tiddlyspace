@@ -1,8 +1,10 @@
 tiddler: TiddlySpaceInstaller.js
 tiddler: zILGASpecificPlugin.js
 tiddler: TaggedTemplateTweak.tid
+tiddler: TiddlySpaceCloneTiddlerParamifier.js
 tiddler: RecursiveParamifiedTextPlugin.tid
 tiddler: NewListPlugin.tid
+tiddler: GUIDExtension.js
 tiddler: NewGUIDTiddlersPlugin.js
 tiddler: ExtraFiltersPlugin.js
 tiddler: http://svn.tiddlywiki.org/Trunk/contributors/JonRobson/plugins/niceTagging/plugins/NiceTaggingPlugin.js
