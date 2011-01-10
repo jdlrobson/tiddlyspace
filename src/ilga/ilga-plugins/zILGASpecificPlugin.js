@@ -276,7 +276,7 @@ config.macros.ilga_link = {
 			}
 		};
 		var container = $("<span />").appendTo(place);
-		tweb.getStatus(function(status) {
+		tweb.getStatus(function(s) {
 			var sh = s.server_host;
 			var url = ILGA_HOST;
 			var linkName = params[0];
