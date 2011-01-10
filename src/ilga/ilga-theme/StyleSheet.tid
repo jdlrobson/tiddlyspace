@@ -5,6 +5,12 @@ tags: excludeLists excludeSearch
 	opacity: 0.92;
 	background-color: white;
 }
+
+.tiddler .translationLinks a,
+.tiddler .translationLinks span {
+	margin-right: 4px;
+}
+
 .enVersion,
 .frVersion,
 .esVersion,

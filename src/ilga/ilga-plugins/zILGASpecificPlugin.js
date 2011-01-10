@@ -25,6 +25,7 @@ backToMyActivism
 //{{{
 (function($) {
 var ILGA_HOST = "http://ilga.org";
+var LANGUAGES = ["en", "fr", "es", "pt"];
 config.options.chkBackstage = false;
 var tweb = config.extensions.tiddlyweb;
 var tiddlyspace = config.extensions.tiddlyspace;
@@ -580,6 +581,40 @@ config.macros.languageToggler = {
 			DEFAULT_LANGUAGE = $(ev.target).val();
 			$(document.body).addClass("language-" + DEFAULT_LANGUAGE);
 			refreshAll();
+		});
+	}
+};
+
+config.paramifiers.translate = {
+	onstart: function(url) {
+		config.paramifiers.clone.clone(url, function(tiddler) {
+			var title = tiddler.title;
+			var parts = title.split("_");
+			if(parts.length == 2) {
+				tiddler.title = parts[0] + "_" + DEFAULT_LANGUAGE;
+			}
+			store.addTiddler(tiddler);
+			return tiddler;
+		});
+	}
+};
+
+config.macros.translateLink = {
+	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
+		if(!tiddler || !tiddler.fields["server.bag"] || !config.filterHelpers.is["public"](tiddler)) {
+			return;
+		}
+		var container = $("<div />").addClass("translationLinks").appendTo(place)[0];
+		var workspace = "bags/%0/tiddlers/%1".format(tiddler.fields["server.bag"], tiddler.title);
+		tweb.getUserInfo(function(user) {
+			$("<span />").text(translate("translate_articles")).appendTo(container)[0];
+			var host = tweb.status.server_host;
+			var url = config.extensions.tiddlyspace.getHost(host, user.name);
+			for(var i = 0; i < LANGUAGES.length; i++) {
+				var lang = LANGUAGES[i];
+				var href = "%0?language=%1#translate:[[%2]]".format(url, lang, workspace);
+				$("<a />").attr("href", href).text(translate(lang)).appendTo(container);
+			}
 		});
 	}
 };
