@@ -75,7 +75,7 @@ You can associate your account with multiple identities. If you have an open id 
 {{backstageClear{}}}
 
 !Login
-[[login to use|/challenge/tiddlywebplugins.ilga.tiddlyspacelogin?tiddlyweb_redirect=%2F]]
+<<TiddlySpaceLogin tiddlywebplugins.ilga.tiddlyspacelogin>>
 
 !TabOpenID
 <<TiddlySpaceLogin openid>>
