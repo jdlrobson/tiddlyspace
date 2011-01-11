@@ -6,3 +6,22 @@ tags: excludeLists excludeSearch
 	<<binaryUploadPublic title:SiteIcon>>
 }}}
 
+!ArticleTemplate
+{{newsitem{
+{{left{
+{{photo{
+<<view video video 100 100>><<view image image width:90 height:90 preserveAspectRatio:yes>>}}}
+}}}
+{{footer{
+{{heading{
+<<view title link labelField:heading>>
+}}}
+{{subtitle{<<view created date>> | <<view country text>>}}}
+{{summary{
+<<view summary text>>
+}}}
+<<view title link 'read more...'>>
+}}}
+}}}
+{{clearboth{
+}}}
