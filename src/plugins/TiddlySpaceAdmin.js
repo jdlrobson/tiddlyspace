@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceAdmin|
-|''Version''|0.5.5|
+|''Version''|0.5.6|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/|
 |''Requires''|TiddlySpaceConfig TiddlySpaceFormsPlugin|
@@ -30,15 +30,15 @@ var tsl = config.macros.TiddlySpaceLogin = {
 		tweb.getUserInfo(function(user) {
 			if(user.anon) {
 				var template, handler;
-				if(type === "basic") {
-					template = tsl.basicFormTemplate;
-					handler = function(ev, form) {
-						return tsl.basicLogin(form);
-					};
-				} else {
+				if(type == "openid"){
 					var challenger = "tiddlywebplugins.tiddlyspace.openid";
 					handler = "%0/challenge/%1".format(tweb.host, challenger);
 					template = tsl.openidFormTemplate;
+				} else {
+					template = tsl.basicFormTemplate;
+					handler = function(ev, form) {
+						return tsl.basicLogin(form, type);
+					};
 				}
 				formMaker.make(container, template, handler, { locale: admin.locale.login });
 			} else {
@@ -55,17 +55,18 @@ var tsl = config.macros.TiddlySpaceLogin = {
 			$(container).html(msg.format([link]));
 		});
 	},
-	basicLogin: function(form) {
+	basicLogin: function(form, challenger) {
+		challenger = challenger ? challenger : "cookie_form";
 		var username = $(form).find("[name=username]").val();
 		var password = $(form).find("[name=password]").val();
 		this.login(username, password, tsl.redirect, function(xhr, error, exc) { // TODO: DRY (cf. displayMembers)
 			var msg = { 401: admin.locale.forbiddenError.format(username) };
 			formMaker.displayMessage(form, msg[xhr.status], true, { annotate: "[name=username],[name=password]" });
-		});
+		}, challenger);
 		return false;
 	},
-	login: function(username, password, callback, errback) {
-		var challenger = "cookie_form";
+	login: function(username, password, callback, errback, challenger) {
+		challenger = challenger ? challenger : "cookie_form";
 		var uri = "%0/challenge/%1".format([tweb.host, challenger]);
 		ajaxReq({ url: uri, type: "POST", success: callback,
 			data: {
