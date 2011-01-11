@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.4dev|
+|''Version''|0.3.5|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier|
@@ -454,40 +454,6 @@ if(typeof(config.extensions.chkEditorMode) == "undefined") {
 	config.options.chkEditorMode = true;
 	saveOptionCookie("chkEditorMode");
 }
-config.macros.toggleAuthorMode = {
-	handler: function(place) {
-		var mode = config.options.chkEditorMode;
-		if(readOnly) {
-			mode = false;
-		}
-		var toggle = function(btn, firstTime) {
-			var newMode;
-			if(!firstTime) {
-				mode = config.options.chkEditorMode;
-				newMode = mode ? false : true;
-			} else {
-				newMode = mode;
-			}
-			config.options.chkEditorMode = newMode;
-			saveOptionCookie("chkEditorMode");
-			$("body").removeClass("isEditor isReader");
-			if(newMode) {
-				$("body").addClass("isEditor");
-				$(btn).text("switch to view mode");
-			} else {
-				$("body").addClass("isReader");
-				$(btn).text("switch to edit mode");
-			}
-		};
-		var btn = $("<a />").click(function(ev) {
-			toggle(ev.target);
-		}).appendTo(place);
-		toggle(btn, true);
-		if(readOnly) {
-			btn.remove();
-		}
-	}
-};
 
 // update link to take a label
 config.macros.view.views.link = function(value,place,params,wikifier,paramString,tiddler) {
@@ -567,24 +533,23 @@ tiddlyspace.disableTab(["Backstage##Identities", "Backstage##Password", "Backsta
 
 config.macros.languageToggler = {
 	handler: function(place) {
-		var select = $("<select />").appendTo(place)[0];
+		var handler = function(ev) {
+			$(document.body).removeClass("language-" + DEFAULT_LANGUAGE);
+			DEFAULT_LANGUAGE = $(ev.target).text().toLowerCase();
+			$(document.body).addClass("language-" + DEFAULT_LANGUAGE);
+			refreshAll();
+		};
 		var languages = ["en", "fr", "es", "pt"];
 		for(var i = 0; i < languages.length; i++) {
 			var lang = languages[i];
-			var val = lang == DEFAULT_LANGUAGE ? "" : lang;
-			var label = translate(lang);
-			var opt = $("<option />").val(val).
-				text(label).appendTo(select)[0];
+			var val = lang == DEFAULT_LANGUAGE ? false : lang;
+			var link = $("<a />").attr("href", "script:;").
+				text(lang.toUpperCase()).appendTo(place)[0];
 			if(!val) {
-				$(opt).attr("selected", true);
+				$(link).click(handler);
 			}
 		}
-		$(select).change(function(ev) {
-			$(document.body).removeClass("language-" + DEFAULT_LANGUAGE);
-			DEFAULT_LANGUAGE = $(ev.target).val();
-			$(document.body).addClass("language-" + DEFAULT_LANGUAGE);
-			refreshAll();
-		});
+		
 	}
 };
 
@@ -621,6 +586,25 @@ config.macros.translateLink = {
 		});
 	}
 };
+
+/***
+|''Name''|AuthenticationCssPlugin|
+|''Version''|0.1.0|
+|''Description''|Adds classes for styling purposes based on membership|
+|''Requires''|TiddlySpaceConfig|
+***/
+config.extensions.tiddlyweb.getUserInfo(function(user) {
+    if(user.anon) {
+        $("body").addClass("anonymousUser");
+    } else {
+        $("body").addClass("loggedInUser");
+    }
+});
+
+if(readOnly) {
+    $("body").addClass("readOnly");
+}
+
 
 $(document.body).addClass("language-" + DEFAULT_LANGUAGE);
 })(jQuery);

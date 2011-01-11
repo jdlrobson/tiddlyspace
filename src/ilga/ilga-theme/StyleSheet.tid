@@ -11,6 +11,19 @@ tags: excludeLists excludeSearch
 	margin-right: 4px;
 }
 
+.readOnly .hideReadOnly {
+	display: none;
+}
+
+.pageToolbar {
+	background-color: white;
+	border: 2px solid black;
+}
+
+.languageTab a {
+	display: block;
+}
+
 .enVersion,
 .frVersion,
 .esVersion,
@@ -87,36 +100,6 @@ width: 100%;
 border: none;
 text-align: center;
 width: 25%;
-}
-
-#adminToolbar {
-position: fixed;
-_position: absolute;
-right: 5px;
-top: 20px;
-background-color:white;
-border:1px solid #CCCCCC;
-padding:5px;
-position:fixed;
-right:0;
-top:20px;
-width:300px;
-z-index:200;
--o-border-radius: 10px;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-}
-
-#adminToolbar input {
-width: 100px;
-border: solid 1px #ccc;
-background-color: white;
-}
-
-#adminToolbar input[type=submit] {
-margin-left:5px;
-border: solid 1px black;
-background-color: white;
 }
 
 .article .text img {
