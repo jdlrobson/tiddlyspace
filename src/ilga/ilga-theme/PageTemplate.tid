@@ -9,7 +9,8 @@ tags: excludeLists package##theme
 	<div id='topPage'>
 		<div id="header">
 			<div id='topBanner'>
-				<span macro="image SiteIcon width:150 height:90 preserveAspectRatio:yes"></span>
+				<span macro="SiteIcon 150 90"></span>
+				<span class='editPopup' macro='TiddlerPopUp Templates##ChangeSiteIcon edit'></span>
 			</div>
 			<div id='pageTitle'>
 				<h1 class='foreground' tiddler="SiteTitle"></h1>

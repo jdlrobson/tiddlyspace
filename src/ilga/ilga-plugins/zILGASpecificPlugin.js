@@ -587,6 +587,15 @@ config.macros.translateLink = {
 	}
 };
 
+config.macros.SiteIcon = {
+	handler: function(place, macroName, params) {
+		var width = params[0] || 48;
+		var height = params[1] || 48;
+		tiddlyspace.renderAvatar(place, tiddlyspace.currentSpace.name,
+			{ imageOptions: { imageClass:"spaceSiteIcon", height: height, width: width, preserveAspectRatio: true }});
+	}
+};
+
 /***
 |''Name''|AuthenticationCssPlugin|
 |''Version''|0.1.0|

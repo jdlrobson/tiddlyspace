@@ -6,11 +6,20 @@ tags: excludeLists excludeSearch
 	background-color: white;
 }
 
+#topBanner .editPopup a.popupLink {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	color: #ccc;
+	text-align: right;
+}
+
 .tiddler .translationLinks a,
 .tiddler .translationLinks span {
 	margin-right: 4px;
 }
 
+.readOnly #topBanner a.popupLink,
 .readOnly .hideReadOnly {
 	display: none;
 }

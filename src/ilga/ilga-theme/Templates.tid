@@ -1,0 +1,8 @@
+tags: excludeLists excludeSearch
+
+!ChangeSiteIcon
+{{uploadSiteIcon{
+	Change your SiteIcon@glossary
+	<<binaryUploadPublic title:SiteIcon>>
+}}}
+
