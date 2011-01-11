@@ -514,7 +514,7 @@ var helloArticle = {
 };
 var contactArticle = {
 	heading: "Contact our group",
-	text: ["<html><p>You can play contact details for your space here.</p>",
+	text: ["<html><p>You can put contact details for your space here.</p>",
 	"<p>You could link to the ",
 	"<a href='http://ilga.org/directory/en/'>ILGA directory</a>, ",
 	"<a href='http://twitter.com/ILGAWORLD'>twitter</a> or a ",
@@ -537,15 +537,18 @@ merge(config.extensions.TiddlySpaceInit, {
 			tiddler.fields.heading = helloArticle.heading;
 			tiddler.fields.summary = helloArticle.summary;
 			tiddler.tags = ["help"];
+			tiddler.fields.region = "WORLD";
 			tiddler.creator = user.name;
 			tiddler.text = helloArticle.text;
 			merge(tiddler.fields, config.defaultCustomFields);
 			tiddlers.push(store.saveTiddler(tiddler));
 			tiddler = new Tiddler("Contact");
 			tiddler.fields.heading = contactArticle.heading;
+			tiddler.fields.region = "WORLD";
 			tiddler.text = contactArticle.text;
 			merge(tiddler.fields, config.defaultCustomFields);
 			tiddler.tags = ["contact"];
+			tiddler.creator = user.name;
 			tiddlers.push(store.saveTiddler(tiddler));
 			autoSaveChanges(null, tiddlers);
 			story.displayTiddler(null, title);
