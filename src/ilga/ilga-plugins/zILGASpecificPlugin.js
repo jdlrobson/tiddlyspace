@@ -559,7 +559,9 @@ config.paramifiers.translate = {
 			var title = tiddler.title;
 			var parts = title.split("_");
 			if(parts.length == 2) {
-				tiddler.title = parts[0] + "_" + DEFAULT_LANGUAGE;
+				newTitle = parts[0] + "_" + DEFAULT_LANGUAGE;
+				tiddler.title = newTitle
+				tiddler.fields["server.title"] = newTitle;
 			}
 			store.addTiddler(tiddler);
 			return tiddler;
@@ -572,6 +574,10 @@ config.macros.translateLink = {
 		if(!tiddler || !tiddler.fields["server.bag"] || !config.filterHelpers.is["public"](tiddler)) {
 			return;
 		}
+		var articleLanguage = tiddler.title.split("_")[1];
+		if(!articleLanguage) {
+			return;
+		}
 		var container = $("<div />").addClass("translationLinks").appendTo(place)[0];
 		var workspace = "bags/%0/tiddlers/%1".format(tiddler.fields["server.bag"], tiddler.title);
 		tweb.getUserInfo(function(user) {
@@ -580,8 +586,10 @@ config.macros.translateLink = {
 			var url = config.extensions.tiddlyspace.getHost(host, user.name);
 			for(var i = 0; i < LANGUAGES.length; i++) {
 				var lang = LANGUAGES[i];
-				var href = "%0?language=%1#translate:[[%2]]".format(url, lang, workspace);
-				$("<a />").attr("href", href).text(translate(lang)).appendTo(container);
+				if(lang != articleLanguage) {
+					var href = "%0?language=%1#translate:[[%2]]".format(url, lang, workspace);
+					$("<a />").attr("href", href).text(translate(lang)).appendTo(container);
+				}
 			}
 		});
 	}
