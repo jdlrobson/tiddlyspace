@@ -1,10 +1,10 @@
 /***
 |''Name''|HistoryPlugin|
-|''Version''|0.2.0|
+|''Version''|0.2.1|
 |''Description''|Auto generates permaviews as you open and close tiddlers. Back button allows you to flick back to previous stories on modern browsers.|
 ***/
 //{{{
-(function() {
+(function($) {
 
 var _close = Story.prototype.closeTiddler;
 config.extensions.history = { ignoreChange: true };
@@ -24,16 +24,17 @@ Story.prototype.closeTiddler = function(title,animate,unused) {
 var _display = Story.prototype.displayTiddler;
 Story.prototype.displayTiddler = function(srcElement,tiddler,template,animate,unused,customFields,toggle,animationSrc)
 {
-	_display.apply(this, arguments);
+	var el = _display.apply(this, arguments);
 	if(!config.extensions.history.ignoreChange) {
-		story.permaView();
+		story.permaView(); // to do: dont create permaview for sucked in tiddlers ?
 	}
+	return el;
 };
 
 var hashchange = function(ev) {
 		if(!config.extensions.history.ignoreChange) {
 			config.extensions.history.ignoreChange = true;
-			story.closeAllTiddlers();
+			story.closeAllTiddlers(); // TODO: don't close 'sucked in tiddlers'
 			var p = getParameters();
 			if(p) {
 				invokeParamifier(p.parseParams("open",null,false), "onstart");
@@ -44,5 +45,5 @@ var hashchange = function(ev) {
 
 window.onhashchange = hashchange;
 
-})();
+})(jQuery);
 //}}}
