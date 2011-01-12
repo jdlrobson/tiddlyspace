@@ -1,21 +1,3 @@
-modifier: jon
-created: 20101207191606
-modified: 20101208124303
-type: None
-tags: systemConfig excludeLists
-_tinymce: tinymce-3
-article_source_name: 
-image: 
-article_file: 
-ctype: articledraft
-summary: 
-publishlevel: move
-_hash: f29af59a3767c549c547a091ead7955ee1a93f2e
-image_caption: 
-article_file_name: 
-heading: 
-article_source_url: 
-
 /***
 |''Name''|RecursiveParamifiedTextPlugin|
 |''Description''|Extends recursive tiddler text to take parameters when title: keywords is present|
