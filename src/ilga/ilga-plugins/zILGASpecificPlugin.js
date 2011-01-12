@@ -37,13 +37,12 @@ var userIsAdmin = document.cookie.indexOf('admin="') != -1;
 TWEAKS
 ********************************/
 /* make displayTiddler add a class template_<templatename> to the tiddler for styling purposes*/
-story.oldDisplayTiddler = story.displayTiddler;
-story.displayTiddler =function(srcElement,tiddler,template,animate,unused,customFields,toggle,animationSrc){
-	this.oldDisplayTiddler(srcElement,tiddler,template,animate,unused,customFields,toggle,animationSrc);
-	var tiddlers = $(".tiddler").each(function(i, el) {
-		var name = $(el).attr("template");
-		$(el).addClass("template_"+name);
-	});
+var _oldDisplayTiddler = story.displayTiddler;
+story.displayTiddler = function(args){
+	var el = _oldDisplayTiddler.apply(this, arguments);
+	var name = $(el).attr("template");
+	$(el).addClass("template_"+name);
+	return el;
 };
 config.options.chkHttpReadOnly = false;
 /*********************************
@@ -433,22 +432,9 @@ config.commands.cancelTiddler.warning = translate("abandonTiddler");
 merge(config.commands.deleteTiddler,{warning: translate("deleteTiddlerWarning")});
 
 //language for error/success messages
-config.extensions.ServerSideSavingPlugin.reportSuccess = function(msg, tiddler) {
-	var bag = tiddler.fields['server.bag'];
-	if(!bag) {
-		bag = "general";
-	}
-	msg = config.translator("savesuccess."+bag);
-	if(!msg) {
-		msg = config.translator("savesuccess.general");
-	}
-	if(tiddler.tags.contains("excludeMissing")) {
-		msg = config.translator("deletesuccess");
-		refreshDisplay();
-	}
-	msg = msg.replace("%s",tiddler.title);
-	displayMessage(msg);
-};
+merge(config.extensions.ServerSideSavingPlugin.locale, {
+	saved: config.translator("savesuccess.general")
+});
 
 if(typeof(config.extensions.chkEditorMode) == "undefined") {
 	config.options.chkEditorMode = true;
@@ -543,9 +529,9 @@ config.macros.languageToggler = {
 		for(var i = 0; i < languages.length; i++) {
 			var lang = languages[i];
 			var val = lang == DEFAULT_LANGUAGE ? false : lang;
-			var link = $("<a />").attr("href", "script:;").
+			var link = $("<a />").attr("href", "javascript:;").
 				text(lang.toUpperCase()).appendTo(place)[0];
-			if(!val) {
+			if(val) {
 				$(link).click(handler);
 			}
 		}
