@@ -142,6 +142,10 @@ list-style: none;
 display: block;
 }
 
+.groupHeading h1 {
+	display: inline-block;
+	margin-right: 8px;
+}
 .groupHeading {
 text-align: center;
 }

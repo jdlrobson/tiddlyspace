@@ -17,3 +17,4 @@ tiddler: http://svn.tiddlywiki.org/Trunk/contributors/JonRobson/plugins/AET/plug
 tiddler: http://svn.tiddlywiki.org/Trunk/contributors/JonRobson/plugins/AET/plugins/AETPluginVideo.js
 tiddler: HistoryPlugin.js
 tiddler: TiddlerPopupPlugin.js
+tiddler: InlineEditPlugin.js

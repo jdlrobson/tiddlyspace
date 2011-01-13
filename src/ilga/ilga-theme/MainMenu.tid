@@ -3,8 +3,9 @@ tags: excludeLists package##theme
 
 {{groupHeading{
 !<<tiddler SiteTitle>>
+<<TiddlerPopUp Templates##ChangeSiteTitle edit>>
 {{missionStatement{
-mission: <<tiddler SiteSubtitle>>
+mission: <<tiddler SiteSubtitle>> <<TiddlerPopUp Templates##ChangeSiteSubtitle edit>>
 }}}
 }}}
 

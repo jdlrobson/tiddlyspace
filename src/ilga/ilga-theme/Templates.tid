@@ -6,6 +6,14 @@ tags: excludeLists excludeSearch
 	<<binaryUploadPublic title:SiteIcon>>
 }}}
 
+!ChangeSiteSubtitle
+Update your mission:
+<<inlineEdit text SiteSubtitle>>
+
+!ChangeSiteTitle
+Update your space name:
+<<inlineEdit text SiteTitle>>
+
 !ArticleTemplate
 {{newsitem{
 {{left{
