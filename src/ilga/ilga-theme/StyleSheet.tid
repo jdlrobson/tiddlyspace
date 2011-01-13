@@ -1,6 +1,20 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+body #backstageArea {
+	height: 80px;
+}
+body #backstageArea .pageToolbar a {
+	color: black;
+}
+#backstageArea .pageToolbar a:hover {
+	color: #ccc;
+}
+
+.pageToolbar {
+	position: absolute;
+	top: 30px;
+}
 .backstagePanelBody {
 	opacity: 0.92;
 	background-color: white;

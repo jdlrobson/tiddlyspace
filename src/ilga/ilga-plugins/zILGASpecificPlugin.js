@@ -26,7 +26,6 @@ backToMyActivism
 (function($) {
 var ILGA_HOST = "http://ilga.org";
 var LANGUAGES = ["en", "fr", "es", "pt"];
-config.options.chkBackstage = false;
 var tweb = config.extensions.tiddlyweb;
 var tiddlyspace = config.extensions.tiddlyspace;
 config.macros.tiddlerOrigin.locale.publishPrivateDeletePrivate = "Are you sure you want to publish this article?";
@@ -608,6 +607,10 @@ if(readOnly) {
     $("body").addClass("readOnly");
 }
 
+window.setTimeout(function() {
+var container = jQuery("<div />").addClass("pageToolbar").appendTo("#backstageArea")[0];
+wikify(store.getTiddlerText("AdminTool"), container);
+}, 1000);
 
 $(document.body).addClass("language-" + DEFAULT_LANGUAGE);
 })(jQuery);

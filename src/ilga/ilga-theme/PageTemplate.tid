@@ -2,7 +2,6 @@ type: None
 tags: excludeLists package##theme
 
 <!--{{{-->
-<div class='hideReadOnly pageToolbar' tiddler="AdminTool" refresh="content"></div>
 <div id='page' class='theme_default'>
 	<div class='rainbow_splash_left'></div>
 	<div class='rainbow_splash_right'></div>
