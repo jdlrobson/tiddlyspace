@@ -16,28 +16,27 @@ var formMaker = config.extensions.formMaker;
 var tsl = config.macros.TiddlySpaceLogin = {
 	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
 		var locale = tsl.locale;
-		var type = params[0];
+		var challenger = params[0];
 		this.name = macroName;
 		var container = $("<div />", { className: this.name }).appendTo(place)[0];
 		var args = paramString.parseParams("name", null, true, false, true)[0];
 		var options = {};
 		options.message = args.message ? args.message[0] : false;
-		this.refresh(container, type, options);
+		this.refresh(container, challenger, options);
 	},
-	refresh: function(container, type, options) {
-		type = type || "basic";
+	refresh: function(container, challenger, options) {
 		$(container).empty();
 		tweb.getUserInfo(function(user) {
 			if(user.anon) {
 				var template, handler;
-				if(type == "openid"){
+				if(challenger == "openid"){
 					var challenger = "tiddlywebplugins.tiddlyspace.openid";
 					handler = "%0/challenge/%1".format(tweb.host, challenger);
 					template = tsl.openidFormTemplate;
 				} else {
 					template = tsl.basicFormTemplate;
 					handler = function(ev, form) {
-						return tsl.basicLogin(form, type);
+						return tsl.basicLogin(form, challenger);
 					};
 				}
 				formMaker.make(container, template, handler, { locale: admin.locale.login });
