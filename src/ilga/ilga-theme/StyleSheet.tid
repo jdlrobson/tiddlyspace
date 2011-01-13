@@ -1,6 +1,11 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.popup {
+	padding: 8px;
+	border: 1px solid #CCC;
+}
+
 body #backstageArea {
 	height: 80px;
 }
