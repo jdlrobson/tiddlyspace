@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.5|
+|''Version''|0.3.6|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier|
@@ -453,7 +453,8 @@ config.macros.view.views.link = function(value,place,params,wikifier,paramString
 
 //Initialisation stuff
 var _firstRun = config.extensions.TiddlySpaceInit.firstRun;
-var helloArticle = {
+var default_articles = [{
+	image: "%0/ilga/static/images/graphics/ilga_logo.png".format(ILGA_HOST),
 	heading: "My First Article",
 	summary: "This example article gives you basic instructions for writing your own articles",
 	text: ["<html><p>This is your first article in your new activist space. It is currently <b>private</b>",
@@ -462,8 +463,10 @@ var helloArticle = {
 	" on the <img src='/bags/tiddlyspace/tiddlers/privateIcon' alt='private icon' /> to make it public.</p>",
 	"<p>The best articles will be published on ilga.org linking back to your space.</p>",
 	"</html>"].join("")
-};
-var contactArticle = {
+},
+{
+	title: "Contact",
+	image: "%0/ilga/static/images/graphics/unknown.jpg".format(ILGA_HOST),
 	heading: "Contact our group",
 	text: ["<html><p>You can put contact details for your space here.</p>",
 	"<p>You could link to the ",
@@ -471,7 +474,7 @@ var contactArticle = {
 	"<a href='http://twitter.com/ILGAWORLD'>twitter</a> or a ",
 	"<a href='http://www.facebook.com/pages/ILGA-World/160359780661454'>facebook</a> page.",
 	"</p><p>Alternatively don't have one at all! Completely up to you...</p>", "</html>"].join("")
-};
+}];
 
 
 merge(config.extensions.TiddlySpaceInit, {
@@ -481,29 +484,25 @@ merge(config.extensions.TiddlySpaceInit, {
 		var res = _firstRun.apply(this, arguments);
 		config.options.chkPrivateMode = true;
 		config.defaultCustomFields["server.workspace"] = tiddlyspace.getCurrentWorkspace("private");
-		var title = config.extensions.GuidPlugin.guid.generate() + "_" + DEFAULT_LANGUAGE;
 		tweb.getUserInfo(function(user) {
 			var tiddlers = [];
-			var tiddler = new Tiddler(title);
-			tiddler.fields.heading = helloArticle.heading;
-			tiddler.fields.summary = helloArticle.summary;
-			tiddler.tags = ["help"];
-			tiddler.fields.region = "WORLD";
-			tiddler.creator = user.name;
-			tiddler.text = helloArticle.text;
-			merge(tiddler.fields, config.defaultCustomFields);
-			tiddlers.push(store.saveTiddler(tiddler));
-			tiddler = new Tiddler("Contact");
-			tiddler.fields.heading = contactArticle.heading;
-			tiddler.fields.region = "WORLD";
-			tiddler.text = contactArticle.text;
-			merge(tiddler.fields, config.defaultCustomFields);
-			tiddler.tags = ["contact"];
-			tiddler.creator = user.name;
-			tiddlers.push(store.saveTiddler(tiddler));
+			for(var i = 0; i < default_articles.length; i++) {
+				var article = default_articles[i];
+				var title = article.title ||
+					config.extensions.GuidPlugin.guid.generate() + "_" + DEFAULT_LANGUAGE;
+				var tiddler = new Tiddler(title);
+				tiddler.fields.heading = article.heading;
+				tiddler.fields.summary = article.summary;
+				tiddler.tags = ["article"];
+				tiddler.fields.region = "WORLD";
+				tiddler.fields.image = article.image;
+				tiddler.creator = user.name;
+				tiddler.text = article.text;
+				merge(tiddler.fields, config.defaultCustomFields);
+				tiddlers.push(store.saveTiddler(tiddler));
+				story.displayTiddler(null, title);
+			}
 			autoSaveChanges(null, tiddlers);
-			story.displayTiddler(null, title);
-			story.displayTiddler(null, "Contact");
 		});
 		window.setTimeout(function() {
 			config.options.chkPrivateMode = true;
@@ -608,8 +607,8 @@ if(readOnly) {
 }
 
 window.setTimeout(function() {
-var container = jQuery("<div />").addClass("pageToolbar").appendTo("#backstageArea")[0];
-wikify(store.getTiddlerText("AdminTool"), container);
+	var container = $("<div />").addClass("pageToolbar hideReadOnly").appendTo("#backstageArea")[0];
+	wikify(store.getTiddlerText("AdminTool"), container);
 }, 1000);
 
 $(document.body).addClass("language-" + DEFAULT_LANGUAGE);
