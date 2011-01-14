@@ -5,9 +5,6 @@ tags: excludeLists package##admin
 <div class='article article_editor'>
 	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div> 
 	<div class='left'>
-		<div class='language' macro='view language hiddeninput'></div>
-		<input type='hidden' edit='publishlevel' value='move'/>
-		<input type='hidden' edit='ctype' value='articledraft'/>
 		edit title:
 		<div macro="edit title"></div>
 	</div>
