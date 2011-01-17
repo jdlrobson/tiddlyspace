@@ -30,7 +30,7 @@ var tweb = config.extensions.tiddlyweb;
 var tiddlyspace = config.extensions.tiddlyspace;
 config.macros.tiddlerOrigin.locale.publishPrivateDeletePrivate = "Are you sure you want to publish this article?";
 config.options.txtTemplateTweakFieldname = "tags";
-var userIsAdmin = document.cookie.indexOf('admin="') != -1;
+var userIsAdmin = document.cookie.indexOf('admin="') !== -1;
 
 /*********************************
 TWEAKS
@@ -113,6 +113,7 @@ config.macros.isPublic = {
 // todo: KILL
 config.macros.articletags = {
 	handler: function(place,macroName,params,wikifier,paramString,tiddler){
+		var t;
 		params = paramString.parseParams("anon",null,true,false,false);
 		var ul = createTiddlyElement(place,"span");
 		var title = getParam(params,"anon","");
@@ -122,7 +123,7 @@ config.macros.articletags = {
 		var sep = getParam(params,"sep"," ");
 		var lingo = config.views.wikified.tag;
 		var prompt = tiddler.tags.length === 0 ? lingo.labelNoTags : lingo.labelTags;
-		for(var t=0; t<tiddler.tags.length; t++) {
+		for(t=0; t<tiddler.tags.length; t++) {
 			createTagButton(createTiddlyElement(ul,"span"),tiddler.tags[t],tiddler.title);
 			if(t<tiddler.tags.length-1) {
 				createTiddlyText(ul,sep);
@@ -140,7 +141,7 @@ config.macros.ilga_translation_message = {
 		if(str && original){
 			var original_lang_str = config.translator(original);
 			var resource =tiddler.title;
-			if(resource.charAt(resource.length-3) == "_") {
+			if(resource.charAt(resource.length-3) === "_") {
 				resource = resource.substr(0,resource.length-3);
 			}
 			var original_link = "/ilga/recipes/editprofile/tiddlers.wiki?language="+original+"#[["+resource+"]]";
@@ -190,19 +191,19 @@ config.macros.ProfileNameFromTitle = {
 		var moodStartsAt = title.length-4;
 		var introStartsAt =title.length-5;
 		var movementcampaignStartsAt = title.length-8;
-		if(title.substr(lawStartsAt) == 'Law'){
+		if(title.substr(lawStartsAt) === 'Law'){
 			wikify(decodeURI(title.substr(0,lawStartsAt)),place);
 		}
 
-		if(title.substr(moodStartsAt) == 'Mood'){
+		if(title.substr(moodStartsAt) === 'Mood'){
 			wikify(decodeURI(title.substr(0,moodStartsAt)),place);
 		}
-		if(title.substr(introStartsAt) == 'Intro'){
+		if(title.substr(introStartsAt) === 'Intro'){
 			wikify(decodeURI(title.substr(0,introStartsAt)),place);
 		}
 
-		if(title.substr(movementcampaignStartsAt) == 'Movement' ||
-			title.substr(movementcampaignStartsAt) == 'Campaign') {
+		if(title.substr(movementcampaignStartsAt) === 'Movement' ||
+			title.substr(movementcampaignStartsAt) === 'Campaign') {
 			wikify(decodeURI(title.substr(0,movementcampaignStartsAt)),place);
 		}
 	}
@@ -279,22 +280,22 @@ config.macros.ilga_link = {
 			var sh = s.server_host;
 			var url = ILGA_HOST;
 			var linkName = params[0];
-			if(linkName == "home") {
+			if(linkName === "home") {
 				content = translate("Home");
 				url += "/ilga/"+lang+"/index.html";
-			} else if(linkName == "myactivismtab"){
+			} else if(linkName === "myactivismtab"){
 				url += "/ilga/"+lang+"/myactivism";
 				content = translate("whatsyouractivism");
-			} else if(linkName == "myactivism"){
+			} else if(linkName === "myactivism"){
 				url += "/ilga/"+lang+"/myactivism";
 				content = translate("My Activism");
-			} else if(linkName == "admin"){
+			} else if(linkName === "admin"){
 				url += "/ilga/"+lang+"/admin";
 				content = translate("admin");
-			} else if(linkName == "directory") {
+			} else if(linkName === "directory") {
 				url += "/ilga/"+lang+"/directory";
 				content = translate("directory");
-			} else if(linkName == "space") {
+			} else if(linkName === "space") {
 				url = tiddlyspace.getHost(sh, tiddlyspace.currentSpace.name);
 				content = store.getTiddlerText("SiteTitle");
 			} else {
@@ -338,7 +339,7 @@ config.macros.translate_ilga = {
 			translation = config.translatorErrorMsg(id);
 		}
 		$(place).attr("translation-id", id);
-		if(params[1] == 'wikified'){
+		if(params[1] === 'wikified'){
 			wikify(translation, place);
 		} else{
 			$(place).append(translation);		
@@ -364,7 +365,7 @@ var translate = function(id){
 	}
 };
 config.messages.ilga = {};
-if(config.defaultCustomFields['server.workspace'] == 'recipes/editprofile'){
+if(config.defaultCustomFields['server.workspace'] === 'recipes/editprofile'){
 	config.messages.ilga.topLeftHeader = config.translator("myactivism_profile_1");
 	config.messages.ilga.topLeftText = config.translator("myactivism_profile_3");
 	config.messages.ilga.topRightTextSmall ="";
@@ -435,7 +436,7 @@ merge(config.extensions.ServerSideSavingPlugin.locale, {
 	saved: config.translator("savesuccess.general")
 });
 
-if(typeof(config.extensions.chkEditorMode) == "undefined") {
+if(typeof(config.extensions.chkEditorMode) === "undefined") {
 	config.options.chkEditorMode = true;
 	saveOptionCookie("chkEditorMode");
 }
@@ -481,12 +482,13 @@ merge(config.extensions.TiddlySpaceInit, {
 	siteIconTags: ["excludeLists", "image"],
 	SiteSubtitle: "Mission: Save the world one LGBTI person at a time",
 	firstRun: function() {
+		var i;
 		var res = _firstRun.apply(this, arguments);
 		config.options.chkPrivateMode = true;
 		config.defaultCustomFields["server.workspace"] = tiddlyspace.getCurrentWorkspace("private");
 		tweb.getUserInfo(function(user) {
 			var tiddlers = [];
-			for(var i = 0; i < default_articles.length; i++) {
+			for(i = 0; i < default_articles.length; i++) {
 				var article = default_articles[i];
 				var title = article.title ||
 					config.extensions.GuidPlugin.guid.generate() + "_" + DEFAULT_LANGUAGE;
@@ -517,6 +519,7 @@ tiddlyspace.disableTab(["Backstage##Identities", "Backstage##Password", "Backsta
 
 config.macros.languageToggler = {
 	handler: function(place) {
+		var i;
 		var handler = function(ev) {
 			$(document.body).removeClass("language-" + DEFAULT_LANGUAGE);
 			DEFAULT_LANGUAGE = $(ev.target).text().toLowerCase();
@@ -524,9 +527,9 @@ config.macros.languageToggler = {
 			refreshAll();
 		};
 		var languages = ["en", "fr", "es", "pt"];
-		for(var i = 0; i < languages.length; i++) {
+		for(i = 0; i < languages.length; i++) {
 			var lang = languages[i];
-			var val = lang == DEFAULT_LANGUAGE ? false : lang;
+			var val = lang === DEFAULT_LANGUAGE ? false : lang;
 			var link = $("<a />").attr("href", "javascript:;").
 				text(lang.toUpperCase()).appendTo(place)[0];
 			if(val) {
@@ -542,9 +545,9 @@ config.paramifiers.translate = {
 		config.paramifiers.clone.clone(url, function(tiddler) {
 			var title = tiddler.title;
 			var parts = title.split("_");
-			if(parts.length == 2) {
+			if(parts.length === 2) {
 				newTitle = parts[0] + "_" + DEFAULT_LANGUAGE;
-				tiddler.title = newTitle
+				tiddler.title = newTitle;
 				tiddler.fields["server.title"] = newTitle;
 			}
 			store.addTiddler(tiddler);
@@ -555,6 +558,7 @@ config.paramifiers.translate = {
 
 config.macros.translateLink = {
 	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
+		var i;
 		if(!tiddler || !tiddler.fields["server.bag"] || !config.filterHelpers.is["public"](tiddler)) {
 			return;
 		}
@@ -568,9 +572,9 @@ config.macros.translateLink = {
 			$("<span />").text(translate("translate_articles")).appendTo(container)[0];
 			var host = tweb.status.server_host;
 			var url = config.extensions.tiddlyspace.getHost(host, user.name);
-			for(var i = 0; i < LANGUAGES.length; i++) {
+			for(i = 0; i < LANGUAGES.length; i++) {
 				var lang = LANGUAGES[i];
-				if(lang != articleLanguage) {
+				if(lang !== articleLanguage) {
 					var href = "%0?language=%1#translate:[[%2]]".format(url, lang, workspace);
 					$("<a />").attr("href", href).text(translate(lang)).appendTo(container);
 				}
@@ -594,7 +598,7 @@ config.macros.SiteIcon = {
 |''Description''|Adds classes for styling purposes based on membership|
 |''Requires''|TiddlySpaceConfig|
 ***/
-config.extensions.tiddlyweb.getUserInfo(function(user) {
+tweb.getUserInfo(function(user) {
     if(user.anon) {
         $("body").addClass("anonymousUser");
     } else {
@@ -612,11 +616,11 @@ window.setTimeout(function() {
 }, 1000);
 
 $(document.body).addClass("language-" + DEFAULT_LANGUAGE);
-if(config.extensions.tiddlyspace.reservedBags) {
+if(tiddlyspace.reservedBags) {
 	tiddlyspace.reservedBags = tiddlyspace.reservedBags.concat([
 		"published_articles_en", "published_articles_fr", "published_articles_es", "published_articles_pt",
 		"comments_en", "comments_fr", "comments_es", "comments_pt", "ILGA"]);
 }
-})(jQuery);
+}(jQuery));
 //}}}
 
