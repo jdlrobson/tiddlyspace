@@ -5,7 +5,6 @@ tags: excludeLists package##article
 		<div>
 			<span class='prompt' macro="translate_ilga 'Article Title'"></span>:
 		</div>
-		<span style='display:none;' macro='edit title'></span>
 		<div class='title left_input' macro='edit heading'></div>
 		<div>
 			<span class='prompt' macro="translate_ilga Summary"></span>:
