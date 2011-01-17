@@ -3,8 +3,9 @@ tags: excludeLists
 
 {{groupHeading{
 !<<tiddler SiteTitle>>
+<<TiddlerPopUp Templates##ChangeSiteTitle edit>>
 {{missionStatement{
-Provide information for this country's profile. If you have an ILGA username and password please contact the ILGA team with the information you hold to be added as a contributor to this page.
+<<tiddler SiteSubtitle>> <<TiddlerPopUp Templates##ChangeSiteSubtitle edit>>
 }}}
 }}}
 
