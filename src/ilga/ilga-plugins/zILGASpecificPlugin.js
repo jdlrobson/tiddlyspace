@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.6|
+|''Version''|0.3.7dev|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier|
@@ -479,7 +479,7 @@ var default_articles = [{
 
 merge(config.extensions.TiddlySpaceInit, {
 	siteIconTags: ["excludeLists", "image"],
-	SiteSubtitle: "Save the world one LGBTI person at a time",
+	SiteSubtitle: "Mission: Save the world one LGBTI person at a time",
 	firstRun: function() {
 		var res = _firstRun.apply(this, arguments);
 		config.options.chkPrivateMode = true;

@@ -5,7 +5,7 @@ tags: excludeLists package##theme
 !<<tiddler SiteTitle>>
 <<TiddlerPopUp Templates##ChangeSiteTitle edit>>
 {{missionStatement{
-mission: <<tiddler SiteSubtitle>> <<TiddlerPopUp Templates##ChangeSiteSubtitle edit>>
+<<tiddler SiteSubtitle>> <<TiddlerPopUp Templates##ChangeSiteSubtitle edit>>
 }}}
 }}}
 
