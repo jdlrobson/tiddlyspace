@@ -159,7 +159,7 @@ store_structure['bags']['MAPSPACE'] = {
 #setup countries
 from tiddlywebplugins.ilga.globals import COUNTRY_CODES
 for code in COUNTRY_CODES:
-  space = code
+  space = code.lower()
   description = 'country profile space for %s'%(code),
   for i in ['public', 'private']:
     name = '%s_%s'%(space, i)
