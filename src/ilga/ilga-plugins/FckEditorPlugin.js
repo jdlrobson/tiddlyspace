@@ -30,7 +30,7 @@ On the plugin [[homepage|http://visualtw.ouvaton.org/VisualTW.html]], see and ed
 ***/
 //{{{
 
-config.options.txtFCKeditorPath =  "/ilga/static/javascript/fckeditor/";
+config.options.txtFCKeditorPath =  "/static/javascript/fckeditor/";
 config.options.txtFCKCustomConfigScript = config.options.txtFCKCustomConfigScript ? config.options.txtFCKCustomConfigScript : "";
 config.options.txtFCKToolbar = config.options.txtFCKToolbar ? config.options.txtFCKToolbar : "";
 config.options.txtFCKheight = config.options.txtFCKheight ? config.options.txtFCKheight : "500px";
