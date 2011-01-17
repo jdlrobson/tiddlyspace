@@ -3,7 +3,7 @@
 |''Version''|0.3.7dev|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
-|''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier|
+|''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
 !Notes
 !macros
 Provides macros
@@ -612,6 +612,11 @@ window.setTimeout(function() {
 }, 1000);
 
 $(document.body).addClass("language-" + DEFAULT_LANGUAGE);
+if(config.extensions.tiddlyspace.reservedBags) {
+	tiddlyspace.reservedBags = tiddlyspace.reservedBags.concat([
+		"published_articles_en", "published_articles_fr", "published_articles_es", "published_articles_pt",
+		"comments_en", "comments_fr", "comments_es", "comments_pt", "ILGA"]);
+}
 })(jQuery);
 //}}}
 
