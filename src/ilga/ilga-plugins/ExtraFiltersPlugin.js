@@ -1,7 +1,7 @@
 /***
 |''Name''|ExtraFilters|
 |''Author''|Jon Robson|
-|''Version''|0.5.9|
+|''Version''|0.5.10|
 |''Status''|@@experimental@@|
 |''Requires''|TiddlySpaceFilters ImageMacroPlugin|
 |''CodeRepository''|<...>|
@@ -15,11 +15,32 @@ adds the following filters {{{
 [nofield[<field>]] - check for absence of field or field value in previous filters
 [has[<field or attribute>]] - match tiddlers which have a field or attribute set.
 [and[<filter expression>]] - e.g.[and[tag:foo]] checks all tiddlers from previous filters for a tag foo.
+[nobag[foo]] - removes any tiddlers previously returned by a previous filter that belong to the given bag
 }}}
 ***/
 //{{{
+(function($) {
 config.filterHelpers.is.image = config.macros.image.isImageTiddler;
 config.filterHelpers.is.svg = config.macros.image.isSVGTiddler;
+
+config.filterHelpers.is.external = function(tiddler) {
+	var endsWith = config.extensions.BinaryTiddlersPlugin.endsWith;
+	var fields = tiddler.fields;
+	var bag = fields["server.bag"] || "";
+	var local = config.filterHelpers.is.local(tiddler);
+	if(!local && endsWith(bag, "_public")) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+config.filterHelpers.is.privateAndExternal = function(tiddler) {
+	var endsWith = config.extensions.BinaryTiddlersPlugin.endsWith;
+	var fields = tiddler.fields;
+	var bag = fields["server.bag"] || "";
+	return !config.filterHelpers.is.local(tiddler) && endsWith(bag, "_private");
+};
 
 config.filters.isnot = function(candidates, match) {
 	var type = match[3];
@@ -32,6 +53,18 @@ config.filters.isnot = function(candidates, match) {
 		}
 	}
 	return results;
+};
+
+config.filters.nobag = function(results, match) {
+	var bag = match[3];
+	var newResults = [];
+  for(var i = 0; i < results.length; i++) {
+    var tiddler = results[i];
+    if(tiddler.fields["server.bag"] !== bag) {
+      newResults.push(tiddler);
+    }
+  }
+  return newResults;
 };
 
 config.filters.notag = function(results, match) {
@@ -96,5 +129,38 @@ config.filters.has = function(results, match) {
 		}
 	});
 	return results;
-}
+};
+
+var scanMacro = config.macros.tsScan;
+config.filterHelpers.loadingTiddler = new Tiddler("Loading...");
+config.filterHelpers.loadingTiddler.text = "loading...";
+config.filterHelpers.loadingTiddler["msg.loading"] = "loading...";
+config.filterHelpers.url = {};
+config.filters.url = function(results, match) {
+	var url = match[3];
+	var tiddlers = config.filterHelpers.url[url];
+	if(tiddlers) {
+		return tiddlers;
+	} else if(!status) {
+		config.filterHelpers.url[url] = [ config.filterHelpers.loadingTiddler ];
+		$.ajax({type:"get", url: url, dataType: "json", success: function(jstiddlers) {
+			var tiddlers = scanMacro._tiddlerfy(jstiddlers, {});
+			config.filterHelpers.url[url] = tiddlers;
+			story.refreshAllTiddlers();
+		}, error: function() {
+			displayMessage("unable to connect to %0".format(url));
+		}
+		});
+	}
+	return config.filterHelpers.url[url];
+};
+
+config.filters.today = function(results, match) {
+	var today = new Date();
+	var previous = new Date(today.setDate(today.getDate() - parseInt(match[3], 10)));
+	var timestamp = previous.convertToYYYYMMDDHHMM().substr(0, 8) + "*";
+	var url = "/search?q=modified:%0".format(timestamp);
+	return config.filters.url(results, [null, null, null, url]);
+};
+}(jQuery));
 //}}}

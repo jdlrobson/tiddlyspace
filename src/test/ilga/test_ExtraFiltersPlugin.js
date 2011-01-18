@@ -1,8 +1,16 @@
 (function(module, $) {
 
-var testTiddlers, _tids;
+var testTiddlers, _tids, _binary;
 module("ILGA: ExtraFiltersPlugin", {
 	setup: function() {
+		_binary = config.extensions.BinaryTiddlersPlugin;
+		config.extensions.BinaryTiddlersPlugin = {
+			endsWith: function(str) {
+				if(str == "foo_public") {
+					return true;
+				}
+			}
+		};
 		_tids = [{ title: "foo1", bag: "foo_public", foo: "", tags: ["hello"], creator: "jon" }, 
 			{ title: "foo2", tags: ["bar"], foo: "bar", bag: "foo_public"}, { title: "foo3", tags: ["bar"], bag: "foo_private"}];
 		testTiddlers = [];
@@ -20,6 +28,7 @@ module("ILGA: ExtraFiltersPlugin", {
 		}
 	},
 	teardown: function() {
+		config.extensions.BinaryTiddlersPlugin = _binary;
 		testTiddlers = null;
 		for(var i = 0; i < _tids.length; i++) {
 			store.removeTiddler(_tids[i].title);
@@ -60,6 +69,10 @@ test("has filter", function() {
 	strictEqual(res[0].title, "foo1");
 });
 
+test("nobag filter", function() {
+	var res = config.filters.nobag(testTiddlers, [null, null, null, "foo_public"]);
+	strictEqual(res.length, 1, "only 1 tiddler out of the 3 is not in the bag foo_public");
+});
 // TODO: and filter
 
 })(QUnit.module, jQuery);
