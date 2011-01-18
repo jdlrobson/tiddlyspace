@@ -31,7 +31,7 @@ from tiddlywebplugins.prettyerror import PrettyHTTPExceptor
 import tiddlywebplugins.status
 
 
-__version__ = 'ILGA.9.59'
+__version__ = 'ILGA.9.60'
 
 
 def init(config):
