@@ -1,7 +1,7 @@
 /***
 |''Name''|ExtraFilters|
 |''Author''|Jon Robson|
-|''Version''|0.5.10|
+|''Version''|0.5.11|
 |''Status''|@@experimental@@|
 |''Requires''|TiddlySpaceFilters ImageMacroPlugin|
 |''CodeRepository''|<...>|
@@ -134,7 +134,7 @@ config.filters.has = function(results, match) {
 var scanMacro = config.macros.tsScan;
 config.filterHelpers.loadingTiddler = new Tiddler("Loading...");
 config.filterHelpers.loadingTiddler.text = "loading...";
-config.filterHelpers.loadingTiddler["msg.loading"] = "loading...";
+config.filterHelpers.loadingTiddler.fields["msg.loading"] = "loading...";
 config.filterHelpers.url = {};
 config.filters.url = function(results, match) {
 	var url = match[3];
