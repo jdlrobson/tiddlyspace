@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.7dev|
+|''Version''|0.3.8|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -443,12 +443,36 @@ if(typeof(config.extensions.chkEditorMode) === "undefined") {
 
 // update link to take a label
 config.macros.view.views.link = function(value,place,params,wikifier,paramString,tiddler) {
+	var field = params[0];
 	var btn = createTiddlyLink(place,value, true);
 
 	var args = paramString.parseParams("anon")[0];
 	var label = args.labelField ? tiddler[args.labelField] || tiddler.fields[args.labelField] : args.anon[2];
 	if(params[2]) {
 		$(btn).text(label);
+	} else if(field === "title" || field === "server.title" && tiddler && tiddler.fields.heading) {
+		$(btn).text(tiddler.fields.heading);
+	}
+};
+
+var _createTiddlyLink = createTiddlyLink;
+createTiddlyLink = function(place,title,includeText,className,isStatic,linkedFromTiddler,noToggle) {
+	var el = _createTiddlyLink.apply(this, arguments);
+	if(store && title && !isStatic) {
+		var tiddler = store.getTiddler(title);
+		if(tiddler && tiddler.fields.heading && includeText) {
+			$(el).text(tiddler.fields.heading);
+		}
+	}
+	return el;
+};
+var _spaceLink = config.macros.view.views.spaceLink;
+config.macros.view.views.spaceLink = function(value,place,params,wikifier,paramString,tiddler) {
+	var args = paramString.parseParams("anon")[0];
+	var field = args.anon[2];
+	_spaceLink.apply(this, arguments);
+	if(field === "title" || field === "server.title" && tiddler && tiddler.fields.heading) {
+		$("a:last", place).text(tiddler.fields.heading);
 	}
 };
 
