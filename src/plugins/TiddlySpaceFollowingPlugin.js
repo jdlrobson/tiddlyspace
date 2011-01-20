@@ -1,9 +1,10 @@
 /***
 |''Name''|TiddlySpaceFollowingPlugin|
-|''Version''|0.6.15|
+|''Version''|0.6.17|
+=======
 |''Description''|Provides a following macro|
 |''Author''|Jon Robson|
-|''Requires''|TiddlySpaceConfig TiddlySpaceTiddlerIconsPlugin|
+|''Requires''|TiddlySpaceConfig TiddlySpaceTiddlerIconsPlugin ErrorHandler|
 |''License''|[[BSD|http://www.opensource.org/licenses/bsd-license.php]]|
 !Usage
 Tag a tiddler with "follow" to express a list of followers.
@@ -68,16 +69,8 @@ store.addNotification(name, refreshStyles);
 
 // provide support for sucking in tiddlers from the server
 tiddlyspace.displayServerTiddler = function(src, title, workspace, callback) {
-	var endsWith = config.extensions.BinaryTiddlersPlugin.endsWith;
 	var adaptor = store.getTiddlers()[0].getAdaptor();
-	var isPublic = endsWith(workspace, "_public");
-	var space = tiddlyspace.resolveSpaceName(workspace);
-	if(currentSpace == space) {
-		space = isPublic ? "public" : "private";
-	} else {
-		space = "@%0".format(space);
-	}
-	var localTitle = "%0 [%1]".format(title, space);
+	var localTitle = tiddlyspace.getLocalTitle(title, workspace);
 	var tiddler = new Tiddler(localTitle);
 	tiddler.text = "Please wait while this tiddler is retrieved...";
 	tiddler.fields.doNotSave = "true";
@@ -95,44 +88,10 @@ tiddlyspace.displayServerTiddler = function(src, title, workspace, callback) {
 			store.addTiddler(tiddler);
 			story.refreshTiddler(localTitle, null, true); // overriding existing allows updating
 			if(callback) {
-				tiddlyspace.displayReplyButton(src, tiddler);
 				callback(src, tiddler);
 			}
 		};
 		adaptor.getTiddler(title, context, null, getCallback);
-	});
-};
-tiddlyspace.displayReplyButton = function(el, tiddler) {
-	var replyLink = $(".replyLink", el);
-	if(replyLink.length > 0) {
-		el = replyLink.unbind("click").empty()[0];
-		el.onclick = null;
-	} 
-	var btn = $("<button />").addClass("reply").appendTo(el);
-	var serverTitle = tiddler.fields["server.title"];
-	var yourTiddler = store.getTiddler(serverTitle);
-	if(yourTiddler) {
-		btn.text("your version");
-	} else {
-		btn.text("reply");
-	}
-	btn.click(function(ev) {
-		if(!yourTiddler) {
-			story.displayTiddler(ev.target, serverTitle, DEFAULT_EDIT_TEMPLATE, false, null, null);
-			var tiddlerEl = story.getTiddler(serverTitle);
-			var text = yourTiddler ? yourTiddler.text : "";
-			var newFields = {};
-			merge(newFields, config.defaultCustomFields);
-			merge(newFields, { "server.workspace": tiddlyspace.getCurrentWorkspace("public") });
-			var customFields = String.encodeHashMap(newFields);
-			if(customFields) {
-				story.addCustomFields(tiddlerEl, customFields);
-			}
-			var replyTemplate = "in reply to @%0:\n<<<\n%1\n<<<\n\n%2".format(tiddler.modifier, tiddler.text, text);
-			$("[edit=text]", tiddlerEl).val(replyTemplate);
-		} else {
-			story.displayTiddler(ev.target, serverTitle, DEFAULT_VIEW_TEMPLATE, false, null, null);
-		}
 	});
 };
 
@@ -144,9 +103,6 @@ var followMacro = config.macros.followTiddlers = {
 	},
 	init: function() {
 		followMacro.lookup = {};
-	},
-	beforeSend: function(xhr) {
-		xhr.setRequestHeader("X-ControlView", "false");
 	},
 	followTag: "follow",
 	getHosts: function(callback) {
@@ -233,11 +189,7 @@ var followMacro = config.macros.followTiddlers = {
 				callback(false);
 			}
 		};
-		if(!username) {
-			tweb.getUserInfo(followersCallback);
-		} else {
-			followersCallback({ name: username });
-		}
+		return !username ? tweb.getUserInfo(followersCallback) : followersCallback({ name: username });
 	}
 };
 
@@ -319,7 +271,6 @@ var scanMacro = config.macros.tsScan = {
 				ajaxReq({
 					url: url,
 					dataType: "json",
-					beforeSend: followMacro.beforeSend,
 					success: function(tiddlers) {
 						scanMacro.scanned[url] = {
 							tiddlers: tiddlers
@@ -365,7 +316,7 @@ var scanMacro = config.macros.tsScan = {
 		return options;
 	},
 	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
-		var container = $("<div />").addClass("scanResults").appendTo(place)[0];
+		var container = $("<div />").addClass("scanResults resultsArea").appendTo(place)[0];
 		var options = scanMacro.getOptions(paramString, tiddler);
 		scanMacro.scan(container, options);
 	}
@@ -397,11 +348,7 @@ var followersMacro = config.macros.followers = {
 				scanMacro.scan(container, options);
 			}
 		};
-		if(!username) {
-			followersCallback({ name: currentSpace });
-		} else {
-			followersCallback({ name: username });
-		}
+		return !username ? followersCallback({ name: currentSpace }) : followersCallback({ name: username });
 	}
 };
 
@@ -432,11 +379,7 @@ var followingMacro = config.macros.following = {
 				scanMacro.scan(container, options);
 			}
 		};
-		if(!username) {
-			followingCallback({ name: currentSpace });
-		} else {
-			followingCallback({ name: username });
-		}
+		return !username ? followingCallback({ name: currentSpace }) : followingCallback({ name: username });
 	}
 };
 
@@ -457,10 +400,14 @@ config.macros.view.views.spaceLink = function(value, place, params, wikifier,
 		var link = createSpaceLink(place, spaceName, title, label);
 		if(args.external && args.external[0] == "no") {
 			$(link).click(function(ev) {
-				ev.preventDefault();
 				var el = $(ev.target);
-				tiddlyspace.displayServerTiddler(el[0], el.attr("tiddler"),
-					"bags/%0_public".format( el.attr("tiddlyspace") ));
+				var title = el.attr("tiddler");
+				var space = el.attr("tiddlyspace");
+				if(title && space) {
+					ev.preventDefault();
+					tiddlyspace.displayServerTiddler(el[0], title,
+						"bags/%0_public".format( space ));
+				}
 				return false;
 			});
 		}
