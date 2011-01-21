@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.8|
+|''Version''|0.3.9|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -325,16 +325,16 @@ config.macros.DEFAULT_LANGUAGE = {
 		}
 };
 
-config.translatorErrorMsg = function(id){ return "{{translate error(id:"+id+")}}";};
-config.translator = function(id, lang){
+config.translatorErrorMsg = function(id){return "{{translate error(id:"+id+")}}";};
+config.translator = function(id, lang, defaultText) {
 	lang = lang || DEFAULT_LANGUAGE;
 	if(ilga_lingo){
 		if(ilga_lingo[id] && ilga_lingo[id].sameas) {
-			return config.translator(ilga_lingo[id].sameas, lang);
+			return config.translator(ilga_lingo[id].sameas, lang, defaultText);
 		} else if(ilga_lingo[id] && ilga_lingo[id][lang]){
 			return ilga_lingo[id][lang];
 		} else{
-			return false;
+			return defaultText;
 		}
 	} else{
 		throw "No translation file has been provided";
@@ -352,7 +352,7 @@ config.macros.translate_ilga = {
 		if(params[1] === 'wikified'){
 			wikify(translation, place);
 		} else{
-			$(place).append(translation);		
+			$(place).append(translation);
 		}
 	}
 };
@@ -361,11 +361,11 @@ config.macros.translate_ilga = {
 LANGUAGE config
 fun with lingo.. 
 *********************************/
-if(config.translator("default_text")) {
-	config.views.wikified.defaultText = config.translator("default_text");
-} else {
-	config.views.wikified.defaultText = "";
-}
+
+merge(config.views.wikified, {
+	defaultText: config.translator("default_text", null, "")
+});
+
 var translate = function(id){
 	var t = config.translator(id);
 	if(!t) {
@@ -374,72 +374,29 @@ var translate = function(id){
 		return t;
 	}
 };
-config.messages.ilga = {};
-if(config.defaultCustomFields['server.workspace'] === 'recipes/editprofile'){
-	config.messages.ilga.topLeftHeader = config.translator("myactivism_profile_1");
-	config.messages.ilga.topLeftText = config.translator("myactivism_profile_3");
-	config.messages.ilga.topRightTextSmall ="";
-	config.messages.ilga.topRightTextLarge ="";
-} else{
-	config.messages.ilga.topLeftHeader = config.translator("myactivism_contribution_header");
-	config.messages.ilga.topLeftText = config.translator("myactivism_contribution_text");
-	config.messages.ilga.topRightTextSmall =config.translator("myactivism_translate_header");
-	config.messages.ilga.topRightTextLarge = config.translator("myactivism_translate_text");
-}
 
-if(config.macros.remoteviewbutton) {
-	if(config.translator("remoteViewButton_text")) {
-		config.macros.remoteviewbutton.lingo.text = config.translator("remoteViewButton_text");
-	}
-	if(config.translator("remoteViewButton_tooltip")) {
-		config.macros.remoteviewbutton.lingo.tooltip = config.translator("remoteViewButton_tooltip");
-	}
-	if(config.translator("remoteViewButton_prefix")) {
-		config.macros.remoteviewbutton.lingo.prefix = config.translator("remoteViewButton_prefix");
-	}
-}
-if(config.macros.AdvancedEditTemplate){
-	config.macros.AdvancedEditTemplate.translate = config.translator;
-}
-if(config.macros.niceTagger){
-	config.macros.niceTagger.lingo.add = translate("addtag");
-}
-if(config.macros.editvideo){
-	config.macros.editvideo.enableflash = translate("cantuploadvideo");
-	config.macros.editvideo.unsupported = translate("addunsupportedvideo");
-}
-if(config.commands.unpublisharticle){
-	config.commands.unpublisharticle.text = translate("unpublish");
-	config.commands.unpublisharticle.tooltip=translate("unpublish");
-}
-if(config.commands.saveTiddlerArticle) {
-	config.commands.saveTiddlerArticle.text = translate("save");
-}
-if(config.commands.saveTiddlerProfile) {
-	config.commands.saveTiddlerProfile.tooltip = translate("save");
-}
-if(config.commands.ILGApublishtiddler) {
-	config.commands.publishtiddler.lingo.publishSuccess = translate("publishok");
-	config.commands.ILGApublishtiddler.text= translate("publish");
-	config.commands.ILGApublishtiddler.tooltip = translate("publish");
-	config.commands.ILGApublishtiddler.confirmMsg = translate("publishConfirm");
-	config.commands.ILGApublishtiddler.saveFirstMsg = "Please save this first!";
-	config.commands.copytiddler.text= translate("publish");
-	config.commands.copytiddler.tooltip = translate("publish");
-	config.commands.copytiddler.confirmMsg = translate("publishConfirm");
-	config.commands.copytiddler.saveFirstMsg = "Please save this first!";
-}
-if(config.macros.install) {
-	config.macros.install.locale.spaceName = "";
-}
-config.commands.cancelTiddler.text = translate("cancel");
-config.commands.cancelTiddler.tooltip = translate("cancel");
+merge(config.macros.niceTagger.lingo, { add: translate("addtag") });
+merge(config.macros.AdvancedEditTemplate, { translate: config.translator }),
+merge(config.macros.install.locale, { spaceName: "" });
 
-config.optionsDesc.unsavedChangesWarning = translate("unsavedchanges");
-config.optionsDesc.confirmExit = translate("confirmexit");
-config.messages.confirmExit = translate("confirmexit");
-config.commands.cancelTiddler.warning = translate("abandonTiddler");
-merge(config.commands.deleteTiddler,{warning: translate("deleteTiddlerWarning")});
+merge(config.commands.cancelTiddler, {
+	text: translate("cancel"),
+	tooltip: translate("cancel"),
+	warning: translate("abandonTiddler")
+});
+	
+merge(config.commands.deleteTiddler, {
+	warning: translate("deleteTiddlerWarning")
+});
+
+merge(config.optionsDesc, {
+	unsavedChangesWarning: translate("unsavedchanges"),
+	confirmExit: translate("confirmexit")
+});
+
+merge(config.messages, {
+	confirmExit: translate("confirmexit")
+});
 
 //language for error/success messages
 merge(config.extensions.ServerSideSavingPlugin.locale, {
