@@ -34,15 +34,18 @@ tags: excludeLists package##article
 		<span class='location' macro="aet if:region|country">
 			in <span macro='view region ilgaRegion'></span> / <span macro='view country ilgaCountry'></span>
 		</span>
+		<div macro="aet if:deadline">
+			Deadline is: <span macro="view deadline date"></span>
+		</div>
 		<span class='publishdate'>, 
 			<span macro='view created date'></span>
 		</span>
 	</div>
 	<p></p>
 	<div class='textsummary' macro='view summary'></div>
+	<div class='author' macro='view modifier SiteIcon width:48 height:48 label:no'></div>
 	<div class='text' macro='view text wikified'></div>
 	<div macro='translateLink'></div>
 </div>
 <div class='editor_bottom'></div>
 <!--}}}-->
-
