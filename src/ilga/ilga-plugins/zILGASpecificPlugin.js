@@ -376,7 +376,7 @@ var translate = function(id){
 };
 
 merge(config.macros.niceTagger.lingo, { add: translate("addtag") });
-merge(config.macros.AdvancedEditTemplate, { translate: config.translator }),
+merge(config.macros.AdvancedEditTemplate, { translate: config.translator });
 merge(config.macros.install.locale, { spaceName: "" });
 
 merge(config.commands.cancelTiddler, {
@@ -506,7 +506,8 @@ merge(config.extensions.TiddlySpaceInit, {
 });
 
 tiddlyspace.disableTab(["Backstage##Identities", "Backstage##Password", "Backstage##Tiddlers",
-	"Backstage##Options", "Backstage##Export", "AdvancedOptions"]);
+	"Backstage##Options", "Backstage##Export", "AdvancedOptions", "Backstage##SpaceInclusions", "PluginManager",
+	"Backstage##FileImport"]);
 
 config.macros.languageToggler = {
 	handler: function(place) {

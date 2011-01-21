@@ -97,7 +97,7 @@ This space includes the public tiddlers from the following spaces:
 <<TiddlySpaceInclusion passive>>
 
 !SpaceMembers
-The following people are members of the space ''<<message extensions.tiddlyspace.currentSpace.name>>''. Only members have access to the private tiddlers in a space.
+These are the people you've given access to this page (the ''<<message extensions.tiddlyspace.currentSpace.name>>'' space). They are able to view private material as well as add, modify and delete material.
 <<TiddlySpaceMembers list>>
 <<TiddlySpaceMembers add>>
 
@@ -129,6 +129,10 @@ The following people are members of the space ''<<message extensions.tiddlyspace
 <<TiddlySpacePublisher type:public>>
 
 !UserSpaces
+Create a new space for a network of people sharing
+*the same area of interest or activity
+* a working group on any given subject
+* a federation
 <<TiddlySpaceSpaces add>>
 You are currently a member of the following spaces.
 {{inlineList{
