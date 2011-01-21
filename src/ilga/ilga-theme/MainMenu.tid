@@ -1,20 +1,7 @@
 type: None
 tags: excludeLists package##theme
 
-{{groupHeading{
-!<<tiddler SiteTitle>>
-<<TiddlerPopUp Templates##ChangeSiteTitle edit>>
-{{missionStatement{
-<<tiddler SiteSubtitle>> <<TiddlerPopUp Templates##ChangeSiteSubtitle edit>>
-}}}
+{{enVersion{
+|[[News|NEWS]]|[[Videos|Videos]] | [[Publications]] |[[Job and Events]] | [[Notes]] | [[Contact]]|
 }}}
 
-{{enVersion{
-|[[NEWS|NEWS]]|[[Videos]]|[[Contact]]|
-}}}{{frVersion{
-|[[Nouvelles|NEWS]]|[[Vidéo|Videos]]|[[Contact]]|
-}}}{{esVersion{
-|[[Artículos|NEWS]]|[[Video|Videos]]|[[Contact]]|
-}}}{{ptVersion{
-|[[Notícias|NEWS]]|[[Vidéo|Videos]]|[[Contact]]|
-}}}
