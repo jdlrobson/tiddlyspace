@@ -4,7 +4,7 @@ NAME = 'tiddlywebplugins.tiddlyspace'
 DESCRIPTION = 'A discoursive social model for TiddlyWiki'
 
 
-VERSION = '0.9.61' # NB: duplicate of tiddlywebplugins.tiddlyspace.__init__
+VERSION = 'ILGA.9.61' # NB: duplicate of tiddlywebplugins.tiddlyspace.__init__
 
 import os
 
