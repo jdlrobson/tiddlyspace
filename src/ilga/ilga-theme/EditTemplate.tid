@@ -5,13 +5,13 @@ tags: excludeLists package##article
 <div class='article article_editor'>
 	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div> 
 <!--}}}-->
-	[[EditTemplateTop]]
+	[[EditTemplateTemplates##Top]]
 <!--{{{-->
 	<div class='clearboth'></div>
 <!--}}}-->
-	[[EditTemplateText]]
-	[[EditTemplateArticleMetaData]]
-	[[EditTemplateTags]]
+	[[EditTemplateTemplates##Text]]
+	[[EditTemplateTemplates##MetaData]]
+	[[EditTemplateTemplates##Tags]]
 <!--{{{-->
 	<div class='clearboth'></div>
 </div>

@@ -5,12 +5,12 @@ tags: excludeLists excludeSearch
 <div class='article article_editor'>
 	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div> 
 <!--}}}-->
-	[[EditTemplateEssentials]]
+	[[EditTemplateTemplates##Essentials]]
 <!--{{{-->
 	<div class='clearboth'></div>
 <!--}}}-->
-	[[EditTemplateFreeText]]
-	[[EditTemplateTags]]
+	[[EditTemplateTemplates##FreeText]]
+	[[EditTemplateTemplates##Tags]]
 <!--{{{-->
 	<div class='clearboth'></div>
 </div>

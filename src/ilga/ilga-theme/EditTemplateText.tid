@@ -1,9 +1,0 @@
-type: None
-tags: excludeLists package##article
-
-<!--{{{-->
-	<div>
-		<span class='prompt' macro="translate_ilga Text"></span>:
-	</div>
-	<div class='editor_text' macro='editHtml text'></div>
-<!--}}}-->

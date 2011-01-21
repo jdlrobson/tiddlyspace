@@ -6,7 +6,7 @@ tags: excludeLists excludeSearch
 	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div> 
 <!--}}}-->
 	<div class='left'>
-		[[EditTemplateEssentials]]
+		[[EditTemplateTemplates##Essentials]]
 	</div>
 	<div class='right'>
 		Deadline:
@@ -15,8 +15,8 @@ tags: excludeLists excludeSearch
 <!--{{{-->
 	<div class='clearboth'></div>
 <!--}}}-->
-	[[EditTemplateFreeText]]
-	[[EditTemplateTags]]
+	[[EditTemplateTemplates##FreeText]]
+	[[EditTemplateTemplates##Tags]]
 <!--{{{-->
 	<div class='clearboth'></div>
 </div>

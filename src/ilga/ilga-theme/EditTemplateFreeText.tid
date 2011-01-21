@@ -1,8 +1,0 @@
-tags: excludeLists excludeSearch
-
-<!--{{{-->
-<div>
-	<span class='prompt' macro="translate_ilga Text"></span>:
-</div>
-<div class='editor_text' macro='edit text'></div>
-<!--}}}-->

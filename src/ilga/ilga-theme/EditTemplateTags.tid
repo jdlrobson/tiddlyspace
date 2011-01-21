@@ -1,9 +1,0 @@
-type: None
-tags: excludeLists package##article
-
-<!--{{{-->
-	<span class='prompt' macro="translate_ilga Tags"></span>:
-	<div class='' macro='translate_ilga taghowto'></div>
-	<div class='editor editortags' macro='niceTagger tags valuesSource:SuggestedTags case:lower'></div>
-<!--}}}-->
-

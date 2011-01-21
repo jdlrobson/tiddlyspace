@@ -1,0 +1,151 @@
+type: None
+
+!Essentials
+<!--{{{-->
+		<div macro="edit title" style="display:none;"></div>
+		<div>
+			<span class='prompt' macro="translate_ilga 'Article Title'"></span>:
+		</div>
+		<div class='title left_input' macro='edit heading'></div>
+		<div>
+			<span class='prompt' macro="translate_ilga Summary"></span>:
+		</div>
+		<div class='editor editsummary' macro='aet type:text metaDataName:summary maxlength:560 rows:4'></div>
+		<div>
+			<span class='prompt' macro="translate_ilga 'Language'"></span>:
+			<span macro='language_from_article'></span>
+		</div>
+		<div>
+			<span class='prompt' macro="translate_ilga Location"></span>:
+		</div>
+		<div macro='aet type:dropdown valuesSource:LocationDefinitions metaDataName:region,country'></div>
+<!--}}}-->
+
+!Top
+<!--{{{-->
+	<div class='left'>
+<!--}}}-->
+[[EditTemplateTemplates##Essentials]]
+<!--{{{-->
+	</div>
+	<div class='editorRight'>
+<!--}}}-->
+[[EditTemplateTemplates##Image]]
+[[EditTemplateTemplates##Video]]
+<!--{{{-->
+	</div>
+<!--}}}-->
+
+!FreeText
+<!--{{{-->
+<div>
+	<span class='prompt' macro="translate_ilga Text"></span>:
+</div>
+<div class='editor_text' macro='edit text'></div>
+<!--}}}-->
+
+
+!Text
+<!--{{{-->
+	<div>
+		<span class='prompt' macro="translate_ilga Text"></span>:
+	</div>
+	<div class='editor_text' macro='editHtml text'></div>
+<!--}}}-->
+
+!Tags
+<!--{{{-->
+	<span class='prompt' macro="translate_ilga Tags"></span>:
+	<div class='' macro='translate_ilga taghowto'></div>
+	<div class='editor editortags' macro='niceTagger tags valuesSource:SuggestedTags case:lower'></div>
+<!--}}}-->
+
+!ArticleMetaData
+<!--{{{-->
+<div class='left'>
+		<div>
+			<span class='prompt' macro='translate_ilga article_source_name'></span>:
+		</div>
+		<div class='left_input' macro='edit article_source_name'></div>
+		<div>
+			<span class='prompt' macro='translate_ilga article_source_url'></span>:
+		</div>
+		<div class='left_input' macro='edit article_source_url'></div>
+		<div class='prompt'>
+			<span class='prompt' macro='translate_ilga occurrence_date'></span> (DD/MM/YYYY):
+		</div>
+		<div class='left_input' macro='aet type:date metaDataName:occurrence_date'></div>
+	</div>
+	<div class='editorRight'>
+		<div>
+			<span macro='translate_ilga orientationoridentity'></span> (<span macro='translate_ilga identity_explained'></span>):
+		</div>
+		<table>
+			<tr>
+				<td>
+					<span macro='aet type:checkbox metaDataName:bisexual'></span><span macro="translate_ilga 'Bisexual'"></span>
+					<span macro='aet type:checkbox metaDataName:gay'></span><span macro="translate_ilga 'Gay'"></span>
+					<span macro='aet type:checkbox metaDataName:intersexual'></span><span macro="translate_ilga 'Intersexual'"></span>
+				</td>
+			<tr>
+				<td>
+					<span macro='aet type:checkbox metaDataName:lesbian'></span><span macro="translate_ilga 'Lesbian'"></span>
+					<span macro='aet type:checkbox metaDataName:transgender'></span><span macro="translate_ilga Transgender"></span><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span macro='aet type:checkbox metaDataName:lgbtiyouth'></span><span macro="translate_ilga 'LGBTI Youth'"></span>
+					<span macro='aet type:checkbox metaDataName:lgbtiaged'></span><span macro="translate_ilga 'LGBTI Aged'"></span>
+				</td>
+			</tr>
+		</table>
+		[[EditTemplateAdmin]]
+	</div>
+	<div class='clearboth'></div>
+
+	<div>
+		<span class='prompt' macro='translate_ilga attachitem'></span>:
+	</div>
+	<span macro='translate_ilga Label'></span>: <span macro='edit article_file_name'></span>
+	<div macro='binaryEdit article_file mode:file'></div>
+	<div class='clearboth'></div>
+<!--}}}-->
+
+!Image
+<!--{{{-->
+		<div>
+			<span class='prompt'	macro="translate_ilga Image"></span>:
+		</div>
+		<span class='prompt' macro="binaryEdit image width:200 height:200 preserveAspectRatio:yes"></span>
+		<div>
+			<span class='prompt' macro="translate_ilga image_caption"></span>:
+		</div>
+		<div class='editor right_input' macro='aet type:text metaDataName:image_caption maxlength:250'></div>
+<!--}}}-->
+
+!Video
+<!--{{{-->
+		<div class='prompt'>
+			<span macro='translate_ilga video'></span>:
+			<div macro='translate_ilga video_hint'></div>
+		</div>
+		<div>
+			<span macro='aet type:video field:video'></span>
+		</div>
+<!--}}}-->
+
+!VideoTop
+<!--{{{-->
+	<div class='left'>
+<!--}}}-->
+[[EditTemplateTemplates##Essentials]]
+<!--{{{-->
+	</div>
+	<div class='editorRight'>
+<!--}}}-->
+[[EditTemplateTemplates##Video]]
+<!--{{{-->
+	</div>
+<!--}}}-->
+
