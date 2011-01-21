@@ -403,6 +403,8 @@ merge(config.extensions.ServerSideSavingPlugin.locale, {
 	saved: config.translator("savesuccess.general")
 });
 
+merge(config.macros.tsSearch.locale, { header: "search by keyword:" });
+
 if(typeof(config.extensions.chkEditorMode) === "undefined") {
 	config.options.chkEditorMode = true;
 	saveOptionCookie("chkEditorMode");
