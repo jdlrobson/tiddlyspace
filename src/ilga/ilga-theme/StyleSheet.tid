@@ -1,6 +1,142 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.emptyList {
+	background-color: #EEE;
+	border: 1px solid #BBB;
+	padding: 10px;
+}
+
+.tiddler .binaryEditContainer .binaryUploadtags {
+	display: none;
+}
+
+#backstageArea .theme_color {
+	color: #4DA6C9;
+}
+
+.languageTab {
+	background-image: url(http://ilga.org/ilga/static/images/graphics/page/language_tab.gif);
+	background-repeat: no-repeat;
+	font-size: 10px;
+	height: 84px;
+	left: -29px;
+	padding-left: 7px;
+	padding-top: 10px;
+	position: absolute;
+	top: 0px;
+	width: 25px;
+	z-index: 10;
+}
+
+#page .rainbow_splash_footer {
+	background-image: url(http://ilga.org/ilga/static/images/graphics/rainbow_footer.gif);
+	background-position: 100% 50%;
+	background-repeat: no-repeat;
+	bottom: 120px;
+	float: right;
+	height: 100px;
+	position: relative;
+	right: 0px;
+	width: 350px;
+	z-index: 4;
+}
+
+#bottomPage {
+	background: none;
+	background-color: white;
+	border-bottom: 1px solid #CCC;
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;
+	bottom: 20px;
+	clear: both;
+	height: 90px;
+	padding: 10px;
+	position: relative;
+	width: 878px;
+}
+
+#middlepage {
+	margin-top: 0px;
+	padding-top: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+}
+
+.ilgaBrandStamp {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+#topBanner .siteIcon {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.tiddler .author {
+	float: right;
+}
+
+#header #topBanner h1 {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+#topBanner .editPopup a {
+	left: 0px;
+	position: absolute;
+	top: 0px;
+}
+
+#topPage {
+	margin-bottom: 10px;
+}
+
+.middlePageHeader {
+	margin-top: 1px;
+}
+
+#topBanner {
+	background: white;
+	border: 1px solid #CCC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	width: 880px;
+	position: relative;
+}
+
+#topBanner .siteIcon {
+	float: left;
+}
+
+#topBanner a {
+	height: auto;
+	vertical-align: auto;
+	width: auto;
+	display: inline;
+}
+
+#topBanner h1 {
+	display: block;
+	overflow: visible;
+	text-indent:0px;
+}
+
+#page .rainbow_splash_left {
+	background: none;
+}
+
 .popup {
 	padding: 8px;
 	border: 1px solid #CCC;
@@ -25,13 +161,6 @@ body #backstageArea .pageToolbar a {
 	background-color: white;
 }
 
-#topBanner .editPopup a.popupLink {
-	position: absolute;
-	right: 0px;
-	top: 0px;
-	color: #ccc;
-	text-align: right;
-}
 
 .tiddler .translationLinks a,
 .tiddler .translationLinks span {
@@ -75,71 +204,73 @@ body #backstagePanel {
 }
 
 #displayArea {
-margin: auto;
+	margin: auto;
 }
 
 .article .imageholder img {
-max-height: auto;
-max-width: auto;
+	max-height: auto;
+	max-width: auto;
 }
 
 #displayArea .tiddler {
-padding: 0;
+	padding: 0;
 }
 
 body {
-margin: auto;
+	margin: auto;
 }
 
 a.button:active {
-border: none;
+	border: none;
 }
+
 .binaryEditContainer div,
 .binaryEditContainer {
-display: inline;
-}
-.fullPage .toolbar {
-background: none;
-float: none;
-height: 30px;
-position: absolute;
-right: 0px;
-top: -20px;
-width: auto;
+	display: inline;
 }
 
+.fullPage .toolbar {
+	background: none;
+	float: none;
+	height: 30px;
+	position: absolute;
+	right: 0px;
+	top: -20px;
+	width: auto;
+}
 
 .article .privacyStamp {
-background-color: white;
-left: -24px;
-position: absolute;
-z-index: 1000;
+	background-color: white;
+	left: -24px;
+	position: absolute;
+	z-index: 1000;
 }
-.mainMenuTiddler  {
-margin-bottom: 20px;
+
+.mainMenuTiddler {
+	margin-bottom: 20px;
 }
 .mainMenuTiddler .twtable {
-border: none;
-margin: auto;
-width: 100%;
+	border: none;
+	margin: auto;
+	width: 100%;
 }
 
 .mainMenuTiddler .twtable td {
-border: none;
-text-align: center;
-width: 25%;
+	border: none;
+	text-align: center;
+	width: 120px;
 }
 
 .article .text img {
-float: none;
+	float: none;
 }
 
 .article ul li {
-list-style: none;
+	list-style: none;
 }
 
 .article ul .image {
-display: block;
+	display: block;
 }
 
 .groupHeading h1 {
@@ -147,93 +278,96 @@ display: block;
 	margin-right: 8px;
 }
 .groupHeading {
-text-align: center;
+	text-align: center;
 }
 .missionStatement {
-font-style: italic;
+	font-style: italic;
 }
 .tiddler .editor_top {
-width: 850px;
+	width: 850px;
 }
 /* reset bad rules in main stylesheet*/
 
 .editortags {
-margin-bottom: 50px;
+	margin-bottom: 50px;
 }
+
 .view_article .toolbar {
-  right: 40px;
-  width: auto;
+	right: 40px;
+	width: auto;
 }
+
 body .view_article .toolbar {
-  background: none;
-  background-image: none;
+	background: none;
+	background-image: none;
 }
 
 body .view_article .toolbar .command_deleteTiddler,
- .command_cancelTiddler,
+.command_cancelTiddler,
 .template_EditHtmlTemplate .toolbarbottom .command_cancelTiddler,
 .template_EditHtmlTemplate .toolbar .command_cancelTiddler,
 body .view_article .toolbar .command_editHtml,
 body .view_article .toolbar .command_editTiddler { 
-  height: auto;
-  margin-left: 2px;
-  left: auto;
-  padding: 0px;
-  margin-top: 2px;
-  position: relative;
-  width:  auto;
+	height: auto;
+	margin-left: 2px;
+	left: auto;
+	padding: 0px;
+	margin-top: 2px;
+	position: relative;
+	width:	auto;
 }
+
 body .view_article .toolbar .command_closeTiddler {
-position: relative;
-right: auto;
-top: auto;
-z-index: 300;
+	position: relative;
+	right: auto;
+	top: auto;
+	z-index: 300;
 }
 
 /* additional rules */
 .button {
-  border: none;
+	border: none;
 }
 #backstageArea #backstageToolbar {
-  display: block;
+	display: block;
 }
 
 .isReader .authoringToolsButtons,
 .isReader .toolbar {
-  display: none;
+	display: none;
 }
 .authoringTools table {
-  margin: auto;
+	margin: auto;
 }
 
 .originButton {
-  border-bottom: 1px solid #CCC;
-  color: #AAA;
-  margin-top: -20px;
-  text-align: center;
-  width: 50px;
+	border-bottom: 1px solid #CCC;
+	color: #AAA;
+	margin-top: -20px;
+	text-align: center;
+	width: 50px;
 }
 
 .authoringTools tr,
 .authoringTools table,
 .authoringTools td {
-  border: none;
-  text-align: center;
+	border: none;
+	text-align: center;
 }
 
 .tiddler pre {
-background: #EBC9C6;
-border: 1px solid #D3857E;
-font-size: 1.2em;
-line-height: 1.4em;
-margin-left: 0.5em;
-overflow: auto;
-padding: 0.5em;
+	background: #EBC9C6;
+	border: 1px solid #D3857E;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	margin-left: 0.5em;
+	overflow: auto;
+	padding: 0.5em;
 }
 
 .permalinkBtn {
-  position: absolute;
-  right: 0px;
-  top: -25px;
+	position: absolute;
+	right: 0px;
+	top: -25px;
 }
 /*}}}*/
