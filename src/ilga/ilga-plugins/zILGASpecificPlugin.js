@@ -235,10 +235,10 @@ config.macros.language_from_article ={
 
 // sets the workspace and bag to be published_articles_x
 var setPublish = config.macros.setPublishBag = {
-	update: function(place, bag) {
-		var el = story.findContainingTiddler(place);
+	update: function(el, bag) {
 		var wsEl = $("[edit=server.workspace]", el)[0];
 		var bagEl = $("[edit=server.bag]", el)[0];
+		var currentBag = $(bagEl).val();
 		var workspace = "bags/%0".format(bag);
 		if(!bagEl) {
 			bagEl = $("<input />").attr("type", "hidden").attr("edit", "server.bag").appendTo(place)[0];
@@ -250,15 +250,25 @@ var setPublish = config.macros.setPublishBag = {
 		$(bagEl).val(bag);
 		$(wsEl).val(workspace);
 	},
-	handler: function(place,macroName,params,wikifier,paramString,tiddler){
+	determineBag: function(title) {
+		title = title || "";
 		var bag = "published_articles_%0";
+		var language = title.split("_")[1];
+		if(LANGUAGES.contains(language)) {
+			bag = bag.format(language);
+			return bag;
+		} else {
+			return false;
+		}
+	},
+	handler: function(place,macroName,params,wikifier,paramString,tiddler){
 		var el = story.findContainingTiddler(place);
 		window.setTimeout(function() {
 			var title = $("[edit=title]", el).val();
-			var language = title.split("_")[1];
-			if(["en", "fr", "es", "pt"].contains(language)) {
-				bag = bag.format(language);
-				setPublish.update(place, bag);
+			var bag = setPublish.determineBag(title);
+			if(bag) {
+				var el = story.findContainingTiddler(place);
+				setPublish.update(el, bag);
 			}
 		}, 500);
 	}
