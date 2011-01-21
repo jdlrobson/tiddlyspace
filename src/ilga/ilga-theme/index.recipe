@@ -63,3 +63,6 @@ tiddler: Templates.tid
 tiddler: Jobs and Events.tid
 tiddler: Publications.tid
 tiddler: Notes.tid
+tiddler: noteEditTemplate.tid
+tiddler: eventEditTemplate.tid
+tiddler: publicationEditTemplate.tid

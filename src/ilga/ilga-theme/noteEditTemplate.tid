@@ -1,0 +1,19 @@
+modifier: jon
+tags: excludeLists excludeSearch
+
+<!--{{{-->
+<div class='article article_editor'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div> 
+<!--}}}-->
+	[[EditTemplateEssentials]]
+<!--{{{-->
+	<div class='clearboth'></div>
+<!--}}}-->
+	[[EditTemplateFreeText]]
+	[[EditTemplateTags]]
+<!--{{{-->
+	<div class='clearboth'></div>
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->
+[[EditTemplateAdmin]]
