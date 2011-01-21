@@ -361,11 +361,6 @@ config.macros.translate_ilga = {
 LANGUAGE config
 fun with lingo.. 
 *********************************/
-
-merge(config.views.wikified, {
-	defaultText: config.translator("default_text", null, "")
-});
-
 var translate = function(id){
 	var t = config.translator(id);
 	if(!t) {
@@ -374,35 +369,30 @@ var translate = function(id){
 		return t;
 	}
 };
-
+merge(config.views.wikified, {
+	defaultText: config.translator("default_text", null, "")
+});
 merge(config.macros.niceTagger.lingo, { add: translate("addtag") });
 merge(config.macros.AdvancedEditTemplate, { translate: config.translator });
 merge(config.macros.install.locale, { spaceName: "" });
-
 merge(config.commands.cancelTiddler, {
 	text: translate("cancel"),
 	tooltip: translate("cancel"),
 	warning: translate("abandonTiddler")
 });
-	
 merge(config.commands.deleteTiddler, {
 	warning: translate("deleteTiddlerWarning")
 });
-
 merge(config.optionsDesc, {
 	unsavedChangesWarning: translate("unsavedchanges"),
 	confirmExit: translate("confirmexit")
 });
-
 merge(config.messages, {
 	confirmExit: translate("confirmexit")
 });
-
-//language for error/success messages
 merge(config.extensions.ServerSideSavingPlugin.locale, {
 	saved: config.translator("savesuccess.general")
 });
-
 merge(config.macros.tsSearch.locale, { header: "search by keyword:" });
 
 if(typeof(config.extensions.chkEditorMode) === "undefined") {
