@@ -1,0 +1,6 @@
+modifier: jon
+tags: excludeLists excludeSearch
+
+Our latest publications...
+<<list filter "[tag[publication]]" template:Templates##ArticleTemplate emptyMessage:"No publications">>
+

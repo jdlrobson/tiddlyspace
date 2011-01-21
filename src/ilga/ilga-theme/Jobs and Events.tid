@@ -1,0 +1,5 @@
+modifier: jon
+tags: excludeLists excludeSearch
+
+<<list filter "[tag[event]]" template:Templates##ArticleTemplate emptyMessage:"No jobs or events">>
+

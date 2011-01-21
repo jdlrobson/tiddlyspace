@@ -1,0 +1,5 @@
+modifier: jon
+tags: excludeLists excludeSearch
+
+<<list filter "[tag[note]]" template:Templates##ArticleTemplate emptyMessage:"No notes">>
+
