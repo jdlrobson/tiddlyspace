@@ -1,11 +1,13 @@
 tags: excludeLists package##common
 
 {{authoringToolsButtons enVersion{
-|<<newTiddler label:"new article" guid:yes guid_suffix:"_en">>|<<newTiddler label:"new video" guid:yes guid_suffix:"_en" tag:video template:videoEditTemplate>>|
+{{theme_color{create a new...}}}
+|<<newTiddler label:"article" guid:yes guid_suffix:"_en">>|<<newTiddler label:"video" guid:yes tag:video template:videoEditTemplate guid_suffix:"_en">>|<<newTiddler label:"publication" guid:yes tag:publication template:publicationEditTemplate guid_suffix:"_en">>|<<newTiddler label:"job/event" guid:yes tag:event template:eventEditTemplate guid_suffix:"_en">>|<<newTiddler label:"note" guid:yes tag:note template:noteEditTemplate guid_suffix:"_en">>|
+
 }}}{{authoringToolsButtons frVersion{
 |<<newTiddler label:"Écrivez un nouvel article" guid:yes guid_suffix:"_fr">>|
 }}}{{authoringToolsButtons esVersion{
 |<<newTiddler label:"Escribe un nuevo artículo" guid:yes guid_suffix:"_es">>|
 }}}{{authoringToolsButtons ptVersion{
-|<<newTiddler label:"Escreva um artigo" guid:yes guid_suffix:"_fr">>|
+|<<newTiddler label:"Escreva um artigo" guid:yes guid_suffix:"_pt">>|
 }}}
