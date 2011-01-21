@@ -1,6 +1,30 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.backstagePanelBody .tabSelected {
+	border: 1px solid #CCC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+.tiddler {
+	border-top: 1px solid #4DA6C9;
+}
+
+div.toolbar {
+	visibility:hidden;
+	right:-16px;
+}
+
+.selected div.toolbar {
+	visibility: visible;
+}
+
+.toolbar svg {
+	height: 16px;
+	width: 16px;
+}
+
 .emptyList {
 	background-color: #EEE;
 	border: 1px solid #BBB;
@@ -146,13 +170,15 @@ body #backstageArea {
 	height: 80px;
 }
 body #backstageArea .pageToolbar a {
-	color: black;
+	color: white;
 }
 #backstageArea .pageToolbar a:hover {
 	color: #ccc;
+	background: none;
 }
 
 .pageToolbar {
+	padding-left: 34px;
 	position: absolute;
 	top: 30px;
 }
@@ -170,11 +196,6 @@ body #backstageArea .pageToolbar a {
 .readOnly #topBanner a.popupLink,
 .readOnly .hideReadOnly {
 	display: none;
-}
-
-.pageToolbar {
-	background-color: white;
-	border: 2px solid black;
 }
 
 .languageTab a {
@@ -218,6 +239,7 @@ body #backstagePanel {
 
 body {
 	margin: auto;
+	width: 100%;
 }
 
 a.button:active {
@@ -235,7 +257,7 @@ a.button:active {
 	height: 30px;
 	position: absolute;
 	right: 0px;
-	top: -20px;
+	top: 0px;
 	width: auto;
 }
 
@@ -332,6 +354,10 @@ body .view_article .toolbar .command_closeTiddler {
 	display: block;
 }
 
+#backstageToolbar img {
+	border: none;
+}
+
 .isReader .authoringToolsButtons,
 .isReader .toolbar {
 	display: none;
@@ -369,5 +395,10 @@ body .view_article .toolbar .command_closeTiddler {
 	position: absolute;
 	right: 0px;
 	top: -25px;
+}
+
+#contentWrapper {
+	width: 920px;
+	margin: auto;
 }
 /*}}}*/
