@@ -1,6 +1,10 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.searchForm .tsAdvancedOptions {
+	display: none;
+}
+
 .backstagePanelBody .tabSelected {
 	border: 1px solid #CCC;
 	-webkit-border-radius: 5px;
