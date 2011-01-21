@@ -1,4 +1,4 @@
 type: None
 tags: excludeLists package##article
 
-NEWS
+[is[local]][notag[excludeLists]][isnot[image]][sort[-created]][limit[5]]
