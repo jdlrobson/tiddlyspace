@@ -2,6 +2,7 @@ type: None
 tags: excludeLists package##article
 
 <!--{{{-->
+		<div macro="edit title" style="display:none;"></div>
 		<div>
 			<span class='prompt' macro="translate_ilga 'Article Title'"></span>:
 		</div>
