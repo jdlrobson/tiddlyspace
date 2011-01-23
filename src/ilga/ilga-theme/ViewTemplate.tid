@@ -43,7 +43,7 @@ tags: excludeLists package##article
 	</div>
 	<p></p>
 	<div class='textsummary' macro='view summary'></div>
-	<div class='author' macro='view modifier SiteIcon width:48 height:48 label:no'></div>
+	<div class='author' macro='view modifier SiteIcon width:48 height:48 label:no preserveAspectRatio:yes'></div>
 	<div class='text' macro='view text wikified'></div>
 	<div macro='translateLink'></div>
 </div>
