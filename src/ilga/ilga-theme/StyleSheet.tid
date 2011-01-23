@@ -1,11 +1,19 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+#topBanner:hover a.popupLink {
+	visibility: visible;
+}
+
+#topBanner a.popupLink {
+	visibility: hidden;
+}
+
 .searchForm .tsAdvancedOptions {
 	display: none;
 }
 
-.backstagePanelBody .tabSelected {
+.tabSelected {
 	border: 1px solid #CCC;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
