@@ -19,7 +19,7 @@ tags: excludeLists package##article
 							<div macro='view image image height:170 width:240 preserveAspectRatio:yes class:articleimage'></div>
 						</div>
 						<div macro='aet if:video'>
-							<div macro='view video video'></div>
+							<div class='videoHolder' macro='view video wikified'></div>
 						</div>
 					</td>
 				</tr>

@@ -1,6 +1,17 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.smallVideoHolder iframe {
+	width: 130px;
+	height: 100px;
+}
+
+.embedPreview iframe,
+.videoHolder iframe {
+	width: 240px;
+	height: 130px;
+}
+
 #topBanner:hover a.popupLink {
 	visibility: visible;
 }

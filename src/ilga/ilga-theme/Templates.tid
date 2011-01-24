@@ -18,7 +18,8 @@ Update your space name:
 {{newsitem{
 {{left{
 {{photo{
-<<view video video 100 100>><<view image image width:90 height:90 preserveAspectRatio:yes>>}}}
+{{smallVideoHolder{<<view video wikified>>}}}
+<<view image image width:90 height:90 preserveAspectRatio:yes>>}}}
 }}}
 {{footer{
 {{heading{

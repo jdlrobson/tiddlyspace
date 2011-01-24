@@ -131,7 +131,7 @@ type: None
 			<div macro='translate_ilga video_hint'></div>
 		</div>
 		<div>
-			<span macro='aet type:video field:video'></span>
+			<span macro='aet type:html field:video'></span>
 		</div>
 <!--}}}-->
 
