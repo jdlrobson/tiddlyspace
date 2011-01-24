@@ -18,7 +18,7 @@ type: None
 		<div>
 			<span class='prompt' macro="translate_ilga Location"></span>:
 		</div>
-		<div macro='aet type:dropdown valuesSource:LocationDefinitions metaDataName:region,country'></div>
+		<div macro='aet type:dropdown valuesSource:LocationDefinitions metaDataName:region,country sorted:yes'></div>
 <!--}}}-->
 
 !Top
