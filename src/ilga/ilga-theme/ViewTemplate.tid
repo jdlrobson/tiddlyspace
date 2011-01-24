@@ -32,7 +32,7 @@ tags: excludeLists package##article
 		<span class='author'>by: <span macro='view creator spaceLink'></span>
 		</span>
 		<span class='location' macro="aet if:region|country">
-			in <span macro='view region ilgaRegion'></span> / <span macro='view country ilgaCountry'></span>
+			in <span macro='view region text'></span> / <span macro='view country ilgaCountry'></span>
 		</span>
 		<div macro="aet if:deadline">
 			Deadline is: <span macro="view deadline date"></span>
