@@ -1,9 +1,3 @@
 tag: excludeLists
 
-{{groupHeading{
-!<<tiddler SiteTitle>>
-{{missionStatement{
-mission: <<tiddler SiteSubtitle>>
-}}}
-}}}
-
+[[Hello there!]]
