@@ -1,12 +1,18 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.smallVideoHolder object,
+.smallVideoHolder embed,
 .smallVideoHolder iframe {
 	width: 130px;
 	height: 100px;
 }
 
+.embedPreview embed,
+.embedPreview object,
 .embedPreview iframe,
+.videoHolder embed,
+.videoHolder object,
 .videoHolder iframe {
 	width: 240px;
 	height: 130px;
