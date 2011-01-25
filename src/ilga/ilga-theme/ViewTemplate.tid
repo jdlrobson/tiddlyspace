@@ -18,6 +18,9 @@ tags: excludeLists package##article
 						<div macro='aet if:image&!video'>
 							<div macro='view image image height:170 width:240 preserveAspectRatio:yes class:articleimage'></div>
 						</div>
+						<div macro='aet if:!image&!video'>
+							<div macro='image "/ilga/static/images/graphics/ilga_logo.png" height:170 width:240 preserveAspectRatio:yes'></div>
+						</div>
 						<div macro='aet if:video'>
 							<div class='videoHolder' macro='view video wikified'></div>
 						</div>
