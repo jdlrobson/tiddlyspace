@@ -24,9 +24,6 @@ tags: excludeLists package##theme
 		</div>
 	</div>  
 	<div id='middlepage'>
-		<a href="/logout">
-			<div class='logoutbutton'></div>
-		</a>
 		<div class='languageTab' macro="languageToggler"></div>
 		<div class='somepadding'>
 			<div class='whereamitctl' tiddler='LocationBar' refresh='content'></div>
