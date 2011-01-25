@@ -1,6 +1,7 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.tiddler .editor_bottom,
 .tiddler .article_editor {
 	background: none;
 }
