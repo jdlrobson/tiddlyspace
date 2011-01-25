@@ -10,7 +10,7 @@ type: None
 		<div>
 			<span class='prompt' macro="translate_ilga Summary"></span>:
 		</div>
-		<div class='editor editsummary' macro='aet type:text metaDataName:summary maxlength:560 rows:4'></div>
+		<div class='editor editsummary' macro='edit summary 4'></div>
 		<div>
 			<span class='prompt' macro="translate_ilga 'Language'"></span>:
 			<span macro='language_from_article'></span>
