@@ -15,10 +15,15 @@ type: None
 			<span class='prompt' macro="translate_ilga 'Language'"></span>:
 			<span macro='language_from_article'></span>
 		</div>
-		<div>
-			<span class='prompt' macro="translate_ilga Location"></span>:
-		</div>
-		<div macro='aet type:dropdown valuesSource:LocationDefinitions metaDataName:region,country sorted:yes'></div>
+<!--}}}-->
+		[[EditTemplateTemplates##RegionCountry]]
+
+!RegionCountry
+<!--{{{-->
+<div>
+	<span class='prompt' macro="translate_ilga Location"></span>:
+	<div macro='aet type:dropdown valuesSource:LocationDefinitions metaDataName:region,country sorted:yes'></div>
+</div>
 <!--}}}-->
 
 !Top
@@ -80,26 +85,7 @@ type: None
 		<div>
 			<span macro='translate_ilga orientationoridentity'></span> (<span macro='translate_ilga identity_explained'></span>):
 		</div>
-		<table>
-			<tr>
-				<td>
-					<span macro='aet type:checkbox metaDataName:bisexual'></span><span macro="translate_ilga 'Bisexual'"></span>
-					<span macro='aet type:checkbox metaDataName:gay'></span><span macro="translate_ilga 'Gay'"></span>
-					<span macro='aet type:checkbox metaDataName:intersexual'></span><span macro="translate_ilga 'Intersexual'"></span>
-				</td>
-			<tr>
-				<td>
-					<span macro='aet type:checkbox metaDataName:lesbian'></span><span macro="translate_ilga 'Lesbian'"></span>
-					<span macro='aet type:checkbox metaDataName:transgender'></span><span macro="translate_ilga Transgender"></span><br>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span macro='aet type:checkbox metaDataName:lgbtiyouth'></span><span macro="translate_ilga 'LGBTI Youth'"></span>
-					<span macro='aet type:checkbox metaDataName:lgbtiaged'></span><span macro="translate_ilga 'LGBTI Aged'"></span>
-				</td>
-			</tr>
-		</table>
+		[[EditTemplateTemplate##Orientation]]
 		[[EditTemplateAdmin]]
 	</div>
 	<div class='clearboth'></div>
@@ -110,6 +96,30 @@ type: None
 	<span macro='translate_ilga Label'></span>: <span macro='edit article_file_name'></span>
 	<div macro='binaryEdit article_file mode:file'></div>
 	<div class='clearboth'></div>
+<!--}}}-->
+
+!Orientation
+<!--{{{-->
+<table>
+	<tr>
+		<td>
+			<span macro='aet type:checkbox metaDataName:bisexual'></span><span macro="translate_ilga 'Bisexual'"></span>
+			<span macro='aet type:checkbox metaDataName:gay'></span><span macro="translate_ilga 'Gay'"></span>
+			<span macro='aet type:checkbox metaDataName:intersexual'></span><span macro="translate_ilga 'Intersexual'"></span>
+		</td>
+	<tr>
+		<td>
+			<span macro='aet type:checkbox metaDataName:lesbian'></span><span macro="translate_ilga 'Lesbian'"></span>
+			<span macro='aet type:checkbox metaDataName:transgender'></span><span macro="translate_ilga Transgender"></span><br>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span macro='aet type:checkbox metaDataName:lgbtiyouth'></span><span macro="translate_ilga 'LGBTI Youth'"></span>
+			<span macro='aet type:checkbox metaDataName:lgbtiaged'></span><span macro="translate_ilga 'LGBTI Aged'"></span>
+		</td>
+	</tr>
+</table>
 <!--}}}-->
 
 !Image
@@ -128,7 +138,7 @@ type: None
 <!--{{{-->
 		<div class='prompt'>
 			<span macro='translate_ilga video'></span>:
-			<div macro='translate_ilga video_hint'></div>
+			<div>Please paste the embed code of your video below. If the video is valid it will appear below:</div>
 		</div>
 		<div>
 			<span macro='aet type:html field:video'></span>
