@@ -1,6 +1,9 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.tiddler .article_editor {
+	background: none;
+}
 .smallVideoHolder object,
 .smallVideoHolder embed,
 .smallVideoHolder iframe {
