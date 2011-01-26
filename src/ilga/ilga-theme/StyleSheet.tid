@@ -141,6 +141,7 @@ div.toolbar {
 
 .tiddler .author {
 	float: right;
+	text-align: center;
 }
 
 #header #topBanner h1 {

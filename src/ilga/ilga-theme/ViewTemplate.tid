@@ -32,7 +32,7 @@ tags: excludeLists package##article
 	<div class='title theme_color' macro='view heading text'></div>
 	<div class='subtitle'>
 		[[AdminSubtitle]]
-		<span class='author'>by: <span macro='view creator spaceLink'></span>
+		<div class='author' macro='view modifier SiteIcon width:48 height:48 preserveAspectRatio:yes'></div>
 		</span>
 		<span class='location' macro="aet if:region|country">
 			in <span macro='view region text'></span> / <span macro='view country ilgaCountry'></span>
@@ -46,7 +46,6 @@ tags: excludeLists package##article
 	</div>
 	<p></p>
 	<div class='textsummary' macro='view summary'></div>
-	<div class='author' macro='view modifier SiteIcon width:48 height:48 label:no preserveAspectRatio:yes'></div>
 	<div class='text' macro='view text wikified'></div>
 	<div macro='translateLink'></div>
 </div>
