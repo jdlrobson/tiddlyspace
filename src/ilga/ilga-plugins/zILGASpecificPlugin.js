@@ -534,7 +534,6 @@ config.paramifiers.translate = {
 				tiddler.title = newTitle;
 				tiddler.fields["server.title"] = newTitle;
 			}
-			store.addTiddler(tiddler);
 			return tiddler;
 		});
 	}
