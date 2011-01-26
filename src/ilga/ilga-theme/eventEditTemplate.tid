@@ -4,19 +4,40 @@ tags: excludeLists excludeSearch
 <!--{{{-->
 <div class='article article_editor'>
 	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div> 
-<!--}}}-->
 	<div class='left'>
+<!--}}}-->
 		[[EditTemplateTemplates##Essentials]]
-	</div>
-	<div class='right'>
-		Deadline:
-		<div macro='aet type:date metaDataName:deadline'></div>
-	</div>
 <!--{{{-->
+		City:
+		<div macro='edit city'></div>
+		Type of Events
+		<div macro="aet type:dropdown field:event-type values:EventTypeDefinition"></div>
+		Starts:
+		<div macro='aet type:date metaDataName:date-start'></div>
+		Ends:
+		<div macro='aet type:date metaDataName:date-end'></div>
+		Website
+		<div macro="edit article_source_url"></div>
+		Languages
+		<div macro="edit languages-used"></div>
+		Who is it sponsored by?
+		<div macro="edit sponsor"></div>
+		Contact email
+		<div macro="edit email"></div>
+		Contact phone number
+		<div macro="edit phone"></div>
+	</div>
+	<div class='editorRight'>
+<!--}}}-->
+		[[EditTemplateTemplates##Image]]
+		[[EditTemplateTemplates##Video]]
+<!--{{{-->
+	</div>
 	<div class='clearboth'></div>
 <!--}}}-->
 	[[EditTemplateTemplates##FreeText]]
 	[[EditTemplateTemplates##Tags]]
+	[[EditTemplateTemplate##Attach]]
 <!--{{{-->
 	<div class='clearboth'></div>
 </div>
