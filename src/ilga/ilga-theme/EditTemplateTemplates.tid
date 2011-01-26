@@ -89,14 +89,16 @@ type: None
 		[[EditTemplateAdmin]]
 	</div>
 	<div class='clearboth'></div>
-
-	<div>
-		<span class='prompt' macro='translate_ilga attachitem'></span>:
-	</div>
-	<span macro='translate_ilga Label'></span>: <span macro='edit article_file_name'></span>
-	<div macro='binaryEdit article_file mode:file'></div>
+	[[EditTemplateTemplate##Attach]]
 	<div class='clearboth'></div>
 <!--}}}-->
+
+!Attach
+<div>
+	<span class='prompt' macro='translate_ilga attachitem'></span>:
+</div>
+<span macro='translate_ilga Label'></span>: <span macro='edit article_file_name'></span>
+<div macro='binaryEdit article_file mode:file'></div>
 
 !Orientation
 <!--{{{-->
