@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceFlickTiddlerCommand|
-|''Version''|0.5.3|
+|''Version''|0.5.4|
 |''Status''|@@experimental@@|
 |''Requires''|TiddlySpaceConfig TiddlySpaceTiddlerIconsPlugin TiddlySpacePublishingCommands|
 !Code
@@ -72,8 +72,8 @@ var p = config.paramifiers.clone = {
 				delete tiddler.fields["server.page.revision"];
 				tiddler.modified = new Date();
 				tiddler.fields["server.workspace"] = config.defaultCustomFields["server.workspace"];
-				store.addTiddler(tiddler);
 				tiddler = morph ? morph(tiddler) : tiddler;
+				store.addTiddler(tiddler);
 				story.displayTiddler(null,tiddler, DEFAULT_EDIT_TEMPLATE);
 			}
 		});
