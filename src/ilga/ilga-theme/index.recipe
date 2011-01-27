@@ -4,7 +4,8 @@ tiddler: PageTemplate.tid
 tiddler: AdminTool.tid
 tiddler: CountryProfileMoodViewTemplate.tid
 tiddler: CountryProfileMovementEditTemplate.tid
-tiddler: Contact.tid
+tiddler: contactEditTemplate.tid
+tiddler: contactViewTemplate.tid
 tiddler: calendar.png.tid
 tiddler: CountryProfileMovementEditTemplateBody.tid
 tiddler: CountryProfileCampaignEditTemplate.tid

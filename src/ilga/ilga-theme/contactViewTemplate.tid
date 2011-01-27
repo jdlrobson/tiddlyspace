@@ -1,0 +1,29 @@
+tags: excludeLists excludeSearch
+
+<!--{{{-->
+<div class='article article_editor text_gray'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] more:popup icons:yes'></div> 
+	<div class='privacyStamp' macro="tiddlerOrigin label:yes width:48 height:48 preserveAspectRatio:yes"></div>
+	<div class='tags'>
+		tagged with:
+			<span macro='articletags'></span>
+	</div>
+	<div class='clear_both'></div>
+	<div class='title theme_color' macro='view heading text'></div>
+	<div class='subtitle'>
+		<div class='author' macro='view modifier SiteIcon width:48 height:48 preserveAspectRatio:yes'></div>
+		</span>
+		<span class='location' macro="aet if:region|country">
+			in <span macro='view region text'></span> / <span macro='view country ilgaCountry'></span>
+		</span>
+	</div>
+	<p macro='view image image width:200 height:200 preserveAspectRatio:yes'></p>
+	<dl>
+		<dt>Founded</dt> <dd class='founded' macro='view founded date'></dd>
+		<dt>Address</dt> <dd class='address' macro='view address wikified'></dd>
+		<dt>Phone number</dt> <dd class='phone' macro='view telephone text'></dd>
+		<dt>Website</dt> <dd class='website' macro='view website wikified'></dd>
+		<dt>About us</dt> <dd class='text' macro='view text wikified'></dd>
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->

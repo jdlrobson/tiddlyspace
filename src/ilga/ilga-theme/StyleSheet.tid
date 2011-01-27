@@ -1,6 +1,10 @@
 tags: excludeLists excludeSearch
 
 /*{{{*/
+.binaryEditContainer input {
+	display: block;
+}
+
 .tiddler .editor_bottom,
 .tiddler .article_editor {
 	background: none;

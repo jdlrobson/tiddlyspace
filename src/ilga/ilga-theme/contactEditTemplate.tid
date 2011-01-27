@@ -1,0 +1,47 @@
+tags: excludeLists excludeSearch
+
+<!--{{{-->
+<div class='article article_editor'>
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] more:popup icons:yes'></div>
+	<div>
+		<div macro="edit title" style="display:none"></div>
+		<span  class='prompt'>heading:</span>
+		<div macro="edit heading"></div>
+	</div>
+	<div class='clearboth'></div>
+	<div class='prompt'>Group logo:</div>
+	[[EditTemplateTemplates##ImageEdit]]
+	<div>
+		<span class='prompt'>Phone number:</span> <span class='editor_text' macro='edit telephone'></span>
+	</div>
+	<div>
+		<span class='prompt'>Website:</span> <span class='editor_text' macro='edit website'></span>
+	</div>
+	<div>
+		What is your postal address:
+	</div>
+	<div macro='edit address 3'></div>
+	<div class='prompt'>Where are you based?</div>
+	<div macro='aet type:dropdown valuesSource:LocationDefinitions metaDataName:region,country sorted:yes'></div>
+	<div class='clearboth'></div>
+	<span class='prompt'>Tag your space to make it easier for other groups to find you</span>:
+	<div class='editor' macro='niceTagger tags valuesSource:SuggestedTags case:lower'></div>
+	When were you founded?
+	<div macro='aet type:date metaDataName:founded'></div>
+	Introduce this space!
+	<div class="editor_text" macro="edit text 320"></div>
+	<div>
+		<span macro='translate_ilga orientationoridentity'></span>:
+		<span macro='aet type:checkbox metaDataName:bisexual'></span><span macro="translate_ilga 'Bisexual'"></span>
+		<span macro='aet type:checkbox metaDataName:gay'></span><span macro="translate_ilga 'Gay'"></span>
+		<span macro='aet type:checkbox metaDataName:intersexual'></span><span macro="translate_ilga 'Intersexual'"></span>
+		<span macro='aet type:checkbox metaDataName:lesbian'></span><span macro="translate_ilga 'Lesbian'"></span>
+		<span macro='aet type:checkbox metaDataName:transgender'></span><span macro="translate_ilga Transgender"></span>
+		<span macro='aet type:checkbox metaDataName:lgbtiyouth'></span><span macro="translate_ilga 'LGBTI Youth'"></span>
+		<span macro='aet type:checkbox metaDataName:lgbtiaged'></span><span macro="translate_ilga 'LGBTI Aged'"></span>
+	</div>
+</div>
+<div class='editor_bottom'></div>
+<!--}}}-->
+
+
