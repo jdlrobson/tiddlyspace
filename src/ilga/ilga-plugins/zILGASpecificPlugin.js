@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.10|
+|''Version''|0.3.11|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -24,6 +24,55 @@ backToMyActivism
 ***/
 //{{{
 (function($) {
+var ext = config.extensions.ilga = {
+	associator: {
+		readCookies: function() {
+			var id, name, i;
+			var cookies = document.cookie.split(";");
+			for(i = 0; i < cookies.length; i++) {
+				var cookie = $.trim(cookies[i]);
+				var match = cookie.match(/group_id=\"([0-9]*):/);
+				var match2 = cookie.match(/group_name=\"([^:]*):/);
+				if(match && match[1]) {
+					id = match[1];
+				}
+				if(match2 && match2[1]) {
+					name = match2[1];
+				}
+			}
+			return { name: name, id: id };
+		},
+		associateGroup: function(id) {
+			var tiddler = store.getTiddler("Contact") || new Tiddler("Contact");
+			tiddler.text = "Please wait...";
+			store.addTiddler(tiddler);
+			ajaxReq({url: "_directory/group.php?id="+id, dataType: "json",
+				success: function(r) {
+					var tiddler = store.getTiddler("Contact") || new Tiddler("Contact");
+					if(r && r.fields) {
+						merge(tiddler.fields, r.fields);
+					}
+					tiddler.fields["server.page.revision"] = "false";
+					tiddler.text = "";
+					tiddler.fields.image ? tiddler.fields.image :
+						"%0/ilga/static/images/graphics/unknown.jpg".format(ILGA_HOST);
+					merge(tiddler.fields, config.defaultCustomFields);
+					tiddler.fields._group = id;
+					tiddler.tags = ["contact"];
+					tiddler = store.saveTiddler(tiddler);
+					autoSaveChanges(null, tiddler);
+					story.displayTiddler(null, "Contact");
+				}
+			});
+		},
+		init: function() {
+			var g = ext.associator.readCookies();
+			if(g.id) {
+				ext.associator.associateGroup(g.id);
+			}
+		}
+	}
+};
 var ILGA_HOST = "http://ilga.org";
 var LANGUAGES = ["en", "fr", "es", "pt"];
 var tweb = config.extensions.tiddlyweb;
@@ -447,12 +496,6 @@ var default_articles = [{
 	" on the <img src='/bags/tiddlyspace/tiddlers/privateIcon' alt='private icon' /> to make it public.</p>",
 	"<p>The best articles will be published on ilga.org linking back to your space.</p>",
 	"</html>"].join("")
-},
-{
-	title: "Contact",
-	image: "%0/ilga/static/images/graphics/unknown.jpg".format(ILGA_HOST),
-	heading: "Contact our group",
-	text: ["N/A"].join("")
 }];
 
 
@@ -473,7 +516,6 @@ merge(config.extensions.TiddlySpaceInit, {
 				var tiddler = new Tiddler(title);
 				tiddler.fields.heading = article.heading;
 				tiddler.fields.summary = article.summary;
-				tiddler.tags = ["contact"];
 				tiddler.fields.region = "WORLD";
 				tiddler.fields.image = article.image;
 				tiddler.creator = user.name;
@@ -484,6 +526,7 @@ merge(config.extensions.TiddlySpaceInit, {
 			}
 			autoSaveChanges(null, tiddlers);
 		});
+		ext.associator.init();
 		window.setTimeout(function() {
 			config.options.chkPrivateMode = true;
 			saveSystemSetting("chkPrivateMode", true);
