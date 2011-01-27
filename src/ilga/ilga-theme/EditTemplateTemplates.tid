@@ -124,12 +124,19 @@ type: None
 </table>
 <!--}}}-->
 
+!ImageEdit
+<!--{{{-->
+<span class='prompt' macro="binaryEdit image width:200 height:200 preserveAspectRatio:yes"></span>
+<!--}}}-->
+
 !Image
 <!--{{{-->
 		<div>
 			<span class='prompt'	macro="translate_ilga Image"></span>:
 		</div>
-		<span class='prompt' macro="binaryEdit image width:200 height:200 preserveAspectRatio:yes"></span>
+<!--}}}-->
+		[[EditTemplateTemplates##ImageEdit]]
+<!--{{{-->
 		<div>
 			<span class='prompt' macro="translate_ilga image_caption"></span>:
 		</div>
