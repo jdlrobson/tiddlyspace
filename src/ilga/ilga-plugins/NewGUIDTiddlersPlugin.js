@@ -1,6 +1,6 @@
 /***
 |''Name''|NewGUIDTiddlers|
-|''Version''|0.2.1|
+|''Version''|0.2.2|
 |''Requires''|GUID|
 !
 ***/
@@ -20,16 +20,16 @@ config.macros.newTiddler.createNewTiddlerButton = function(place,title,params,la
 	return btn;
 };
 var _onClickNewTiddler = config.macros.newTiddler.onClickNewTiddler;
-config.macros.newTiddler.onClickNewTiddler = function() {
-	_onClickNewTiddler.apply(this, arguments);
-	var title = this.getAttribute("newTitle");
+config.macros.newTiddler.onClickNewTiddler = function(ev) {
 	var guid = this.getAttribute("guid");
 	var prefix = this.getAttribute("guid_prefix");
 	var suffix = this.getAttribute("guid_suffix");
 	if(guid) {
-		story.getTiddlerField(title, "title").value = prefix + 
+		var newTitle = prefix + 
 			config.extensions.GuidPlugin.guid.generate() + suffix;
-	}
+		$(ev.target).attr("newtitle", newTitle);
+	} 
+	_onClickNewTiddler.apply(this, arguments);
 };
 
 })(jQuery);
