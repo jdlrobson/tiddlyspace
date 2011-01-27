@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.9|
+|''Version''|0.3.10|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -452,12 +452,7 @@ var default_articles = [{
 	title: "Contact",
 	image: "%0/ilga/static/images/graphics/unknown.jpg".format(ILGA_HOST),
 	heading: "Contact our group",
-	text: ["<html><p>You can put contact details for your space here.</p>",
-	"<p>You could link to the ",
-	"<a href='http://ilga.org/directory/en/'>ILGA directory</a>, ",
-	"<a href='http://twitter.com/ILGAWORLD'>twitter</a> or a ",
-	"<a href='http://www.facebook.com/pages/ILGA-World/160359780661454'>facebook</a> page.",
-	"</p><p>Alternatively don't have one at all! Completely up to you...</p>", "</html>"].join("")
+	text: ["N/A"].join("")
 }];
 
 
@@ -478,7 +473,7 @@ merge(config.extensions.TiddlySpaceInit, {
 				var tiddler = new Tiddler(title);
 				tiddler.fields.heading = article.heading;
 				tiddler.fields.summary = article.summary;
-				tiddler.tags = ["article"];
+				tiddler.tags = ["contact"];
 				tiddler.fields.region = "WORLD";
 				tiddler.fields.image = article.image;
 				tiddler.creator = user.name;
