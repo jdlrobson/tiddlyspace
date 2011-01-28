@@ -75,6 +75,10 @@ store_structure['recipes']['frontpage_public'] = {
         'owner': 'administrator',
     },
 }
+store_structure['bags']['frontpage_archive'] = {
+  'desc': 'TiddlySpace front page',
+  'policy': store_structure['bags']['frontpage_private']['policy']
+}
 store_structure['recipes']['frontpage_private'] = deepcopy(
     store_structure['recipes']['frontpage_public'])
 store_structure['recipes']['frontpage_private']['policy']['read'] = ['R:ADMIN']
@@ -134,14 +138,30 @@ for space_name, description in spaces.items():
 for space_name in ["published-articles-pt", "published-articles-es", "published-articles-en", "published-articles-fr"]:
   space = Space(space_name)
   public_bag_name = space.public_bag()
+  archive_bag_name = "%s_archive"%(space_name)
   private_bag_name = space.private_bag()
   public_recipe_name = space.public_recipe()
   private_recipe_name = space.private_recipe()
+  store_structure['bags'][public_bag_name] = {
+      'desc': description,
+      'policy': frontpage_policy,
+  }
+  store_structure['bags'][archive_bag_name] = {
+      'desc': description,
+      'policy': frontpage_policy,
+  }
+  store_structure['bags'][private_bag_name] = {
+      'desc': description,
+      'policy': frontpage_policy,
+  }
   store_structure['recipes'][public_recipe_name] = {
       'desc': description,
       'recipe': [
           ('system', ''),
           ('tiddlyspace', ''),
+          ('system-theme_public', ''),
+          ('system-plugins_public', ''),
+          ('system-images_public', ''),
           ('publisher_public', ''),
           (public_bag_name, 'limit=0'),
       ],
@@ -187,7 +207,7 @@ from tiddlywebplugins.ilga.globals import COUNTRY_CODES
 for code in COUNTRY_CODES:
   space = code.lower()
   description = 'country profile space for %s'%(code),
-  for i in ['public', 'private']:
+  for i in ['public', 'private', 'archive']:
     name = '%s_%s'%(space, i)
     frontpagename = 'frontpage_%s'%i
     store_structure['bags'][name] = {
