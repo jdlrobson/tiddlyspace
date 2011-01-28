@@ -1,7 +1,7 @@
 tiddler: TiddlySpaceInstaller.js
 tiddler: zILGASpecificPlugin.js
 tiddler: TaggedTemplateTweak.tid
-tiddler: TiddlySpaceCloneTiddlerParamifier.js
+tiddler: https://github.com/jdlrobson/TiddlyWiki/raw/master/plugins/TiddlySpaceCloneTiddlerParamifier/TiddlySpaceCloneTiddlerParamifier.js
 tiddler: RecursiveParamifiedTextPlugin.js
 tiddler: NewListPlugin.tid
 tiddler: GUIDExtension.js
