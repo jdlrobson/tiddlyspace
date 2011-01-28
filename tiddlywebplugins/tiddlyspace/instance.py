@@ -35,7 +35,7 @@ store_contents['system-theme_public'] = ['src/system-theme/index.recipe']
 store_contents['system-images_public'] = ['src/system-images/index.recipe']
 store_contents['frontpage_public'] = ['src/frontpage/index.recipe']
 store_contents['profile_public'] = ['src/ilga/profile/index.recipe']
-store_contents['admin_public'] = ['src/ilga/admin/index.recipe']
+store_contents['publisher_public'] = ['src/ilga/publisher/index.recipe']
 
 store_structure['bags']['common']['policy'] = \
     store_structure['bags']['system']['policy']
@@ -88,7 +88,7 @@ spaces = {
     'system-plugins': 'TiddlySpace system plugins',
     'system-images': 'TiddlySpace default images and icons',
     'profile': 'ILGA Country Profiles for TiddlySpace',
-    'admin': 'Moderate articles for ILGA.org'
+    'publisher': 'Moderate articles for ILGA.org'
 }
 
 #  setup system space public bags and recipes
@@ -129,6 +129,32 @@ for space_name, description in spaces.items():
             'policy']['read'] = ['R:ADMIN']
     store_structure['recipes'][private_recipe_name]['recipe'].append(
         (private_bag_name, ''))
+
+#special bags for publishing purposes
+for space_name in ["published-articles-pt", "published-articles-es", "published-articles-en", "published-articles-fr"]:
+  space = Space(space_name)
+  public_bag_name = space.public_bag()
+  private_bag_name = space.private_bag()
+  public_recipe_name = space.public_recipe()
+  private_recipe_name = space.private_recipe()
+  store_structure['recipes'][public_recipe_name] = {
+      'desc': description,
+      'recipe': [
+          ('system', ''),
+          ('tiddlyspace', ''),
+          ('publisher_public', ''),
+          (public_bag_name, 'limit=0'),
+      ],
+      'policy': {
+          'read': [],
+          'write': ['R:ADMIN'],
+          'manage': ['R:ADMIN'],
+          'delete': ['R:ADMIN'],
+          'owner': 'administrator',
+      },
+  }
+  store_structure['recipes'][private_recipe_name] = deepcopy(
+      store_structure['recipes'][public_recipe_name])
 
 store_structure['bags']['MAPUSER'] = {
     'desc': 'maps extracted user credentials to canonical username',
