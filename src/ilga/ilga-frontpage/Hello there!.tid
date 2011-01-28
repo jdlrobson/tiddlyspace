@@ -7,6 +7,7 @@ ILGA activism provides you a space for you to ''carry out activism'' whatever yo
 
 In your space you will be able to publish ''articles'' and share ''photos'' and ''videos'' you have on websites such as [[vimeo|http://vimeo.com]], [[youtube|http://youtube.com]] and [[flickr|http://flickr.com]]
 
+Note your first space will also become your ''username'':
 <<install system-plugins system-theme system-images loggedInOnly:yes loginTiddler:Backstage##Login header:"Setup a new space:">>
 
 Your existing spaces are listed below:
