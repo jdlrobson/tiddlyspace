@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.12|
+|''Version''|0.3.13|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -418,6 +418,7 @@ var translate = function(id){
 		return t;
 	}
 };
+merge(config.macros.TiddlySpaceAdmin.locale, { username: "email address" });
 merge(config.views.wikified, {
 	defaultText: config.translator("default_text", null, "")
 });
