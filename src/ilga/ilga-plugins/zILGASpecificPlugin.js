@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.11|
+|''Version''|0.3.12|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -577,9 +577,8 @@ config.paramifiers.translate = {
 	}
 };
 
-config.macros.translateLink = {
+var clone = config.macros.ilgaClone = {
 	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
-		var i;
 		if(!tiddler || !tiddler.fields["server.bag"] || !config.filterHelpers.is["public"](tiddler)) {
 			return;
 		}
@@ -589,13 +588,38 @@ config.macros.translateLink = {
 		}
 		var container = $("<div />").addClass("translationLinks").appendTo(place)[0];
 		var workspace = "bags/%0/tiddlers/%1".format(tiddler.fields["server.bag"], tiddler.title);
+		if(params[0] === "translate") {
+			clone.translateLink(container, workspace, articleLanguage);
+		} else if(params[0] === "publish") {
+			clone.publishLink(container, workspace, articleLanguage);
+		}
+	},
+	publishLink: function(container,  workspace, language) {
+		var publisher = "publisher-" + language.toLowerCase();
+		tweb.getUserInfo(function(user) {
+			var host = tweb.status.server_host;
+			var url = config.extensions.tiddlyspace.getHost(host, publisher);
+			if(!user.anon) {
+				ajaxReq({ url: "spaces/%0/members".format(publisher), dataType: "json",
+					success: function(r) {
+						if(r.indexOf(user.name) > -1) {
+							var href = "%0#clone:[[%1]]".format(url, workspace);
+							$("<a />").attr("href", href).text("publish").appendTo(container);
+						}
+					}
+				});
+			}
+		});
+	},
+	translateLink: function(container, workspace, language) {
+		var i;
 		tweb.getUserInfo(function(user) {
 			$("<span />").text(translate("translate_articles")).appendTo(container)[0];
 			var host = tweb.status.server_host;
 			var url = config.extensions.tiddlyspace.getHost(host, user.name);
 			for(i = 0; i < LANGUAGES.length; i++) {
 				var lang = LANGUAGES[i];
-				if(lang !== articleLanguage) {
+				if(lang !== language) {
 					var href = "%0?language=%1#translate:[[%2]]".format(url, lang, workspace);
 					$("<a />").attr("href", href).text(translate(lang)).appendTo(container);
 				}
