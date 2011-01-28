@@ -92,7 +92,7 @@ story.displayTiddler = function(args){
 	$(el).addClass("template_"+name);
 	return el;
 };
-config.options.chkHttpReadOnly = false;
+
 /*********************************
 MACROS
 *********************************/
