@@ -596,7 +596,7 @@ var clone = config.macros.ilgaClone = {
 		}
 	},
 	publishLink: function(container,  workspace, language) {
-		var publisher = "publisher-" + language.toLowerCase();
+		var publisher = "published-articles-" + language.toLowerCase();
 		tweb.getUserInfo(function(user) {
 			var host = tweb.status.server_host;
 			var url = config.extensions.tiddlyspace.getHost(host, publisher);
