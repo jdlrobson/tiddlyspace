@@ -47,7 +47,8 @@ tags: excludeLists package##article
 	<p></p>
 	<div class='textsummary' macro='view summary'></div>
 	<div class='text' macro='view text wikified'></div>
-	<div macro='translateLink'></div>
+	<div macro='ilgaClone translate'></div>
+	<div macro='ilgaClone publish'></div>
 </div>
 <div class='editor_bottom'></div>
 <!--}}}-->
