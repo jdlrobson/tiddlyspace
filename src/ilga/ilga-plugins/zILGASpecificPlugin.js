@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.13|
+|''Version''|0.3.131|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -60,7 +60,7 @@ var ext = config.extensions.ilga = {
 					tiddler.fields._group = id;
 					tiddler.tags = ["contact"];
 					tiddler = store.saveTiddler(tiddler);
-					autoSaveChanges(null, tiddler);
+					autoSaveChanges(null, [ tiddler ]);
 					story.displayTiddler(null, "Contact");
 				}
 			});
