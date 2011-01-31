@@ -1,0 +1,22 @@
+tags: excludeLists package##theme excludeSearch
+
+<!--{{{-->
+<div id='topPage'>
+	<div id="header">
+		<div id='topBanner'>
+			<span macro="SiteIcon 150 90"></span>
+			<span class='editPopup' macro='TiddlerPopUp Templates##ChangeSiteIcon edit'></span>
+			<div class='groupHeading'>
+				<h1 tiddler="SiteTitle" refresh="content"></h1>
+				<span macro='TiddlerPopUp Templates##ChangeSiteTitle edit'></span>
+				<div class='missionStatement'>
+					<span tiddler="SiteSubtitle" refresh="content"></span>
+					<span macro='TiddlerPopUp Templates##ChangeSiteSubtitle edit'></span>
+				</div>
+				<img class='ilgaBrandStamp' src='/static/images/graphics/ilga_logo.png'/>
+			</div>
+		</div>
+		<h2 id='currentLocation' style="display:none"></h2>
+	</div>
+</div>
+<!--}}}-->
