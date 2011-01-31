@@ -486,56 +486,56 @@ config.macros.view.views.spaceLink = function(value,place,params,wikifier,paramS
 };
 
 //Initialisation stuff
-var _firstRun = config.extensions.TiddlySpaceInit.firstRun;
-var default_articles = [{
-	image: "%0/ilga/static/images/graphics/ilga_logo.png".format(ILGA_HOST),
-	heading: "My First Article",
-	summary: "This example article gives you basic instructions for writing your own articles",
-	text: ["<html><p>This is your first article in your new activist space. It is currently <b>private</b>",
-	"<img src='/bags/tiddlyspace/tiddlers/privateIcon' alt='private icon' /> so only you are able to see it.</p>",
-	"<p>When you have finished editing this article click",
-	" on the <img src='/bags/tiddlyspace/tiddlers/privateIcon' alt='private icon' /> to make it public.</p>",
-	"<p>The best articles will be published on ilga.org linking back to your space.</p>",
-	"</html>"].join("")
-}];
+if(config.extensions.TiddlySpaceInit) {
+	var _firstRun = config.extensions.TiddlySpaceInit.firstRun;
+	var default_articles = [{
+		image: "%0/ilga/static/images/graphics/ilga_logo.png".format(ILGA_HOST),
+		heading: "My First Article",
+		summary: "This example article gives you basic instructions for writing your own articles",
+		text: ["<html><p>This is your first article in your new activist space. It is currently <b>private</b>",
+		"<img src='/bags/tiddlyspace/tiddlers/privateIcon' alt='private icon' /> so only you are able to see it.</p>",
+		"<p>When you have finished editing this article click",
+		" on the <img src='/bags/tiddlyspace/tiddlers/privateIcon' alt='private icon' /> to make it public.</p>",
+		"<p>The best articles will be published on ilga.org linking back to your space.</p>",
+		"</html>"].join("")
+	}];
 
-
-merge(config.extensions.TiddlySpaceInit, {
-	siteIconTags: ["excludeLists", "image"],
-	SiteSubtitle: "Mission: Save the world one LGBTI person at a time",
-	firstRun: function() {
-		var i;
-		var res = _firstRun.apply(this, arguments);
-		config.options.chkPrivateMode = true;
-		config.defaultCustomFields["server.workspace"] = tiddlyspace.getCurrentWorkspace("private");
-		tweb.getUserInfo(function(user) {
-			var tiddlers = [];
-			for(i = 0; i < default_articles.length; i++) {
-				var article = default_articles[i];
-				var title = article.title ||
-					config.extensions.GuidPlugin.guid.generate() + "_" + DEFAULT_LANGUAGE;
-				var tiddler = new Tiddler(title);
-				tiddler.fields.heading = article.heading;
-				tiddler.fields.summary = article.summary;
-				tiddler.fields.region = "WORLD";
-				tiddler.fields.image = article.image;
-				tiddler.creator = user.name;
-				tiddler.text = article.text;
-				merge(tiddler.fields, config.defaultCustomFields);
-				tiddlers.push(store.saveTiddler(tiddler));
-				story.displayTiddler(null, title);
-			}
-			autoSaveChanges(null, tiddlers);
-		});
-		ext.associator.init();
-		window.setTimeout(function() {
+	merge(config.extensions.TiddlySpaceInit, {
+		siteIconTags: ["excludeLists", "image"],
+		SiteSubtitle: "Mission: Save the world one LGBTI person at a time",
+		firstRun: function() {
+			var i;
+			var res = _firstRun.apply(this, arguments);
 			config.options.chkPrivateMode = true;
-			saveSystemSetting("chkPrivateMode", true);
-		}, 3000);
-		return res;
-	}
-});
-
+			config.defaultCustomFields["server.workspace"] = tiddlyspace.getCurrentWorkspace("private");
+			tweb.getUserInfo(function(user) {
+				var tiddlers = [];
+				for(i = 0; i < default_articles.length; i++) {
+					var article = default_articles[i];
+					var title = article.title ||
+						config.extensions.GuidPlugin.guid.generate() + "_" + DEFAULT_LANGUAGE;
+					var tiddler = new Tiddler(title);
+					tiddler.fields.heading = article.heading;
+					tiddler.fields.summary = article.summary;
+					tiddler.fields.region = "WORLD";
+					tiddler.fields.image = article.image;
+					tiddler.creator = user.name;
+					tiddler.text = article.text;
+					merge(tiddler.fields, config.defaultCustomFields);
+					tiddlers.push(store.saveTiddler(tiddler));
+					story.displayTiddler(null, title);
+				}
+				autoSaveChanges(null, tiddlers);
+			});
+			ext.associator.init();
+			window.setTimeout(function() {
+				config.options.chkPrivateMode = true;
+				saveSystemSetting("chkPrivateMode", true);
+			}, 3000);
+			return res;
+		}
+	});
+}
 tiddlyspace.disableTab(["Backstage##Identities", "Backstage##Password", "Backstage##Tiddlers",
 	"Backstage##Options", "Backstage##Export", "AdvancedOptions", "Backstage##SpaceInclusions", "PluginManager",
 	"Backstage##FileImport"]);
@@ -667,6 +667,7 @@ if(tiddlyspace.reservedBags) {
 		"published_articles_en", "published_articles_fr", "published_articles_es", "published_articles_pt",
 		"comments_en", "comments_fr", "comments_es", "comments_pt", "ILGA"]);
 }
+
 }(jQuery));
 //}}}
 
