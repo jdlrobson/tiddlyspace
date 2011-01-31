@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.131|
+|''Version''|0.3.14|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -459,8 +459,6 @@ config.macros.view.views.link = function(value,place,params,wikifier,paramString
 	var label = args.labelField ? tiddler[args.labelField] || tiddler.fields[args.labelField] : args.anon[2];
 	if(params[2]) {
 		$(btn).text(label);
-	} else if(field === "title" || field === "server.title" && tiddler && tiddler.fields.heading) {
-		$(btn).text(tiddler.fields.heading);
 	}
 };
 
