@@ -175,6 +175,8 @@ for space_name in ["published-articles-pt", "published-articles-es", "published-
   }
   store_structure['recipes'][private_recipe_name] = deepcopy(
       store_structure['recipes'][public_recipe_name])
+  store_structure['recipes'][private_recipe_name]['recipe'].append(
+      (private_bag_name, ''))
 
 store_structure['bags']['MAPUSER'] = {
     'desc': 'maps extracted user credentials to canonical username',
