@@ -5,6 +5,7 @@ tags: excludeLists package##theme
 <div id='messageArea'></div>
 <div id='page' class='theme_default'>
 	<div class='rainbow_splash_left'></div>
+	<div class='rainbow_splash_right'></div>
 	[[PageTemplateTop]]
 	<div id='middlepage'>
 		<div class='languageTab' macro="languageToggler"></div>

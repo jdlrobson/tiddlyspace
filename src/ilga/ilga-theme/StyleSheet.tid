@@ -103,6 +103,16 @@ div.toolbar {
 	z-index: 4;
 }
 
+#page .rainbow_splash_right {
+	background-image: url(http://ilga.org/ilga/static/images/graphics/rainbow_splash_right.png);
+	background-repeat: no-repeat;
+	height: 143px;
+	position: absolute;
+	right: 60px;
+	top: 5px;
+	width: 200px;
+}
+
 #bottomPage {
 	background: none;
 	background-color: white;
@@ -143,6 +153,11 @@ div.toolbar {
 	margin-top: 5px;
 }
 
+#topBanner .ilgaBrandStamp {
+	border: 1px solid #CCC;
+	-webkit-border-radius: 5px
+}
+
 .tiddler .author {
 	float: right;
 	text-align: center;
@@ -168,12 +183,6 @@ div.toolbar {
 }
 
 #topBanner {
-	background: white;
-	border: 1px solid #CCC;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
 	width: 880px;
 	position: relative;
 }
@@ -196,7 +205,13 @@ div.toolbar {
 }
 
 #page .rainbow_splash_left {
-	background: none;
+	background-image: url(http://ilga.org/ilga/static/images/graphics/rainbow_splash_left.gif);
+	background-repeat: no-repeat;
+	height: 133px;
+	left: -40px;
+	position: absolute;
+	top: -23px;
+	width: 290px;
 }
 
 .popup {
