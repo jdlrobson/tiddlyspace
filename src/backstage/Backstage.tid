@@ -76,6 +76,7 @@ You can associate your account with multiple identities. If you have an open id 
 
 !Login
 <<TiddlySpaceLogin tiddlywebplugins.ilga.tiddlyspacelogin>>
+[[forgot password?|http://www.ilga.org/directory/ILGA/FRONTOFFICE/FORMS/remember.php?lang=en]]
 
 !TabOpenID
 <<TiddlySpaceLogin openid>>
