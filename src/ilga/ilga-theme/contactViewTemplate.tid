@@ -2,7 +2,7 @@ tags: excludeLists excludeSearch
 
 <!--{{{-->
 <div class='article article_editor text_gray'>
-	<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] more:popup icons:yes'></div> 
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::ContactViewToolbar]] more:popup icons:yes'></div> 
 	<div class='privacyStamp' macro="tiddlerOrigin label:yes width:48 height:48 preserveAspectRatio:yes"></div>
 	<div class='tags'>
 		tagged with:

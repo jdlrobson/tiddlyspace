@@ -1,6 +1,7 @@
 type: None
 tags: excludeSearch excludeLists
 
+|~ContactViewToolbar|closeTiddler|
 |~ViewToolbar|+editTiddler closeTiddler|
 |~EditToolbar|+saveTiddler -cancelTiddler deleteTiddler|
 |~EditToolbarProfile|+saveTiddler -cancelTiddler|
