@@ -1,6 +1,6 @@
 /***
 |''Name''|ILGASpecificPlugin|
-|''Version''|0.3.15|
+|''Version''|0.3.15dev|
 |''Contributors''|Jon Robson, Ben Gillies, Jon Lister|
 |''License:''|[[BSD open source license]]|
 |''Requires''|TiddlySpaceConfig TiddlySpaceBackstage TiddlySpaceInitialization GUID TiddlySpaceCloneTiddlerParamifier ImportExternalLinksPlugin|
@@ -42,33 +42,44 @@ var ext = config.extensions.ilga = {
 			}
 			return { name: name, id: id };
 		},
-		associateGroup: function(id) {
-			var tiddler = store.getTiddler("Contact") || new Tiddler("Contact");
-			tiddler.text = "Please wait...";
-			store.addTiddler(tiddler);
+		associateGroup: function(id, firstRun) {
+			var tiddler = store.getTiddler("Contact");
+			tiddler.fields._group = id;
+			if(firstRun) {
+				merge(tiddler.fields, config.defaultCustomFields);
+				tiddler.fields.image = "%0/ilga/static/images/graphics/unknown.jpg".format(ILGA_HOST);
+				tiddler.fields["server.page.revision"] = "false";
+				tiddler.tags = ["contact"];
+				tiddler = store.saveTiddler(tiddler);
+				autoSaveChanges(null, [ tiddler ]);
+				story.displayTiddler(null, "Contact");
+			}
 			ajaxReq({url: "_directory/group.php?id="+id, dataType: "json",
 				success: function(r) {
-					var tiddler = store.getTiddler("Contact") || new Tiddler("Contact");
-					if(r && r.fields) {
-						merge(tiddler.fields, r.fields);
-					}
-					tiddler.fields["server.page.revision"] = "false";
-					tiddler.text = "";
-					tiddler.fields.image ? tiddler.fields.image :
-						"%0/ilga/static/images/graphics/unknown.jpg".format(ILGA_HOST);
-					merge(tiddler.fields, config.defaultCustomFields);
-					tiddler.fields._group = id;
-					tiddler.tags = ["contact"];
-					tiddler = store.saveTiddler(tiddler);
-					autoSaveChanges(null, [ tiddler ]);
-					story.displayTiddler(null, "Contact");
+					ext.makeTiddler(r);
 				}
 			});
 		},
+		makeTiddler: function(r) {
+			var tiddler = store.getTiddler("Contact") || new Tiddler("Contact");
+			if(r && r.fields) {
+				merge(tiddler.fields, r.fields);
+			}
+			tiddler.text = "";
+			story.refreshTiddler("Contact", null, true);
+		},
 		init: function() {
 			var g = ext.associator.readCookies();
+			var tiddler = new Tiddler("Contact");
+			tiddler.text = "No contact information for this space.";
+			tiddler.fields["server.page.revision"] = "false";
+			tiddler.tags = ["contact"];
+			tiddler = store.saveTiddler(tiddler);
+			autoSaveChanges(null, [ tiddler ]);
 			if(g.id) {
-				ext.associator.associateGroup(g.id);
+				if(confirm("Would you like to associate this space with your group?")) {
+					ext.associator.associateGroup(g.id, true);
+				}
 			}
 		}
 	}
@@ -86,8 +97,15 @@ TWEAKS
 ********************************/
 /* make displayTiddler add a class template_<templatename> to the tiddler for styling purposes*/
 var _oldDisplayTiddler = story.displayTiddler;
-story.displayTiddler = function(args){
+story.displayTiddler = function(src, tiddler) {
+	var title = tiddler.title || tiddler;
 	var el = _oldDisplayTiddler.apply(this, arguments);
+	if(title === "Contact" && store.tiddlerExists(title)) {
+		var id = store.getTiddler(title).fields._group;
+		if(id) {
+			ext.associator.associateGroup(id, false);
+		}
+	}
 	var name = $(el).attr("template");
 	$(el).addClass("template_"+name);
 	return el;
