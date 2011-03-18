@@ -2,7 +2,7 @@ AUTHOR = 'Osmosoft'
 AUTHOR_EMAIL = 'tiddlyspace@osmosoft.com'
 NAME = 'tiddlywebplugins.tiddlyspace'
 DESCRIPTION = 'A discoursive social model for TiddlyWiki'
-VERSION = 'ILGA.9.721' # NB: duplicate of tiddlywebplugins.tiddlyspace.__init__
+VERSION = 'ILGA.9.85' # NB: duplicate of tiddlywebplugins.tiddlyspace.__init__
 
 import os
 
@@ -37,13 +37,14 @@ setup(
         'tiddlywebplugins.oom',
         'tiddlywebplugins.prettyerror>=0.9.2',
         'tiddlywebplugins.pathinfohack>=0.8',
-        'tiddlywebplugins.form==dev',
+        'tiddlywebplugins.form',
         'tiddlywebplugins.reflector>=0.6',
         'tiddlywebplugins.atom>=1.2.2',
         'tiddlywebplugins.mysql2>=1.0.0',
         'tiddlywebplugins.sqlalchemy2>=1.0.0',
         'tiddlywebplugins.privateer',
         'tiddlywebplugins.lazy',
+        'tiddlywebplugins.relativetime',
         'tiddlywebplugins.jsonp>=0.4'
     ],
     include_package_data = True,

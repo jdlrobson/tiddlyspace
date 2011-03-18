@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceAdmin|
-|''Version''|0.5.6|
+|''Version''|0.5.8|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/|
 |''Requires''|TiddlySpaceConfig TiddlySpaceFormsPlugin|
@@ -113,7 +113,7 @@ var tsr = config.macros.TiddlySpaceRegister = {
 		if(validName && password && password === passwordConfirm) { // TODO: check password length?
 			tsr.register(username, password, form);
 		} else {
-			var msg = validName ? tsr.locale.passwordError : tsr.locale.charError;
+			var msg = validName ? admin.locale.passwordError : admin.locale.charError;
 			var options = { annotate: validName ? "[type=password]" : "[name=username]" };
 			formMaker.displayMessage(form, msg, true, options);
 		}
@@ -173,7 +173,11 @@ var admin = config.macros.TiddlySpaceAdmin = {
 			return { name: "openid" };
 		},
 		password: function(repeated) {
-			return { type: "password", name: repeated ? "password_confirm" : "password" };
+			var name = typeof(repeated) === "string" ? repeated : false;
+			if(!name) {
+				name = repeated ? "password_confirm" : "password";
+			}
+			return { type: "password", name: name };
 		},
 		username: function() {
 			return { name: "username" };
@@ -232,7 +236,7 @@ var identities = config.macros.TiddlySpaceIdentities = {
 		config.extensions.formMaker.make(container, identities.template, uri, {
 			beforeSubmit: function(ev, form) {
 				var openid = $("[name=openid]").val();
-				$('<input name="tiddlyweb_redirect" />').
+				$('<input name="tiddlyweb_redirect" />').attr("type", "hidden").
 					val("%0#auth:OpenID=%1".format(tweb.serverPrefix, openid)).appendTo(form);
 			}, locale: admin.locale.identities });
 	}

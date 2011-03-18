@@ -1,13 +1,16 @@
 /***
 |''Name''|TiddlySpaceViewTypes|
-|''Version''|0.5.3|
+|''Version''|0.5.4|
 |''Status''|@@beta@@|
 |''Description''|Provides TiddlySpace specific view types|
 |''Author''|Jon Robson|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/TiddlySpaceViewTypes.js|
 |''Requires''|TiddlySpaceConfig TiddlySpaceTiddlerIconsPlugin|
 !Usage
-Provides replyLink view type.
+Provides replyLink, spaceLink and SiteIcon view types.
+!!SiteIcon view parameters
+* labelPrefix / labelSuffix : prefix or suffix the label with additional text. eg. labelPrefix:'modified by '
+* spaceLink: if set to "yes" will make any avatars link to the corresponding space. {{{<<originMacro spaceLink:yes>>}}}
 
 !Code
 ***/
@@ -15,6 +18,7 @@ Provides replyLink view type.
 (function($) {
 
 var tiddlyspace = config.extensions.tiddlyspace;
+var originMacro = config.macros.tiddlerOrigin;
 
 config.macros.view.replyLink = {
 	locale: {
@@ -57,7 +61,7 @@ config.macros.view.views.replyLink = function(value, place, params, wikifier,
 config.macros.view.views.spaceLink = function(value, place, params, wikifier,
 		paramString, tiddler) {
 		var spaceName = tiddlyspace.resolveSpaceName(value);
-		var isBag = value === spaceName ? true : false;
+		var isBag = params[0] == "server.bag" && value === spaceName ? true : false;
 		var args = paramString.parseParams("anon")[0];
 		var titleField = args.anon[2];
 		var labelField = args.labelField ? args.labelField[0] : false;
@@ -85,6 +89,19 @@ config.macros.view.views.spaceLink = function(value, place, params, wikifier,
 				return false;
 			});
 		}
+};
+
+config.macros.view.views.SiteIcon = function(value, place, params, wikifier,
+		paramString, tiddler) {
+	var options = originMacro.getOptions(paramString);
+	if(!tiddler || value == "None") { // some core tiddlers lack modifier
+		value = false;
+	}
+	var field = params[0];
+	if(field == "server.bag") {
+		options.notSpace = !originMacro._isSpace(value);
+	}
+	tiddlyspace.renderAvatar(place, value, options);
 };
 
 })(jQuery);

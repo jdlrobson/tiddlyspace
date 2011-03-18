@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceFollowingPlugin|
-|''Version''|0.6.18|
+|''Version''|0.6.21|
 |''Description''|Provides a following macro|
 |''Author''|Jon Robson|
 |''Requires''|TiddlySpaceConfig TiddlySpaceTiddlerIconsPlugin ErrorHandler|
@@ -94,6 +94,48 @@ tiddlyspace.displayServerTiddler = function(src, title, workspace, callback) {
 	});
 };
 
+tiddlyspace.scroller = {
+	runHandler: function(title, top, bottom, height) {
+		var i;
+		var handlers = tiddlyspace.scroller.handlers;
+		var tidEl = story.getTiddler(title);
+		if(tidEl) {
+			var topEl = $(tidEl).offset().top + 20;
+			if(top === false || (topEl > top && topEl < bottom)) {
+				var h = handlers[title];
+				for(i = 0; i < h.length; i++) {
+					h[i]();
+				}
+				tiddlyspace.scroller.clearHandlers(title);
+			}
+		} else {
+			tiddlyspace.scroller.clearHandlers(title);
+		}
+	},
+	clearHandlers: function(title) {
+		tiddlyspace.scroller.handlers[title] = [];
+	},
+	registerIsVisibleEvent: function(title, handler) {
+		tiddlyspace.scroller.handlers[title] = tiddlyspace.scroller.handlers[title] || [];
+		tiddlyspace.scroller.handlers[title].push(handler);
+	},
+	init: function() {
+		this.handlers = {};
+		this.interval = window.setInterval(function() {
+			var top = $(window).scrollTop();
+			var height = $(window).height();
+			var bottom = top + height;
+			var title;
+			for(title in tiddlyspace.scroller.handlers) {
+				if(title) {
+					tiddlyspace.scroller.runHandler(title, top, bottom, height);
+				}
+			}
+		}, 2000); // every 2 seconds check scroll position
+	}
+};
+tiddlyspace.scroller.init();
+
 var followMacro = config.macros.followTiddlers = {
 	locale: {
 		followListHeader: "Here are tiddlers from spaces you follow using the follow tag which use this title.",
@@ -113,25 +155,33 @@ var followMacro = config.macros.followTiddlers = {
 		var title = params[0] || tiddler.fields["server.title"] || tiddler.title;
 		var blacklisted = store.getTiddlerText("FollowTiddlersBlackList").split("\n");
 		var btn = $('<div class="followButton" />').appendTo(place)[0];
+		var id = Math.random();
+		$(story.getTiddler(title)).data("followTiddlerQuery", id);
 		if(blacklisted.contains(title)) {
 			$(btn).remove();
 			return;
 		} else {
 			var options = {};
 			var user = params[1] || false; // allows a user to use the macro on another username
-			this.getFollowers(function(followers) {
-				if(!followers) {
-					$(btn).remove();
-				} else {
-					scanMacro.scan(null, { searchFields: "title", searchValues: [title],
-						spaceField: "bag", template: null, sort: "-modified",
-						showBags: followMacro._getFollowerBags(followers), hideBags: [tiddler.fields["server.bag"]],
-						callback: function(tiddlers) {
-							followMacro.constructInterface(btn, tiddlers);
-						}
+			window.setTimeout(function() { // prevent multiple calls due to refresh
+				if($(story.getTiddler(title)).data("followTiddlerQuery") === id) {
+					tiddlyspace.scroller.registerIsVisibleEvent(title, function() {
+						followMacro.getFollowers(function(followers) {
+							if(!followers) {
+								$(btn).remove();
+							} else {
+								scanMacro.scan(null, { searchFields: "title", searchValues: [title],
+									spaceField: "bag", template: null, sort: "-modified",
+									showBags: followMacro._getFollowerBags(followers), hideBags: [tiddler.fields["server.bag"]],
+									callback: function(tiddlers) {
+										followMacro.constructInterface(btn, tiddlers);
+									}
+								});
+							}
+						}, user);
 					});
 				}
-			}, user);
+			}, 1000);
 		}
 	},
 	constructInterface: function(container, tiddlers) {
@@ -276,8 +326,9 @@ var scanMacro = config.macros.tsScan = {
 						};
 						scanMacro._scanCallback(place, tiddlers, options);
 					},
-					error: function() {
-						$("<span />").text(locale.error).appendTo(place);
+					error: function(xhr) {
+						$(place).empty();
+						$("<span />").addClass("annotation error").text(locale.error.format(xhr.status)).appendTo(place);
 					}
 				});
 			}
@@ -326,7 +377,7 @@ var followersMacro = config.macros.followers = {
 		loggedOut: "Please login to see the list of followers",
 		noSupport: "We were unable to retrieve followers as your browser does not support following.",
 		pleaseWait: "Please wait while we look this up...",
-		error: "Whoops something went wrong. I was unable to find the followers of this user.",
+		error: "Error %0 occurred whilst retrieving data from server",
 		noone: "None."
 	},
 	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
@@ -356,7 +407,7 @@ var followingMacro = config.macros.following = {
 		pleaseWait: followersMacro.locale.pleaseWait,
 		loggedOut: "Please login to see who you are following",
 		noSupport: followersMacro.locale.noSupport,
-		error: "Whoops something went wrong. I was unable to find who this user is following.",
+		error: followersMacro.locale.error,
 		noone: followersMacro.locale.noone
 	},
 	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
