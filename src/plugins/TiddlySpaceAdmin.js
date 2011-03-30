@@ -244,15 +244,15 @@ var admin = config.macros.TiddlySpaceAdmin = {
 		tweb.getUserInfo(function(user) {
 			admin.status = tweb.status;
 			var space = tiddlyspace.currentSpace.name;
-			!concept || concept == "members" ? admin.collectMembers(space) : null;
+			!concept || concept == "member" ? admin.collectMembers(space) : null;
 			!concept || concept == "identity" ? admin.collectIdentities(user) : null;
 			!concept || concept == "space" ? admin.collectSpaces(user) : null;
 			!concept || concept == "inclusion" ? admin.collectInclusions(space) : null;
 		});
 	},
 	refresh: function() {
-		refreshElements($("#backstage")[0]);
-		refreshElements($("#contentWrapper")[0]);
+		refreshElements($("#backstage")[0], []);
+		refreshElements($("#contentWrapper")[0], []);
 	},
 	mapConcept: function(name, concept, info) {
 		var title = tiddlyspace.getLocalTitle(name, null, "concept");
