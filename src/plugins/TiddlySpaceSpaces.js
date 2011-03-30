@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceSpaces|
-|''Version''|0.6.0|
+|''Version''|0.6.1|
 |''Description''|TiddlySpace spaces management|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/TiddlySpaceSpaces.js|
@@ -13,6 +13,7 @@
 
 var tweb = config.extensions.tiddlyweb;
 var formMaker = config.extensions.formMaker;
+var admin = config.macros.TiddlySpaceAdmin;
 
 var macro = config.macros.TiddlySpaceSpaces = { // TODO: rename
 	formTemplate: store.getTiddlerText(tiddler.title + "##HTMLForm"),
@@ -40,44 +41,8 @@ var macro = config.macros.TiddlySpaceSpaces = { // TODO: rename
 			};
 			this.generateForm(container, options);
 		} else {
-			this.refresh(container);
+			admin.listConcept(container[0], "space");
 		}
-	},
-	refresh: function(container) {
-		container = $(container);
-		container.text(macro.locale.loadingSpaces).addClass("inProgress").
-			attr("refresh", "macro").attr("macroName", "TiddlySpaceSpaces").
-			addClass("listTiddlySpaceSpaces");
-		tweb.getUserInfo(function(user) {
-			if(!user.anon) {
-				$.ajax({ // XXX: DRY; cf. TiddlySpaceInclusion
-					url: tweb.host + "/spaces?mine=1",
-					type: "GET",
-					success: function(data, status, xhr) {
-						container.empty().removeClass("inProgress").append("<ul />");
-						var spaces = $.map(data, function(item, i) {
-							var link = $("<a />", {
-								href: item.uri,
-								text: item.name
-							});
-							return $("<li />").append(link)[0];
-						});
-						var el = $("ul", container);
-						if(data.length > 0) {
-							el.append(spaces);
-						} else { // XXX: should never occur!?
-							$('<p class="annotation" />').text(macro.locale.noSpaces).
-								replaceAll(el);
-						}
-					},
-					error: function(xhr, error, exc) {
-						displayMessage(macro.locale.listError.format(error));
-					}
-				});
-			} else {
-				container.text(macro.locale.anon).addClass("annotation");
-			}
-		});
 	},
 	elements: [ "Name:", { name: "space" }, { type: "checkbox", name: "subscribe",
 		label: "Include the current space in the new space." }],
