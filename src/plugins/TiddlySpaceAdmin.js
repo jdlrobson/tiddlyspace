@@ -9,7 +9,38 @@
 //{{{
 (function($) {
 
-config.shadowTiddlers.TemplateTiddlySpaceAdmin = "<<view server.title SiteIcon width:48 height:48 preserveAspectRatio:yes label:no spaceLink:yes>><<view server.title spaceLink>>";
+config.macros.view.views.deleteConcept = function(value, place, params, wikifier,
+	paramString, tiddler) {
+	var concept, handler, tooltip, macro, item;
+	concept = params[2];
+	item = value;
+	switch(concept) {
+		case "inclusion":
+			macro = config.macros.TiddlySpaceInclusion;
+			break;
+		case "member":
+			macro = config.macros.TiddlySpaceMembers;
+			break;
+		case "default":
+			return;
+	}
+	tooltip = macro.locale.delTooltip;
+	handler = macro.onDelClick;
+	var myHandler = function(ev) {
+		handler(ev);
+	};
+	var btn = $('<a class="deleteButton" href="javascript:;" />').
+		text("x"). // TODO: i18n (use icon!?)
+		attr("title", tooltip).
+		data("space", item).click(myHandler).appendTo(place);
+};
+
+var commonTemplate = ["<<view server.title SiteIcon width:48 height:48 preserveAspectRatio:yes label:no spaceLink:yes>>",
+	"<<view server.title spaceLink>>"].join("");
+config.shadowTiddlers.TemplateTiddlySpaceAdmin = ["!member\n", commonTemplate,
+	"<<view server.title deleteConcept member>>\n",
+	"!inclusion", commonTemplate, "<<view server.title deleteConcept inclusion>>\n",
+	"!common\n", commonTemplate].join("");
 var tweb = config.extensions.tiddlyweb;
 var tiddlyspace = config.extensions.tiddlyspace;
 var formMaker = config.extensions.formMaker;
@@ -269,8 +300,10 @@ var admin = config.macros.TiddlySpaceAdmin = {
 	listConcept: function(place, concept) {
 		admin.collect(concept);
 		var empty = admin.locale.empty[concept];
-		var paramString = "filter [tag[system-%0]] template:TemplateTiddlySpaceAdmin emptyMessage:\"%1\"".
-			format(concept, empty);
+		var template = concept == "inclusion" || concept == "member" ?
+			"TemplateTiddlySpaceAdmin##%0".format(concept) : "TemplateTiddlySpaceAdmin##common";
+		var paramString = "filter [tag[system-%0]] template:%2 emptyMessage:\"%1\"".
+			format(concept, empty, template);
 		invokeMacro(place, "list", paramString, null);
 	},
 	init: function() {
