@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceAdmin|
-|''Version''|0.5.8|
+|''Version''|0.5.9dev|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/|
 |''Requires''|TiddlySpaceConfig TiddlySpaceFormsPlugin|
@@ -186,6 +186,16 @@ var admin = config.macros.TiddlySpaceAdmin = {
 			return { type: "hidden", name: "tiddlyweb_redirect", value: tweb.serverPrefix || "/" };
 		}
 	},
+	collectMembers: function() {
+	},
+	collectInclusions: function() {
+	},
+	collectSpaces: function() {
+	},
+	collectIdentities: function() {
+	},
+	collect: function() {
+	},
 	init: function() {
 		var elements = this.elements;
 		var locale = this.locale;
@@ -195,6 +205,7 @@ var admin = config.macros.TiddlySpaceAdmin = {
 		tsr.formTemplate = [locale.username, elements.username(),
 			locale.password, elements.password(), locale.confirmPassword, elements.password(true)];
 		identities.template = [ locale.openid, elements.openid() ];
+		admin.collect();
 	}
 };
 
