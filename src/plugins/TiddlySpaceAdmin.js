@@ -167,7 +167,10 @@ var admin = config.macros.TiddlySpaceAdmin = {
 		spaceError: "space <em>%0</em> already exists",
 		charError: "error: invalid username - must only contain lowercase letters, digits or hyphens",
 		passwordError: "error: passwords do not match",
-		listError: "Error retrieving list of identities for user %0"
+		listError: "Error retrieving list of identities for user %0",
+		empty: {
+			identity: "No identities associated with this user."
+		}
 	},
 	elements: {
 		openid: function() {
@@ -266,8 +269,8 @@ var admin = config.macros.TiddlySpaceAdmin = {
 	listConcept: function(place, concept) {
 		admin.collect(concept);
 		var empty = admin.locale.empty[concept];
-		var paramString = "filter [tag[system-%0]] template:TemplateTiddlySpaceAdmin".
-			format(concept);
+		var paramString = "filter [tag[system-%0]] template:TemplateTiddlySpaceAdmin emptyMessage:\"%1\"".
+			format(concept, empty);
 		invokeMacro(place, "list", paramString, null);
 	},
 	init: function() {
