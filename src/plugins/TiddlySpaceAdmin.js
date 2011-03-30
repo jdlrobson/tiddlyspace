@@ -237,14 +237,14 @@ var admin = config.macros.TiddlySpaceAdmin = {
 			}
 		});
 	},
-	collect: function() {
+	collect: function(concept) {
 		tweb.getUserInfo(function(user) {
 			admin.status = tweb.status;
 			var space = tiddlyspace.currentSpace.name;
-			admin.collectMembers(space);
-			admin.collectIdentities(user);
-			admin.collectSpaces(user);
-			admin.collectInclusions(space);
+			!concept || concept == "members" ? admin.collectMembers(space) : null;
+			!concept || concept == "identity" ? admin.collectIdentities(user) : null;
+			!concept || concept == "space" ? admin.collectSpaces(user) : null;
+			!concept || concept == "inclusion" ? admin.collectInclusions(space) : null;
 		});
 	},
 	refresh: function() {
