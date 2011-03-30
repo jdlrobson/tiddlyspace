@@ -14,6 +14,7 @@ var tweb = config.extensions.tiddlyweb;
 var tiddlyspace = config.extensions.tiddlyspace;
 var currentSpace = tiddlyspace.currentSpace.name;
 var formMaker = config.extensions.formMaker;
+var admin = config.macros.TiddlySpaceAdmin;
 
 var macro = config.macros.TiddlySpaceInclusion = {
 	formTemplate: store.getTiddlerText(tiddler.title + "##HTMLForm"),
@@ -49,41 +50,8 @@ var macro = config.macros.TiddlySpaceInclusion = {
 		} else {
 			var container = $("<div />").addClass(this.name).appendTo(place);
 			$('<p class="annotation" />').hide().appendTo(container);
-			this.listInclusions(container);
+			admin.listConcept(container[0], "inclusion");
 		}
-	},
-	listInclusions: function(container) {
-		var recipe = new tiddlyweb.Recipe(currentSpace + "_public", tweb.host);
-		recipe.get(function(recipe, status, xhr) {
-			var inclusions = $.map(recipe.recipe, function(item, i) { // TODO: refactor to canonicalize; move to TiddlySpaceConfig!?
-				var arr = item[0].split("_public");
-				return (arr[0] != currentSpace && arr[1] === "") ? arr[0] : null;
-			});
-			var items = $.map(inclusions, function(item, i) { // TODO: DRY (cf. displayMembers)
-				var link = $("<a />").text(item);
-				tweb.getStatus(function(status) {
-					var uri = tiddlyspace.getHost(
-						status.server_host, item);
-					link.attr("href", uri);
-				});
-				var btn = $('<a class="deleteButton" href="javascript:;" />').
-					text("x"). // TODO: i18n (use icon!?)
-					attr("title", macro.locale.delTooltip).
-					data("space", item).click(macro.onDelClick);
-				if(readOnly) {
-					btn.hide();
-				}
-				return $("<li />").append(link).append(btn)[0];
-			});
-			if(items.length) {
-				$("<ul />").append(items).appendTo(container);
-			} else {
-				$('<div class="annotation" />').
-					text(macro.locale.noInclusions).appendTo(container);
-			}
-		}, function(xhr, error, exc) {
-			displayMessage(macro.locale.listError.format([currentSpace, error]));
-		});
 	},
 	onSubmit: function(ev, form) {
 		var selector = "[name=space]";
