@@ -3,7 +3,7 @@
 |''Version''|0.5.9dev|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/|
-|''Requires''|TiddlySpaceConfig TiddlySpaceFormsPlugin|
+|''Requires''|TiddlySpaceConfig TiddlySpaceFormsPlugin ErrorHandlerPlugin|
 !Code
 ***/
 //{{{
@@ -186,15 +186,81 @@ var admin = config.macros.TiddlySpaceAdmin = {
 			return { type: "hidden", name: "tiddlyweb_redirect", value: tweb.serverPrefix || "/" };
 		}
 	},
-	collectMembers: function() {
+	collectMembers: function(space) {
+		this.space = new tiddlyweb.Space(space, tweb.host); // XXX: singleton
+		this.space.members().get(function(members) {
+			var items = $.map(members, function(member) {
+				admin.mapConcept(member, "member");
+			});
+			admin.refresh();
+		});
 	},
-	collectInclusions: function() {
+	collectInclusions: function(space) {
+		var recipe = new tiddlyweb.Recipe(space + "_public", tweb.host);
+		recipe.get(function(recipe, status, xhr) {
+			var inclusions = $.map(recipe.recipe, function(item, i) { // TODO: refactor to canonicalize; move to TiddlySpaceConfig!?
+				var arr = item[0].split("_public");
+				return (arr[0] != space && arr[1] === "") ? arr[0] : null;
+			});
+			var padding = String(inclusions).length;
+			$.map(inclusions, function(item, i) { // TODO: DRY (cf. displayMembers)
+				var order = String.zeroPad(i, padding); // zero pad to enable string sorting
+				admin.mapConcept(item, "inclusion", order);
+			});
+			admin.refresh();
+		});
 	},
-	collectSpaces: function() {
+	collectSpaces: function(user) {
+		if(!user.anon) {
+			$.ajax({
+				url: tweb.host + "/spaces?mine=1",
+				type: "GET",
+				success: function(data, status, xhr) {
+					var spaces = $.map(data, function(item, i) {
+						admin.mapConcept(item.name, "space");
+					});
+					admin.refresh();
+				}
+			});
+		}
 	},
-	collectIdentities: function() {
+	collectIdentities: function(user) {
+		$.ajax({ // TODO: add (dynamically) to chrjs user extension?
+			url: "%0/users/%1/identities".format(tweb.host, user.name),
+			type: "GET",
+			success: function(data, status, xhr) {
+				var identities = $.map(data, function(item, i) {
+					admin.mapConcept(item, "identity");
+				});
+				admin.refresh();
+			}
+		});
 	},
 	collect: function() {
+		tweb.getUserInfo(function(user) {
+			admin.status = tweb.status;
+			var space = tiddlyspace.currentSpace.name;
+			admin.collectMembers(space);
+			admin.collectIdentities(user);
+			admin.collectSpaces(user);
+			admin.collectInclusions(space);
+		});
+	},
+	refresh: function() {
+		refreshElements($("#backstage")[0]);
+		refreshElements($("#contentWrapper")[0]);
+	},
+	mapConcept: function(name, concept, info) {
+		var title = tiddlyspace.getLocalTitle(name, null, "concept");
+		var tiddler = store.getTiddler(title) || new Tiddler(title);
+		tiddler.fields['server.title'] = name;
+		var uri = tiddlyspace.getHost(admin.status.server_host, name);
+		merge(tiddler.fields, { _uri: uri, doNotSave: true });
+		if(info) {
+			tiddler.fields["_system.%0.info".format(concept)] = info;
+		}
+		tiddler.tags = tiddler.tags.concat(["system-"+concept, "excludeLists", "excludeSearch"]);
+		store.addTiddler(tiddler);
 	},
 	init: function() {
 		var elements = this.elements;
