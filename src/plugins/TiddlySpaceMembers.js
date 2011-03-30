@@ -88,6 +88,7 @@ var macro = config.macros.TiddlySpaceMembers = {
 		var username = btn.data("space");
 		var msg = macro.locale.delPrompt.format(username);
 		var callback = function(data, status, xhr) {
+			admin.collect("member");
 			if(username == config.extensions.tiddlyweb.username) { // assumes getStatus has completed
 				readOnly = true;
 				refreshDisplay();

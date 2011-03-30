@@ -88,7 +88,7 @@ var macro = config.macros.TiddlySpaceInclusion = {
 
 		var msg = macro.locale.delPrompt.format([provider]);
 		var callback = function(data, status, xhr) {
-			btn.closest("li").slideUp(function(ev) { $(this).remove(); });
+			admin.collect("inclusion");
 		};
 		var errback = function(xhr, error, exc) { // XXX: doesn't actually happen
 			displayMessage(macro.locale.delError.format([username, error]));
