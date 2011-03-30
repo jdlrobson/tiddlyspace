@@ -83,17 +83,15 @@ var macro = config.macros.TiddlySpaceMembers = {
 		macro.space.members().add(username, callback, errback);
 		return false;
 	},
-	onClick: function(ev) { // XXX: ambiguous; rename
+	onDelClick: function(ev) {
 		var btn = $(this);
-		var username = btn.data("username");
+		var username = btn.data("space");
 		var msg = macro.locale.delPrompt.format(username);
 		var callback = function(data, status, xhr) {
 			if(username == config.extensions.tiddlyweb.username) { // assumes getStatus has completed
 				readOnly = true;
 				refreshDisplay();
 			}
-			var container = btn.closest("div");
-			macro.refresh(container);
 		};
 		var errback = function(xhr, error, exc) {
 			var msg = xhr.status == 403 ? "delAuthError" : "delSpaceError";
