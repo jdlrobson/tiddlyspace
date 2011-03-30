@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceMembers|
-|''Version''|0.6.1|
+|''Version''|0.6.2|
 |''Description''|provides a UI for managing space members|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/TiddlySpaceMembers.js|
@@ -45,8 +45,7 @@ var macro = config.macros.TiddlySpaceMembers = {
 			if(mode == "add") {
 				macro.generateForm(place);
 			} else {
-				container = $("<div />").appendTo(place);
-				macro.refresh(container);
+				admin.listConcept(place, "member");
 			}
 		} else {
 			var msg;
@@ -61,33 +60,6 @@ var macro = config.macros.TiddlySpaceMembers = {
 			}
 		}
 	},
-	refresh: function(container) {
-		var callback = function(data, status, xhr) {
-			$(container).empty();
-			macro.displayMembers(data, container);
-		};
-		var errback = function(xhr, error, exc) {
-			var msg = xhr.status == 403 ? "authError" : "listError";
-			msg = macro.locale[msg].format(macro.space.name, error);
-			macro.notify(msg, container);
-		};
-		this.space.members().get(callback, errback);
-	},
-	displayMembers: function(members, container) {
-		config.extensions.tiddlyweb.getStatus(function(status) {
-			var items = $.map(members, function(member, i) {
-				var uri = config.extensions.tiddlyspace.getHost(
-					status.server_host, member);
-				var link = $("<a />").attr("href", uri).text(member);
-				var btn = $('<a class="deleteButton" href="javascript:;" />').
-					text("x"). // TODO: i18n (use icon!?)
-					attr("title", macro.locale.delTooltip).
-					data("username", member).click(macro.onClick);
-				return $("<li />").append(link).append(btn)[0];
-			});
-			$("<ul />").addClass("spaceMembersList").append(items).appendTo(container);
-		});
-	},
 	elements: [ admin.locale.username, admin.elements.username() ],
 	generateForm: function(container) {
 		return formMaker.make(container, macro.elements, macro.onSubmit, { locale: macro.locale });
@@ -97,9 +69,7 @@ var macro = config.macros.TiddlySpaceMembers = {
 		var input = $(form).find(selector);
 		var username = input.val();
 		var callback = function(data, status, xhr) {
-			$(".spaceMembersList").each(function(i, el) {
-				macro.refresh($(el.parentNode));
-			});
+			admin.collect("member");
 			input.val("");
 			formMaker.reset();
 		};
