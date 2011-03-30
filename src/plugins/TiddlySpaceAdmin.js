@@ -9,6 +9,7 @@
 //{{{
 (function($) {
 
+config.shadowTiddlers.TemplateTiddlySpaceAdmin = "<<view server.title SiteIcon width:48 height:48 preserveAspectRatio:yes label:no spaceLink:yes>><<view server.title spaceLink>>";
 var tweb = config.extensions.tiddlyweb;
 var tiddlyspace = config.extensions.tiddlyspace;
 var formMaker = config.extensions.formMaker;
@@ -262,6 +263,13 @@ var admin = config.macros.TiddlySpaceAdmin = {
 		tiddler.tags = tiddler.tags.concat(["system-"+concept, "excludeLists", "excludeSearch"]);
 		store.addTiddler(tiddler);
 	},
+	listConcept: function(place, concept) {
+		admin.collect(concept);
+		var empty = admin.locale.empty[concept];
+		var paramString = "filter [tag[system-%0]] template:TemplateTiddlySpaceAdmin".
+			format(concept);
+		invokeMacro(place, "list", paramString, null);
+	},
 	init: function() {
 		var elements = this.elements;
 		var locale = this.locale;
@@ -283,29 +291,8 @@ var identities = config.macros.TiddlySpaceIdentities = {
 		if(mode === "add") {
 			identities.generateForm(container);
 		} else if(mode === "list") {
-			tweb.getUserInfo(function(user) {
-				if(!user.anon) {
-					$(container).addClass("listIdentities");
-					identities.refresh(container);
-				}
-			});
+			admin.listConcept(place, "identity");
 		}
-	},
-	refresh: function(container) {
-		$(container).empty().append("<ul />");
-		$.ajax({ // TODO: add (dynamically) to chrjs user extension?
-			url: "%0/users/%1/identities".format(tweb.host, tweb.username),
-			type: "GET",
-			success: function(data, status, xhr) {
-				var identities = $.map(data, function(item, i) {
-					return $("<li />").text(item)[0];
-				});
-				$("ul", container).append(identities);
-			},
-			error: function(xhr, error, exc) {
-				displayMessage(admin.locale.listError.format(tweb.username));
-			}
-		});
 	},
 	generateForm: function(container) {
 		var uri = "%0/challenge/tiddlywebplugins.tiddlyspace.openid".format(tweb.host);
