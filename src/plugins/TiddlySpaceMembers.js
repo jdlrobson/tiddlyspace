@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceMembers|
-|''Version''|0.6.2|
+|''Version''|0.7.0|
 |''Description''|provides a UI for managing space members|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/TiddlySpaceMembers.js|
@@ -84,7 +84,7 @@ var macro = config.macros.TiddlySpaceMembers = {
 		return false;
 	},
 	onDelClick: function(ev) {
-		var btn = $(this);
+		var btn = $(ev.target);
 		var username = btn.data("space");
 		var msg = macro.locale.delPrompt.format(username);
 		var callback = function(data, status, xhr) {
