@@ -83,7 +83,7 @@ var macro = config.macros.TiddlySpaceInclusion = {
 		return false;
 	},
 	onDelClick: function(ev) { // XXX: too long, needs refactoring
-		var btn = $(this);
+		var btn = $(ev.target);
 		var provider = btn.data("space");
 
 		var msg = macro.locale.delPrompt.format([provider]);
