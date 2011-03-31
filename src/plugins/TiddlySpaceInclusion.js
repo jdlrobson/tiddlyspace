@@ -60,7 +60,7 @@ var macro = config.macros.TiddlySpaceInclusion = {
 		var subscriber = currentSpace;
 		var loc = macro.locale;
 		var callback = function(data, status, xhr) {
-			displayMessage(loc.addSuccess.format([provider, subscriber]));
+			displayMessage(loc.addSuccess.format(provider, subscriber));
 			if(confirm(loc.reloadPrompt)) {
 				window.location.reload();
 			}
@@ -86,12 +86,12 @@ var macro = config.macros.TiddlySpaceInclusion = {
 		var btn = $(ev.target);
 		var provider = btn.data("space");
 
-		var msg = macro.locale.delPrompt.format([provider]);
+		var msg = macro.locale.delPrompt.format(provider);
 		var callback = function(data, status, xhr) {
 			admin.collect("inclusion");
 		};
 		var errback = function(xhr, error, exc) { // XXX: doesn't actually happen
-			displayMessage(macro.locale.delError.format([username, error]));
+			displayMessage(macro.locale.delError.format(username, error));
 		};
 		if(confirm(msg)) {
 			macro.inclusion(provider, currentSpace, callback, errback, true);
