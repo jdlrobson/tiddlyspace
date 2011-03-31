@@ -275,7 +275,7 @@ var admin = config.macros.TiddlySpaceAdmin = {
 		if(concept) {
 			var tiddlers = store.getTaggedTiddlers("system-" + concept);
 			for(var i = 0; i < tiddlers.length; i++) {
-				store.removeTiddler(tiddlers[i]);
+				store.removeTiddler(tiddlers[i].title);
 			}
 		}
 		tweb.getUserInfo(function(user) {
