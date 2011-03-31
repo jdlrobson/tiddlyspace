@@ -39,7 +39,7 @@ var commonTemplate = ["<<view server.title SiteIcon width:48 height:48 preserveA
 	"<<view server.title spaceLink>>"].join("");
 config.shadowTiddlers.TemplateTiddlySpaceAdmin = ["!member\n", commonTemplate,
 	"<<view server.title deleteConcept member>>\n",
-	"!inclusion", commonTemplate, "<<view server.title deleteConcept inclusion>>\n",
+	"!inclusion\n", commonTemplate, "<<view server.title deleteConcept inclusion>>\n",
 	"!common\n", commonTemplate].join("");
 var tweb = config.extensions.tiddlyweb;
 var tiddlyspace = config.extensions.tiddlyspace;
