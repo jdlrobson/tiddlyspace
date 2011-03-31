@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceSpaces|
-|''Version''|0.6.1|
+|''Version''|0.7.0|
 |''Description''|TiddlySpace spaces management|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/TiddlySpaceSpaces.js|

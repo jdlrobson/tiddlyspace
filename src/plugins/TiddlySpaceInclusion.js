@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceInclusion|
-|''Version''|0.6.0|
+|''Version''|0.7.0|
 |''Description''|provides user interfaces for managing TiddlySpace inclusions|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/TiddlySpaceInclusion.js|
