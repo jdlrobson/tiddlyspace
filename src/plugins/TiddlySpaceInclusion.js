@@ -94,28 +94,6 @@ var macro = config.macros.TiddlySpaceInclusion = {
 			displayMessage(macro.locale.delError.format([username, error]));
 		};
 		if(confirm(msg)) {
-			var coreBags = tiddlyspace.coreBags;
-			var recipe = new tiddlyweb.Recipe(provider + "_public", tweb.host);
-			recipe.get(function(recipe, status, xhr) {
-				var inclusions = $.map(recipe.recipe, function(item, i) { // XXX: duplicated from above
-					var arr = item[0].split("_public");
-					return (arr[0] != provider && arr[1] === "") ? arr[0] : null;
-				});
-				var recursiveMatch = false;
-				btn.closest("ul").find("li").each(function(i, node) {
-					var space = $(".deleteButton", node).data("space"); // XXX: relying on button is hacky
-					if($.inArray(space, inclusions) != -1 && $.inArray("%0_public".format([space]), coreBags) == -1) {
-						recursiveMatch = true;
-						$(node).addClass("annotation"); // TODO: proper highlighting
-					}
-				});
-				var annotation = btn.closest("." + macro.name).find("> .annotation");
-				if(recursiveMatch) {
-					annotation.text(macro.locale.recursiveInclusions).slideDown();
-				} else {
-					annotation.hide();
-				}
-			});
 			macro.inclusion(provider, currentSpace, callback, errback, true);
 		}
 		return false;
