@@ -91,7 +91,7 @@ var macro = config.macros.TiddlySpaceInclusion = {
 			admin.collect("inclusion");
 		};
 		var errback = function(xhr, error, exc) { // XXX: doesn't actually happen
-			displayMessage(macro.locale.delError.format(username, error));
+			displayMessage(macro.locale.delError.format(provider, error));
 		};
 		if(confirm(msg)) {
 			macro.inclusion(provider, currentSpace, callback, errback, true);
