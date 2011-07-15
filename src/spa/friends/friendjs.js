@@ -180,7 +180,7 @@ function renderTiddlerList(container,friend) {
 				var win;
 				var space = tiddler.bag.split("_")[0];
 				var spaceUrl = "http://" + space + ".tiddlyspace.com";
-				var path = "/bags/" + tiddler.bag + "/tiddlers/" + tiddler.title;
+				var path = "/bags/" + tiddler.bag + "/tiddlers/" + encodeURIComponent(tiddler.title);
 				var link = $("<a />").text(tiddler.title).
 					attr("href", spaceUrl + path).
 					data("path", path).
@@ -229,7 +229,7 @@ function renderTiddlerList(container,friend) {
 						tid.put(function(tiddler) {
 							$(area).empty();
 							$("<span />").text("your comment: ").appendTo(area);
-							$("<a />").attr("href", "/" + tiddler.title).text(tiddler.title).appendTo(area);
+							$("<a />").attr("href", "/" + encodeURIComponent(tiddler.title)).text(tiddler.title).appendTo(area);
 						}, function() {
 							printError("error commenting!");
 						});
