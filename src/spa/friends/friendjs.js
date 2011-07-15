@@ -201,7 +201,10 @@ function renderTiddlerList(container,friend) {
 								success: function(tiddler) {
 									$(".text",win).html(tiddler.render);
 									$(win).show(1000);
-								} 
+								},
+								error: function() {
+									$(".text", win).text("error loading that tiddler");
+								}
 							});
 						}
 						ev.preventDefault();
