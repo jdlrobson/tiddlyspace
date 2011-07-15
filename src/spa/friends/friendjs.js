@@ -118,21 +118,62 @@ function chooseTiddlers(tiddlers) {
 	return _tiddlers;
 }
 
+function bubbleDown() {
+	var friends = $(".friend");
+	friends.css({ position: "relative" });
+	var target;
+	friends.each(function(i, el) {
+		if(!target && $(el).hasClass("silentFriend") &&
+			$(el).next(".friend").hasClass("noisyFriend")) {
+			target = el;
+		}
+	});
+	if(target) {
+		var other = $(target).next(".friend");
+		// we want to move target above the prev element
+		// target is an element which has the class noisy and the previous node is quiet
+		var swapDuration = 50;
+		var otherHeight = other.height();
+		var thisHeight = $(target).height();
+		$(target).animate({ top: + otherHeight }, { duration: swapDuration });
+		$(other).animate({ top:  - thisHeight }, { duration: swapDuration,
+				complete: function() {
+					var newTarget = $(target).clone(true).insertAfter(other)[0];
+					$(target).remove();
+					$(other).css({ top: 0 });
+					$(newTarget).css({ top: 0 });
+					bubbleDown();
+				}
+		});
+	}
+}
+
 function renderTiddlerList(container,friend) {
 	var tidList = $("<ul />").appendTo(container)[0];
 	$("<li />").text("loading").appendTo(tidList);
+	var oncompletion = function() {
+		if($(".errorFriend,.silentFriend,.noisyFriend").length === $(".friend").length) {
+			bubbleDown();
+		}
+	}
 	$.ajax({ dataType: "json",
 		url: "/search?q=modifier:" + friend + "&select=modified:>3d&sort=-modified",
 		error: function() {
+			$(container).addClass("errorFriend");
+			oncompletion();
 		},
 		success: function(tiddlers) {
 			$(tidList).empty();
 			tiddlers = chooseTiddlers(tiddlers);
 			if(tiddlers.length === 0) {
+				$(container).addClass("silentFriend");
 				$("<li />").text("No recent activity.").appendTo(tidList);
+				oncompletion();
 				return;
+			} else {
+				$(container).addClass("noisyFriend").removeClass("inactiveFriend");
+				oncompletion();
 			}
-			$(container).removeClass("inactiveFriend");
 			for(var i=0; i < tiddlers.length; i++) {
 				var tiddler = tiddlers[i];
 				var item = $("<li />").appendTo(tidList)[0];
