@@ -218,9 +218,12 @@ function renderTiddlerList(container,friend) {
 				$("<div />").addClass("text").appendTo(win);
 				var toolbar = $("<div />").addClass("toolbar").appendTo(win)[0];
 				var extra = $("<div />").addClass("extra").appendTo(win)[0];
-				$("<button />").data("bag", tiddler.bag).data("title", tiddler.title).text("give feedback").click(function(ev) {
+				$("<button />").data("bag", tiddler.bag).data("title", tiddler.title).text("give feedback").
+					data("revision", tiddler.revision).click(function(ev) {
 					var title = $(ev.target).data("title");
+					var revision = $(ev.target).data("revision");
 					var bag = $(ev.target).data("bag");
+					var revisionURL = host + "/bags/" + bag + "/tiddlers/" + encodeURIComponent(title) + "/revisions/" + revision;
 					var space = bag.split("_")[0];
 					var area = $(ev.target).parents(".tiddler").children(".extra")[0];
 					$(area).hide();
@@ -228,7 +231,8 @@ function renderTiddlerList(container,friend) {
 					$("<button />").text("save feedback").click(function(ev) {
 						var tid = new tiddlyweb.Tiddler("Feedback for " + title, userbag);
 						tid.tags = ["feedback", "@" + space];
-						tid.text = "In reply to [[" + title + "]]@" + space + "\n\n" + $("textarea", area).val();
+						tid.text = ["In reply to [[", title, "]]@", space,
+							" (revision [[", revision, "|", revisionURL, "]])\n\n"].join("") + $("textarea", area).val();
 						tid.put(function(tiddler) {
 							$(area).empty();
 							$("<span />").text("your comment: ").appendTo(area);
