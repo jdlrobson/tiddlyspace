@@ -2,7 +2,7 @@ AUTHOR = 'Osmosoft'
 AUTHOR_EMAIL = 'tiddlyspace@osmosoft.com'
 NAME = 'tiddlywebplugins.tiddlyspace'
 DESCRIPTION = 'A discoursive social model for TiddlyWiki'
-VERSION = '1.0.71' # NB: duplicate of tiddlywebplugins.tiddlyspace.__init__
+VERSION = '1.0.72' # NB: duplicate of tiddlywebplugins.tiddlyspace.__init__
 
 
 import os
@@ -46,7 +46,8 @@ setup(
         'tiddlywebplugins.lazy>=0.4',
         'tiddlywebplugins.relativetime',
         'tiddlywebplugins.jsonp>=0.4',
-        'tiddlywebplugins.templates'
+        'tiddlywebplugins.templates',
+        'selector<0.9.0'
     ],
     include_package_data = True,
     zip_safe = False,
