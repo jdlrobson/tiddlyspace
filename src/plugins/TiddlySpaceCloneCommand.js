@@ -1,6 +1,6 @@
 /***
 |''Name''|TiddlySpaceCloneCommand|
-|''Version''|0.5.7|
+|''Version''|0.6.0|
 |''Description''|provides a toolbar command for cloning external tiddlers|
 |''Status''|stable|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/TiddlySpaceCloneCommand.js|
@@ -16,7 +16,7 @@ var tiddlyspace = config.extensions.tiddlyspace;
 var fieldsCache = {};
 
 cmd.cloneTiddler = {
-	text: cmd.editTiddler.text,
+	text: "clone",
 	tooltip: "Create a copy of this tiddler in the current space",
 	errorMsg: "Error publishing %0: %1",
 
@@ -56,10 +56,6 @@ cmd.cloneTiddler = {
 		}
 		return false;
 	}
-};
-
-cmd.editTiddler.isEnabled = function(tiddler) {
-	return !cmd.cloneTiddler.isEnabled.apply(this, arguments);
 };
 
 // hijack cancelTiddler to restore original fields
