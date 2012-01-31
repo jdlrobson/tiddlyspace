@@ -1,6 +1,6 @@
 /***
 |''Name''|ToggleTiddlerPrivacyPlugin|
-|''Version''|0.7.0|
+|''Version''|0.7.2|
 |''Status''|@@beta@@|
 |''Description''|Allows you to set the privacy of new tiddlers and external tiddlers within an EditTemplate, and allows you to set a default privacy setting|
 |''CoreVersion''|2.6.1|
@@ -25,7 +25,7 @@ Allows you to set the default privacy value (Default is private)
 var tiddlyspace = config.extensions.tiddlyspace;
 var macro = config.macros.setPrivacy = {
 	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
-		if(readOnly) {
+		if(readOnly || (tiddler && tiddler.isReadOnly())) {
 			return;
 		}
 		var el = $(story.findContainingTiddler(place));
@@ -37,7 +37,7 @@ var macro = config.macros.setPrivacy = {
 		var status = tiddlyspace.getTiddlerStatusType(tiddler);
 		var customFields = el.attr("tiddlyfields");
 		customFields = customFields ? customFields.decodeHashMap() : {};
-		if(isNewTiddler || !["public", "private", "unsyncedPrivate", "unsyncedPublic"].contains(status)) {
+		if(isNewTiddler || !["public", "private", "external", "unsyncedPrivate", "unsyncedPublic"].contains(status)) {
 			var defaultValue = "public";
 			if(args.defaultValue) {
 				defaultValue = args.defaultValue[0].toLowerCase();
