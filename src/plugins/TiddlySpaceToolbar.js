@@ -2,7 +2,7 @@
 |''Name''|TiddlySpaceToolbar|
 |''Description''|augments tiddler toolbar commands with SVG icons|
 |''Author''|Osmosoft|
-|''Version''|0.6.6|
+|''Version''|0.7.0|
 |''Status''|@@beta@@|
 |''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/TiddlySpaceToolbar.js|
 |''CodeRepository''|http://github.com/TiddlySpace/tiddlyspace|
@@ -31,9 +31,8 @@ if(!config.macros.image) {
 
 var macro = config.macros.toolbar;
 
-macro.icons = {
-	cloneTiddler: "editTiddler"
-};
+// command: iconName
+macro.icons = {};
 
 var _handler = macro.handler;
 macro.handler = function(place, macroName, params, wikifier,
@@ -78,7 +77,9 @@ macro.augmentCommandButtons = function(toolbar) {
 		cmd = cmd ? cmd : "moreCommand"; // XXX: special-casing of moreCommand due to ticket #1234
 		var icon = store.tiddlerExists(cmd) ? cmd : macro.icons[cmd];
 		var text = $(el).text();
-		if(readOnly) {
+		var tiddlerName = $(el).parents("[tiddler]").attr("tiddler");
+		var tiddler = store.getTiddler(tiddlerName);
+		if(readOnly || (tiddler && tiddler.isReadOnly()) ) {
 			var readOnlyAlternative = "%0ReadOnly".format([icon]);
 			if(store.tiddlerExists(readOnlyAlternative)) {
 				icon = readOnlyAlternative;
