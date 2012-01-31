@@ -58,6 +58,17 @@ cmd.cloneTiddler = {
 	}
 };
 
+// hijack readOnly for external tiddlers
+var _isReadOnly = Tiddler.prototype.isReadOnly;
+Tiddler.prototype.isReadOnly = function(tiddler) {
+	console.log(tiddler);
+	if(!config.filterHelpers.is.local(tiddler)) {
+		return true;
+	} else {
+		return _isReadOnly.apply(this, arguments);
+	}
+};
+
 // hijack cancelTiddler to restore original fields
 var _cancelHandler = cmd.cancelTiddler.handler;
 cmd.cancelTiddler.handler = function(ev, src, title) {
